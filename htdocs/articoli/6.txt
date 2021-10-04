@@ -1,0 +1,20 @@
+CRISPR CAS9
+
+A cavallo tra il quinto ed il quarto secolo avanti Cristo, ad Atene, Platone rivisitava l’antico mito di Prometeo. Nel Protagora, infatti, il famosissimo titano dona il fuoco all’uomo, il quale, lasciato completamente disarmato e inerte dal fratello Epimeteo, dovrà presto uscire dalla terra e combattere nella lotta per la sopravvivenza, contro creature che Epimeteo stesso aveva dotato di ogni capacità.
+
+Allo stesso modo, i microbiologi della Berkley University of California e del MIT di Boston hanno donato al genere umano uno strumento cruciale nel campo dell’editing genetico: il sistema CRISPR/CAS9. Questo sistema ci permette di “tagliare” sezioni di DNA e sostituirle con altre sequenze; da subito si è aperto il dibattito sull’impiego di tale tecnologia nella cura di diverse malattie, soprattutto quelle genetiche influenzate da un solo gene “malato”, come la Distrofia Muscolare di Duchenne, ma anche di una gravissima condizione, che affligge circa 38 milioni di persone al mondo: l’AIDS (dati UNAIDS). Questa sindrome è causata dal virus HIV, il quale penetra le cellule del sistema immunitario attraverso una proteina di membrana, codificata nel gene CCR5.
+
+Nell’ottobre del 2018, sono nate Nana e Lulu, due gemelle che rappresentano un unicum per la nostra specie. Il biofisico He Jiankui, infatti, con lo scopo di generare individui completamente immuni all’attacco dell’HIV, aveva modificato, attraverso l’uso di CRISPR CAS9, il genoma dei due embrioni, eliminando entrambe le copie del CCR5 in uno, e lasciandone una sola nell’altro. Non aveva però tenuto a mente che questa mutazione, ovvero l’assenza del gene CCR5, affligge già il 10% degli Europei. Coloro i quali non possiedono questo gene hanno un maggior tasso di mortalità nelle epidemie influenzali e un rischio più elevato di contrarre meningite e altre malattie infettive, alle quali Nana e Lulu resteranno completamente vulnerabili. Come se non bastasse, lo strumento utilizzato da He non è perfetto: CRISPR CAS9, difatti, può generare delle mutazioni off-target e dunque modificare sezioni di DNA perfettamente sane, che non erano, quindi, il bersaglio originale.
+
+Proprio allo scopo di perfezionare questo nostro strumento, Anna Cereseto, professoressa di biologia presso l’Università di Trento, ed il suo team sono riusciti a ridurre di quasi il 99% il margine di mutazioni off-target, selezionando un nuovo sistema, battezzato CRISPR evoCAS9.
+
+
+L’uomo non è mai stato così lontano dalla situazione mitica di completa impotenza alla quale ci avrebbe relegato Epimeteo.
+
+L’uomo non è mai stato così lontano dallo stato di ignoranza che lo portava a toccare i cadaveri delle vittime della Peste Nera del 1300.
+
+L’uomo non è mai stato così vicino ad una figura divina, che può plasmare qualsiasi essere vivente, qualsiasi genoma, a proprio piacimento.
+
+Il 4 dicembre del 1926 Albert Einstein disse che Dio non gioca a dadi con l’universo.
+
+Possiamo solo sperare che l’uomo, il quale s’avvicina sempre di più a un dio, non si metta a giocare a dadi con il proprio mondo.

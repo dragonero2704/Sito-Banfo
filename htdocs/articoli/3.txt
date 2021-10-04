@@ -1,0 +1,45 @@
+Ai confini della vita. Essere o non essere: i virus
+
+
+Virus, an infectious agent of small size and simple composition that can multiply only in living cells of animals, plants, or bacteria. The name is from a Latin word meaning “slimy liquid” or “poison.” (Encycl. Britannica)
+Virus, s. m. indecl. Nome generico di microrganismi di forme diverse, patogeni per l’uomo, gli animali e le piante, visibili solo all’ultramicroscopio. (Devoto-Oli)
+Vìrus s. m. [dal lat. virus «veleno»], invar. – 1. In biologia, termine con cui si designa un gruppo di organismi, di natura non cellulare e di dimensioni submicroscopiche, incapaci di un metabolismo autonomo e perciò caratterizzati dalla vita parassitaria endocellulare obbligata, costituiti da un acido nucleico (genoma) rivestito da un involucro proteico detto capside. (Treccani).
+Ne 1898 il microbiologo olandese Martinus W. Beijerinck utilizzò per la prima volta la parola “virus” per descrivere l’agente patogeno in grado di causare una patologia particolare detta “mosaico del tabacco”  che riguardava le foglie di questa pianta. Aveva dimensioni incredibilmente piccole, tanto da passare attraverso i piccoli fori (0,2 micrometri, cioè millesimi di millimetro) che venivano utilizzati per filtrare i batteri.
+I virus sono parassiti intracellulari obbligati, che necessitano di una cellula vivente all’interno della quale replicare la propria informazione genetica.
+Se i virus siano o no “organismi” viventi è difficile da dirsi, come difficile è la definizione di cosa si intenda per vita. Se volessimo ricorrere ad una definizione assolutamente semplice, e minimalista, potremmo definire viva qualsiasi entità in grado di:
+-organizzarsi dall’informazione contenuta nel proprio genoma (RNA o DNA).
+- generare copie di questa informazione
+-produrre nuovi esemplari di se’
+-(essere in grado di evolversi).
+
+Parafrasando una espressione di Mies van der Rohe (sul design e i materiali utilizzati) potremmo dire: “less is more”: un involucro proteico che racchiude un acido nucleico (RNA o DNA) ed alcuni enzimi, fine!
+Ma considerate che, se una goccia d’acqua di mare può contenere fino a 100000 batteri, conterrà anche un milione di particelle virali. Qualche stima: solo negli oceani 10 30 particelle virali, più delle stelle nell’universo.
+L’involucro proteico (capside), l’acido nucleico e gli enzimi contenuti, è detto virione. In superficie può presentare un rivestimento di grassi e zuccheri.
+I virus sono altamente selettivi cioè ogni tipo virale infetta solamente un determinato tipo di cellula.
+I virus sono, fino a poco tempo fa, stati classificati in base al loro aspetto esterno (che studiamo grazie all’uso del microscopio elettronico), ma oggi anche per i virus si utilizzano tecniche per determinare la sequenza dei geni.
+Il virione non ha un metabolismo, non respira, non si nutre, non si muove, non reagisce agli stimoli dell’ambiente.
+Come abbiamo detto un virus deve penetrare in una cellula ospite dove si riproduce, perdendo da un certo punto di vista la propria “identità”
+Non sono inseriti in alcuno dei sei regni con cui classifichiamo tutti gli organismi viventi conosciuti.
+Sono talmente unici e così vari e numerosi che un virologo, l’americano Chris Suttle, ha addirittura coniato il termine virosfera.
+Dimensioni ultramicroscopiche ( i più piccoli conosciuti hanno un diametro di 20 nanometri, cioè 20 milionesimi di millimetro) e forme estremamente diverse.
+Il capside, formato da copie di una o pochissime proteine, assume forme geometriche incredibili, cioè figure solide che possono avere anche più di 4000 facce. Fino ad arrivare alle forme veramente strane dei batteriofagi, i virus specializzati nel parassitare i batteri.
+Il capside dei“coronavirus”al microscopio elettronico appare come un’immagine che ricorda una corona, determinata dalla presenza di glicoproteine superficiali ed è proprio da questo che deriva il loro nome generico.
+
+Studiare i virus in laboratorio è estremamente difficile perché oltre ad avere a disposizione campioni del virus, è anche necessario conoscere le cellule all’interno delle quali sono in grado di riprodursi, per coltivarle.
+Queste cellule sono tenute ad una temperatura di 37° C con una concentrazione di ossigeno e anidride carbonica controllata.
+La loro manipolazione è  pericolosa per cui il Centers for disease control negli Stati Uniti e una direttiva comunitaria in Europa, hanno stabilito 4 livelli di biosicurezza (BSL, biosafety level).
+
+Laboratori 
+BSL-1: batteri e virus che non provocano malattie nell’uomo
+BSL-2 : patogeni che non si propagano per via aerea.
+BSL-3: microrganismi che causano malattie anche gravi ma curabili.
+BSL-4 : patogeni che causano malattie gravi e, attualmente, incurabili.
+I laboratori BSL-4, conosciuti, al mondo sono circa 30, di cui uno all’Ospedale Sacco di Milano e l’altro Istituto Spallanzani di Roma.
+
+Se una infezione virale si diffonde in tutto il mondo si parla di pandemia e la sua pericolosità dipende da diverse fattori, come l’origine del virus e il suo serbatoio animale, ma il più importante è sicuramente la velocità con cui si diffonde fra la popolazione.
+Quando due virus si replicano all’interno della stessa cellula possono avvenire sostituzioni di frammenti di materiale genetico (in genere RNA) ed il virus “ibrido” conterrà proteine virali di entrambi. Se i geni che si sono scambiati contengono le istruzioni per due proteine particolari( emagglutinina e neuramidinasi) che sono responsabile dell’ingresso del virus nella cellula ospite, ecco che può generarsi un virus pandemico.
+
+La capacità di diversi organismi di resistere ad un virus è differente e dipende da un numero elevato di proteine prodotte dal nostro sistema immunitario, quindi in ultima analisi dipende dai nostri geni.
+Possiamo però produrre dei farmaci antivirali specifici. Conoscendo la struttura atomica delle proteine virali è possibile “costruire” molecole che si leghino in modo specifico alle proteine del virus neutralizzandole.
+Costruire vaccini contro virus che hanno un’ alta frequenza di mutazioni, non è facile 
+e, con la dovuta sperimentazione, può richiedere tempi lunghi, specialmente se dovessimo “arginare” una pandemia già in atto.
