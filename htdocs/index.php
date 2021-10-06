@@ -318,6 +318,7 @@
                       $ris = $conn->query($sql) or die("<p>Query fallita! ".$conn->error."</p>");
                       if ($ris->num_rows > 0) {
                         while($row = $ris->fetch_assoc()) {
+                          if(file_exists("immagini/".$row["nome"]."_".$row["cognome"].".jpg")){
                             echo "
                                 <div class='swiper-slide'>
                                 <div class='cardH'>
@@ -333,6 +334,24 @@
                                 </div>
                               </div>
                             ";
+                          }else{
+                            echo "
+                                <div class='swiper-slide'>
+                                <div class='cardH'>
+                                  <div class='layer'></div>
+                                  <div class='content'>
+                                    <div class='imgBx'>
+                                      <img src='immagini/user.jpg'>
+                                    </div>
+                                    <div class='details'>
+                                      <h3>".$row["nome"]."<br>".$row["cognome"]."<br><span>".$row["professione"]."</span></h3>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            ";
+                          }
+                            
                         }
                       }
                       $conn->close();
