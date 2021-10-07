@@ -100,6 +100,7 @@ La redazione del Banfo, tra chi si occupa di scrivere, chi di disegnare, chi di 
             $ris = $conn->query($sql) or die("<p>Query fallita! ".$conn->error."</p>");
             if ($ris->num_rows > 0) {
                 while($row = $ris->fetch_assoc()) {
+                  if(file_exists("../immagini/".$row["nome"]."_".$row["cognome"].".jpg")){
                     echo "
                         <div class='Red_colonna aligncenter'>
                             <div class='Red_singolo-membro'>
@@ -115,6 +116,24 @@ La redazione del Banfo, tra chi si occupa di scrivere, chi di disegnare, chi di 
                             </div>
                         </div>
                     ";
+                  }else{
+                    echo "
+                        <div class='Red_colonna aligncenter'>
+                            <div class='Red_singolo-membro'>
+                                <div class='Red_singolo_membro_img'>
+                                    <img src='../immagini/user.jpg'>
+                                </div>
+                                <div class='Red_contenitore_membro'>
+                                    <h2>".$row["nome"]." ".$row["cognome"]."</h2>
+                                    <p class='Red_professione'>".$row["professione"]."</p>
+                                    <p>".$row["classe"]."</p>
+                                    <a href='membro.php?membro=".$row["codice"]."'><button class='il_mio_bottone'><span>Scopri di più  </span></button></a>
+                                </div>
+                            </div>
+                        </div>
+                    ";
+                  }
+                    
                 }
             }
             $conn->close();

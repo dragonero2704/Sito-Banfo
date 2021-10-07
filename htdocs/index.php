@@ -314,6 +314,7 @@
                       $sql = "	SELECT codice, nome, cognome, professione
                                 FROM redazione
                                 WHERE cognome<>'Banfo'
+                                AND attivo=1
                                 ORDER BY cognome";
                       $ris = $conn->query($sql) or die("<p>Query fallita! ".$conn->error."</p>");
                       if ($ris->num_rows > 0) {
