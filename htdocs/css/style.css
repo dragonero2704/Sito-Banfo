@@ -275,20 +275,29 @@ h1:after {
     font-size: 60px;
 }
 
-.cont_menu {
+
+/* .cont_menu {
     width: 100%;
     position: absolute;
     background-color: transparent;
-}
+} */
 
 .header_menu {
-    margin: 0 auto;
+    position: fixed;
+    top: 0;
+    left: 50%;
+    translate: -50%;
+    display: flex;
+    align-items: center;
     max-width: 1200px;
     height: 70px;
+    background-color: transparent;
 }
 
 .menu_logo {
-    float: left;
+    /* float: left; */
+    position: inherit;
+    justify-self: right;
     height: 100%;
 }
 
@@ -300,7 +309,9 @@ h1:after {
 }
 
 .menu_hamburger {
-    float: right;
+    /* float: right; */
+    position: inherit;
+    justify-self: left;
     font-size: 33px;
     height: 75%;
     cursor: pointer;
@@ -2014,7 +2025,7 @@ input.invalid {
 
 /* ! clearfix */
 
-.clearfix:after {
+.clearfix::after {
     visibility: hidden;
     display: block;
     font-size: 0;

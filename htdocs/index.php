@@ -45,7 +45,7 @@
     </div>
   </div>
 
-  <div class="cont_menu">
+ 
       <div class="header_menu clearfix">
         <div class="menu_logo">
           <a href="index.php"><img src="immagini/ilbanfotipo.png" alt=""></a>
@@ -54,7 +54,7 @@
           <span onclick="openNav()">&#9776;</span>
         </div>
       </div>
-  </div>
+  
 
     <!--============================================================================================================================-->
     <!-- Banner-videobackground -->
