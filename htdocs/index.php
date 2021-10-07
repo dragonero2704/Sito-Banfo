@@ -46,7 +46,7 @@
   </div>
 
  
-      <div class="header_menu clearfix">
+      <div class="header_menu">
         <div class="menu_logo">
           <a href="index.php"><img src="immagini/ilbanfotipo.png" alt=""></a>
         </div>
