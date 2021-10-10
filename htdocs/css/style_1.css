@@ -1,0 +1,164 @@
+.black, .black * {
+  color: #000;
+}
+.bg-black {
+  background-color: #000;
+}
+
+.white, .white * {
+  color: #fff;
+}
+.bg-white {
+  background-color: #fff;
+}
+
+.red, .red * {
+  color: red;
+}
+.bg-red {
+  background-color: red;
+}
+
+.green, .green * {
+  color: lime;
+}
+.bg-green {
+  background-color: lime;
+}
+
+.blue, .blue * {
+  color: #0071e3;
+}
+.bg-blue {
+  background-color: #0071e3;
+}
+
+body {
+  font-family: "Lato", sans-serif;
+  font-size: 16px;
+}
+
+a {
+  text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+p {
+  color: #000;
+}
+
+p {
+  line-height: 25px;
+  font-weight: 400;
+}
+
+h1 {
+  margin: 50px auto;
+  max-width: 650px;
+  position: relative;
+}
+
+@media (max-width: 768px) {
+  h1 {
+    max-width: 400px;
+  }
+}
+.white span {
+  background: #fff;
+}
+
+h1::before {
+  content: "";
+  display: block;
+  width: 100px;
+  height: 5px;
+  background: #0071e3;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  z-index: -2;
+}
+
+h1::after {
+  content: "";
+  display: block;
+  width: 100px;
+  height: 5px;
+  background: #0071e3;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  z-index: -2;
+}
+
+@media (max-width: 768px) {
+  h1:before {
+    width: 60px;
+  }
+
+  h1:after {
+    width: 60px;
+  }
+}
+@media (max-width: 425px) {
+  h1:before {
+    width: 40px;
+  }
+
+  h1:after {
+    width: 40px;
+  }
+
+  h1 {
+    max-width: 340px;
+  }
+}
+header {
+  width: 100%;
+  max-width: 1200px;
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  height: 70px;
+  background-color: transparent;
+}
+
+.menu_logo {
+  display: block;
+  width: 50px;
+  justify-self: left;
+  height: 100%;
+}
+
+.menu_logo img {
+  display: block;
+  height: 100%;
+  width: auto;
+  padding: 10px 15px;
+  object-fit: contain;
+}
+
+.menu_hamburger {
+  /* float: right; */
+  margin-left: auto;
+  font-size: 33px;
+  height: 75%;
+  cursor: pointer;
+  padding: 10px;
+}
+
+@media (max-width: 998px) {
+  .tdn {
+    display: none;
+  }
+}
+
+/*# sourceMappingURL=style_1.css.map */

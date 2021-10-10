@@ -39,7 +39,7 @@ h1 {
     background: #fff;
 }
 
-h1:before {
+h1::before {
     content: "";
     display: block;
     width: 100px;
@@ -51,7 +51,7 @@ h1:before {
     z-index: -2;
 }
 
-h1:after {
+h1::after {
     content: "";
     display: block;
     width: 100px;
@@ -298,8 +298,7 @@ h1:after {
 }
 
 .menu_logo {
-    /* float: left; */
-    /* position: inherit; */
+    display: block;
     width: 50px;
     justify-self: left;
     height: 100%;
@@ -320,8 +319,6 @@ h1:after {
     cursor: pointer;
     padding: 10px;
 }
-
-.tdn {}
 
 @media (max-width: 998px) {
     .tdn {
