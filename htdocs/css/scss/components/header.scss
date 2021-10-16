@@ -10,6 +10,7 @@ header {
     justify-content: left;
     height: 70px;
     background-color: transparent;
+    z-index: 1000; //deve essere sopra a tutto
 }
 
 .menu_logo {
