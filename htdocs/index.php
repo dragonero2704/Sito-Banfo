@@ -224,9 +224,6 @@
     </div>
 
     <div class="container_news clearfix">
-      <div class="news_riga">
-
-
             <?php
               $conn = new mysqli("localhost","studente","pass_studente_banfi","banfo");
               if($conn->connect_error){
@@ -246,7 +243,7 @@
                     $testo = fread($articolo,"450");
                     fclose($articolo);
                     echo "
-                    <div class='news_colonna'>
+                    
                     <div class='news_elemento'>
                       <div class='news_titolo'>
                         <h2>".$titolo."</h2>
@@ -270,15 +267,12 @@
                       <a href='pagine/articolo.php?articolo=".$row["cod"]."'><button class='il_mio_bottone'><span>Scopri di più  </span></button></a>
                       </div>
                     </div>
-                    </div>
+                    
                     ";
                 }
               }
               $conn->close();
             ?>
-
-
-      </div>
     </div>
 
   <!--============================================================================================================================-->
@@ -310,7 +304,7 @@
           <!-- Swiper -->
           <div class="swiper-container">
             <div class="swiper-wrapper">
-
+              
               <!-- Card 1 -->
                   <?php
                       $conn = new mysqli("localhost","studente","pass_studente_banfi","banfo");
@@ -335,7 +329,9 @@
                                       <img src='immagini/".$row["nome"]."_".$row["cognome"].".jpg'>
                                     </div>
                                     <div class='details'>
-                                      <h3>".$row["nome"]."<br>".$row["cognome"]."<br><span>".$row["professione"]."</span></h3>
+                                      <a href='./pagine/membro.php?membro=".$row["codice"]."'>
+                                        <h3>".$row["nome"]."<br>".$row["cognome"]."<br><span>".$row["professione"]."</span></h3>
+                                      </a>
                                     </div>
                                   </div>
                                 </div>
@@ -351,7 +347,9 @@
                                       <img src='immagini/user.jpg'>
                                     </div>
                                     <div class='details'>
-                                      <h3>".$row["nome"]."<br>".$row["cognome"]."<br><span>".$row["professione"]."</span></h3>
+                                      <a href='./pagine/membro.php?membro=".$row["codice"]."'>
+                                        <h3>".$row["nome"]."<br>".$row["cognome"]."<br><span>".$row["professione"]."</span></h3>
+                                      </a>
                                     </div>
                                   </div>
                                 </div>

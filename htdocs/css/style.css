@@ -605,19 +605,28 @@ h1::after {
 .container_news {
     max-width: 1200px;
     margin: 0 auto;
-    display: table;
+    /* display: table; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
 }
 
-.news_colonna {
+
+/* .news_colonna {
     float: left;
     width: 33.3%;
     margin-bottom: 16px;
     padding: 8px;
-}
+} */
 
 .news_elemento {
+    /* display: block; */
     padding: 0 20px;
+    margin: 10px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    width: 350px;
+    height: max-content;
 }
 
 .news_titolo {
@@ -687,8 +696,8 @@ h1::after {
 .news_introduzione {
     text-align: justify;
     padding: 15px;
-    height: 320px;
-    overflow: hidden;
+    height: fit-content;
+    /* overflow: hidden; */
 }
 
 .news_bottone {
