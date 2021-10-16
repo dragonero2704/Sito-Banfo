@@ -39,7 +39,7 @@ h1 {
     background: #fff;
 }
 
-h1::before {
+h1:before {
     content: "";
     display: block;
     width: 100px;
@@ -51,7 +51,7 @@ h1::before {
     z-index: -2;
 }
 
-h1::after {
+h1:after {
     content: "";
     display: block;
     width: 100px;
@@ -284,6 +284,7 @@ h1::after {
 
 .header_menu {
     position: fixed;
+    z-index: 100;
     top: 0;
     left: 50%;
     transform: translateX(-50%);
@@ -298,7 +299,8 @@ h1::after {
 }
 
 .menu_logo {
-    display: block;
+    /* float: left; */
+    /* position: inherit; */
     width: 50px;
     justify-self: left;
     height: 100%;
@@ -319,6 +321,8 @@ h1::after {
     cursor: pointer;
     padding: 10px;
 }
+
+.tdn {}
 
 @media (max-width: 998px) {
     .tdn {
