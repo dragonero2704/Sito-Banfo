@@ -1,0 +1,13 @@
+- esportare documenti come html per il sito
+
+account: laredazionedelbanfo@gmail.com
+password: readazionebanfo18
+
+host sito: ec2-15-161-173-211.eu-south-1.compute.amazonaws.com
+ip server: 15.161.173.211
+
+nome utente: studente
+password: pass_studente_banfi
+
+nome utente: impaginazione.banfo@gmail.com
+password: studente_banfi
