@@ -284,6 +284,7 @@ h1:after {
 
 .header_menu {
     position: fixed;
+    z-index: 100;
     top: 0;
     left: 50%;
     transform: translateX(-50%);
