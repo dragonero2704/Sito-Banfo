@@ -73,7 +73,8 @@
 <!--============================================================================================================================-->
 <!-- Singola Persona -->
 <?php
-        echo "
+        if(file_exists("../immagini/".$row["nome"]."_".$row["cognome"].".jpg")){
+          echo "
             <div class='persona_contenitore  clearfix'>
                 <div class='persona_card clearfix'>
                     <div class='persona_foto'>
@@ -99,6 +100,35 @@
             <div class='container_news clearfix'>
               <div class='news_riga'>
         ";
+        }else{
+          echo "
+            <div class='persona_contenitore  clearfix'>
+                <div class='persona_card clearfix'>
+                    <div class='persona_foto'>
+                        <img src='../immagini/user.jpg'>
+                    </div>
+
+                    <div class='persona_generalita'>
+                        <div class='persona_nome normal-text'>
+                            <h2>".$row["nome"]." ".$row["cognome"]."</h2>
+                        </div>
+                        <div class='persona_testo normal-text'>
+                            <h3>Classe:</h3>
+                            <p>".$row["classe"]."</p>
+                            <h3>Ruolo:</h3>
+                            <p>".$row["professione"]."</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class='chisiamo_titolo normal-text'>
+              <h1><span>I miei articoli</span></h1>
+            </div>
+            <div class='container_news clearfix'>
+              <div class='news_riga'>
+        ";
+        }
+        
     }
 }
 
