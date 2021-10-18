@@ -98,7 +98,7 @@
               <h1><span>I miei articoli</span></h1>
             </div>
             <div class='container_news clearfix'>
-              <div class='news_riga'>
+              
         ";
         }else{
           echo "
@@ -125,7 +125,7 @@
               <h1><span>I miei articoli</span></h1>
             </div>
             <div class='container_news clearfix'>
-              <div class='news_riga'>
+              
         ";
         }
         
@@ -144,7 +144,7 @@ if ($ris->num_rows > 0) {
         $testo = fread($articolo,"450");
         fclose($articolo);
         echo "
-            <div class='news_colonna'>
+            
                 <div class='news_elemento'>
                     <div class='news_titolo'>
                         <h2>".$titolo."</h2>
@@ -165,14 +165,15 @@ if ($ris->num_rows > 0) {
                         <a href='articolo.php?articolo=".$row["codice"]."'><button class='il_mio_bottone'><span>Scopri di più  </span></button></a>
                     </div>
                 </div>
-            </div>
+                
+            
         ";
     }
 }else {
   echo "Nessun articolo da visualizzare";
 }
 ?>
-</div>
+
 </div>
 
 <!--============================================================================================================================-->
