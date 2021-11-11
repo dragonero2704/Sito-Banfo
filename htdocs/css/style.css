@@ -1650,6 +1650,7 @@ ul.breadcrumb li a {
     }
     .cont_testo {
         width: 100%;
+        padding: 0 20px;
     }
     .intestazione_del_mio_articolo {
         width: 90%;
