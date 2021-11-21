@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Creato il: Nov 05, 2021 alle 23:12
+-- Creato il: Nov 21, 2021 alle 22:19
 -- Versione del server: 10.4.16-MariaDB
 -- Versione PHP: 7.4.12
 
@@ -98,7 +98,8 @@ INSERT INTO `articoli` (`codice_articolo`, `data`, `autore`, `autore2`, `argomen
 (56, '2021-10-17', 33, NULL, 'Varie'),
 (57, '2021-10-18', 37, NULL, 'Attualità'),
 (58, '2021-10-24', 11, NULL, 'Scuola'),
-(59, '2021-10-28', 21, NULL, 'Scienza');
+(59, '2021-10-28', 21, NULL, 'Scienza'),
+(60, '2021-11-21', 44, NULL, 'Scienza');
 
 -- --------------------------------------------------------
 
@@ -198,7 +199,7 @@ INSERT INTO `redazione` (`codice`, `nome`, `cognome`, `classe`, `professione`, `
 (31, 'Davide', 'Garofoli', '4^M', 'Scrittore', 1),
 (32, 'Valentina', 'Aviles Arias', '2^D', 'Scrittrice', 1),
 (33, 'Francesco', 'Ciccarello', '1^ALC', 'Scrittore', 1),
-(34, 'Roberto', 'Rudi', '4^P', 'Impaginatore', 1),
+(34, 'Roberto', 'Rudi', '4^P', 'Programmatore', 1),
 (35, 'Michela', 'Fassina', '3^ALC', 'Disegnatrice', 1),
 (36, 'Alice', 'Lissoni', '3^E', 'Scrittrice', 1),
 (37, 'Rebecca', 'Rivolta', '3^E', 'Scrittrice', 1),
@@ -252,7 +253,7 @@ ALTER TABLE `redazione`
 -- AUTO_INCREMENT per la tabella `articoli`
 --
 ALTER TABLE `articoli`
-  MODIFY `codice_articolo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=60;
+  MODIFY `codice_articolo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=61;
 
 --
 -- AUTO_INCREMENT per la tabella `redazione`
@@ -269,8 +270,7 @@ ALTER TABLE `redazione`
 --
 ALTER TABLE `articoli`
   ADD CONSTRAINT `FK_articoli_categorie` FOREIGN KEY (`argomento`) REFERENCES `categorie` (`argomento`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `FK_articoli_redazione` FOREIGN KEY (`autore`) REFERENCES `redazione_backup` (`codice`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `articoli_ibfk_1` FOREIGN KEY (`Autore2`) REFERENCES `redazione_backup` (`codice`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `FK_articoli_redazione` FOREIGN KEY (`autore`) REFERENCES `redazione` (`codice`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -221,6 +221,7 @@
 
     </div>
   </div>
+  
   <!--============================================================================================================================-->
 
   <!-- News  -->
@@ -228,7 +229,7 @@
       <h1 class="big-text aligncenter">News</h1>
     </div>
 
-    <div class="container_news clearfix">
+    <div class="container_news">
             <?php
               $conn = new mysqli("localhost","studente","pass_studente_banfi","banfo");
               if($conn->connect_error){
@@ -248,29 +249,31 @@
                     $testo = fread($articolo,"450");
                     fclose($articolo);
                     echo "
-                    
                     <div class='news_elemento'>
-                      <div class='news_titolo'>
-                        <h2>".$titolo."</h2>
-                      </div>
-                      <div class='news_immagine'>
-                        <div class='news_categoria'>
-                          <h2>".$row["argomento"]."</h2><!-- Scritto dinamicamente con il database -->
+                        <div class='news_titolo'>
+                          <h2>".$titolo."</h2>
                         </div>
-                        <img src='immagini/".$row["cod"].".jpg'>
-                        <div class='news_data_su_immagine top-left'>
-                          <p><i style='margin-right:10px;' class='far fa-calendar-alt'></i>".$row["data"]."</p> <!-- Scritta dinamicamente con il database -->
+
+                        <div class='news_immagine'>
+                          <div class='news_categoria'>
+                            <h2>".$row["argomento"]."</h2><!-- Scritto dinamicamente con il database -->
+                          </div>
+                          <img src='immagini/".$row["cod"].".jpg'>
+                          <div class='news_data_su_immagine top-left'>
+                            <p><i style='margin-right:10px;' class='far fa-calendar-alt'></i>".$row["data"]."</p> <!-- Scritta dinamicamente con il database -->
+                          </div>
+                          <div class='news_autore bottom-center'>
+                          <a href='pagine/membro.php?membro=".$row["autore"]."'><p>".$row["nome"]." ".$row["cognome"]."</p></a>
+                          </div>
                         </div>
-                        <div class='news_autore bottom-center'>
-                        <a href='pagine/membro.php?membro=".$row["autore"]."'><p>".$row["nome"]." ".$row["cognome"]."</p></a>
+
+                        <div class='news_introduzione'>
+                          <p>".$testo."...</p>
                         </div>
-                      </div>
-                      <div class='news_introduzione'>
-                        <p>".$testo."...</p>
-                      </div>
-                      <div class='news_bottone'>
-                      <a href='pagine/articolo.php?articolo=".$row["cod"]."'><button class='il_mio_bottone'><span>Scopri di più  </span></button></a>
-                      </div>
+
+                        <div class='news_bottone'>
+                          <a href='pagine/articolo.php?articolo=".$row["cod"]."'><button class='il_mio_bottone'><span>Scopri di più  </span></button></a>
+                        </div>
                     </div>
                     
                     ";

@@ -88,7 +88,7 @@
 ?>
 
 
-    <div class="container_news clearfix">
+    <div class="container_news justify_center">
         <?php
           $sql = "	SELECT codice_articolo as cod, DATE_FORMAT(articoli.data, '%d/%m/%Y') as data, autore, articoli.argomento as argomento, nome, cognome
           FROM articoli JOIN redazione
