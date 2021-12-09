@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Creato il: Nov 21, 2021 alle 22:19
+-- Creato il: Dic 09, 2021 alle 11:44
 -- Versione del server: 10.4.16-MariaDB
 -- Versione PHP: 7.4.12
 
@@ -99,7 +99,13 @@ INSERT INTO `articoli` (`codice_articolo`, `data`, `autore`, `autore2`, `argomen
 (57, '2021-10-18', 37, NULL, 'Attualità'),
 (58, '2021-10-24', 11, NULL, 'Scuola'),
 (59, '2021-10-28', 21, NULL, 'Scienza'),
-(60, '2021-11-21', 44, NULL, 'Scienza');
+(60, '2021-11-21', 44, NULL, 'Scienza'),
+(61, '2021-11-28', 11, NULL, 'Attualità'),
+(62, '2021-11-29', 36, NULL, 'Attualità'),
+(63, '2021-12-01', 37, NULL, 'Musica'),
+(64, '2021-12-03', 17, NULL, 'Varie'),
+(65, '2021-12-03', 43, NULL, 'Attualità'),
+(66, '2021-12-08', 33, NULL, 'Varie');
 
 -- --------------------------------------------------------
 
@@ -159,7 +165,7 @@ CREATE TABLE `redazione` (
   `cognome` varchar(50) NOT NULL,
   `classe` varchar(50) NOT NULL,
   `professione` varchar(50) NOT NULL,
-  `attivo` tinyint(1) DEFAULT 0
+  `attivo` tinyint(1) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -212,7 +218,10 @@ INSERT INTO `redazione` (`codice`, `nome`, `cognome`, `classe`, `professione`, `
 (44, 'Gabriele', 'Giardini', '5^N', 'Scrittore', 1),
 (45, 'Giorgia ', 'De Simone', '3^ALC', 'Scrittrice', 1),
 (46, 'Davide', 'Nicolussi', 'Professore', 'Responsabile', 1),
-(47, 'Jacopo', 'Pacelli', '5^N', 'Scrittore', 1);
+(47, 'Jacopo', 'Pacelli', '5^N', 'Scrittore', 1),
+(48, 'Chantal', 'Lupo', '4^D', 'Disegnatrice', 1),
+(49, 'Asia', 'Anastasi', '2^ALC', 'Scrittrice', 1),
+(51, 'Myriam', 'Allenza', '2^ALC', 'Scrittrice', 1);
 
 --
 -- Indici per le tabelle scaricate
@@ -253,13 +262,13 @@ ALTER TABLE `redazione`
 -- AUTO_INCREMENT per la tabella `articoli`
 --
 ALTER TABLE `articoli`
-  MODIFY `codice_articolo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=61;
+  MODIFY `codice_articolo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=67;
 
 --
 -- AUTO_INCREMENT per la tabella `redazione`
 --
 ALTER TABLE `redazione`
-  MODIFY `codice` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
+  MODIFY `codice` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
 
 --
 -- Limiti per le tabelle scaricate
