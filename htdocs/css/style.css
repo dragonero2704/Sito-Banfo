@@ -1,40 +1,6 @@
 /* ! Definiamo gli stili base della pagina */
 
-body {
-    font-family: 'Lato', sans-serif;
-    font-size: 16px;
-}
-
-a {
-    text-decoration: none;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-p {
-    color: #000;
-}
-
-p {
-    line-height: 25px;
-    font-weight: 400;
-}
-
-h1 {
-    margin: 50px auto;
-    max-width: 650px;
-    position: relative;
-}
-
-@media (max-width: 768px) {
-    h1 {
-        max-width: 400px;
-    }
-}
-
+@import "./standard.css";
 .white span {
     background: #fff;
 }
@@ -90,130 +56,7 @@ h1:after {
 
 /* ! Definiamo gli Helpers per stili delle scritte */
 
-.big-text {
-    font-size: 70px;
-    font-weight: 900;
-}
-
-.med-text {
-    font-size: 40px;
-}
-
-.normal-text {
-    font-size: 20px;
-    line-height: 1.6;
-}
-
-.mez-text {
-    font-size: 18px;
-}
-
-.small-text {
-    font-size: 14px;
-}
-
-.aligncenter {
-    text-align: center;
-}
-
-.text-color-white {
-    color: white;
-}
-
-.text-justify {
-    text-align: justify;
-}
-
-.text-bold {
-    font-weight: bold;
-}
-
-.intro-text {
-    text-transform: uppercase;
-    font-size: 20px;
-    font-weight: bold;
-}
-
-.b-intro-text {
-    text-transform: uppercase;
-    font-size: 30px;
-    font-weight: bold;
-}
-
-@media (max-width: 768px) {
-    .big-text {
-        font-size: 50px;
-        font-weight: 900;
-    }
-}
-
-.colorblue {
-    color: #0071e3;
-}
-
-
-/* !============================================================================================================================ */
-
-
-/* ! Definiamo Helpers dei margini*/
-
-.m0auto {
-    margin: 0 auto;
-}
-
-.mt-1 {
-    margin-top: 50px;
-}
-
-.mt-2 {
-    margin-top: 100px;
-}
-
-.mt-2b {
-    margin-top: 100px;
-}
-
-@media (max-width: 768px) {
-    .mt-2 {
-        margin-top: 0px;
-    }
-    .mt-2b {
-        margin-top: 50px;
-    }
-}
-
-.mt-3 {
-    margin-top: 150px;
-}
-
-.tw {
-    color: #fff;
-}
-
-.mb-1 {
-    margin-bottom: 50px;
-}
-
-.mt-25 {
-    margin-top: 25px;
-}
-
-.mg-l20 {
-    margin-left: 20px;
-}
-
-@media (max-width: 768px) {
-    .mt-sma-0 {
-        margin-top: 0;
-    }
-    .mb-sma-0 {
-        margin-bottom: 0;
-    }
-    .mg-l20 {
-        margin-left: 0px;
-    }
-}
-
+@import "./helpers.css";
 .bottone_blue {
     border: none;
     outline: 0;
@@ -2078,8 +1921,8 @@ input.invalid {
 /* IE7 */
 
 *,
-*:before,
-*:after {
+*::before,
+*::after {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
