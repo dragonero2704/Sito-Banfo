@@ -177,8 +177,8 @@ La redazione del Banfo, tra chi si occupa di scrivere, chi di disegnare, chi di 
           <div class="foot__conn">
 
             <div class="email">
-              <a target="_blank" href="mailto:laredazionedelbanfo@gmail.com"> <span class="fas fa-envelope"></span></a>
-                <span class="text">laredazionedelbanfo@gmail.com</span>
+              <a target="_blank" href="mailto:hotaru@duttatexbd.com"> <span class="fas fa-envelope"></span></a>
+                <span class="text">hotaru@duttatexbd.com</span>
             </div>
           </div>
         </div>

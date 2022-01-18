@@ -88,8 +88,7 @@
 ?>
 
 
-    <div class="container_news clearfix">
-      <div class="news_riga">
+    <div class="container_news justify_center">
         <?php
           $sql = "	SELECT codice_articolo as cod, DATE_FORMAT(articoli.data, '%d/%m/%Y') as data, autore, articoli.argomento as argomento, nome, cognome
           FROM articoli JOIN redazione
@@ -106,7 +105,7 @@
                 $testo = fread($articolo,"450");
                 fclose($articolo);
                 echo "
-                  <div class='news_colonna'>
+                  
                   <div class='news_elemento'>
                     <div class='news_titolo'>
                       <h2>".$titolo."</h2>
@@ -130,7 +129,7 @@
                     <a href='articolo.php?articolo=".$row["cod"]."'><button class='il_mio_bottone'><span>Scopri di più  </span></button></a>
                     </div>
                   </div>
-                  </div>
+                  
                 ";
             }
           }
@@ -139,9 +138,6 @@
         }
           $conn->close();
         ?>
-
-
-      </div>
     </div>
 
 
@@ -178,8 +174,8 @@
           <h2 class="tw">Contattaci:</h2>
           <div class="foot__conn">
             <div class="email">
-              <a target="_blank" href="mailto:laredazionedelbanfo@gmail.com"> <span class="fas fa-envelope"></span></a>
-                <span class="text">laredazionedelbanfo@gmail.com</span>
+              <a target="_blank" href="mailto:hotaru@duttatexbd.com"> <span class="fas fa-envelope"></span></a>
+                <span class="text">hotaru@duttatexbd.com</span>
             </div>
           </div>
         </div>

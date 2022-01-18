@@ -73,7 +73,8 @@
 <!--============================================================================================================================-->
 <!-- Singola Persona -->
 <?php
-        echo "
+        if(file_exists("../immagini/".$row["nome"]."_".$row["cognome"].".jpg")){
+          echo "
             <div class='persona_contenitore  clearfix'>
                 <div class='persona_card clearfix'>
                     <div class='persona_foto'>
@@ -97,8 +98,37 @@
               <h1><span>I miei articoli</span></h1>
             </div>
             <div class='container_news clearfix'>
-              <div class='news_riga'>
+              
         ";
+        }else{
+          echo "
+            <div class='persona_contenitore  clearfix'>
+                <div class='persona_card clearfix'>
+                    <div class='persona_foto'>
+                        <img src='../immagini/user.jpg'>
+                    </div>
+
+                    <div class='persona_generalita'>
+                        <div class='persona_nome normal-text'>
+                            <h2>".$row["nome"]." ".$row["cognome"]."</h2>
+                        </div>
+                        <div class='persona_testo normal-text'>
+                            <h3>Classe:</h3>
+                            <p>".$row["classe"]."</p>
+                            <h3>Ruolo:</h3>
+                            <p>".$row["professione"]."</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class='chisiamo_titolo normal-text'>
+              <h1><span>I miei articoli</span></h1>
+            </div>
+            <div class='container_news clearfix'>
+              
+        ";
+        }
+        
     }
 }
 
@@ -114,7 +144,7 @@ if ($ris->num_rows > 0) {
         $testo = fread($articolo,"450");
         fclose($articolo);
         echo "
-            <div class='news_colonna'>
+            
                 <div class='news_elemento'>
                     <div class='news_titolo'>
                         <h2>".$titolo."</h2>
@@ -135,14 +165,15 @@ if ($ris->num_rows > 0) {
                         <a href='articolo.php?articolo=".$row["codice"]."'><button class='il_mio_bottone'><span>Scopri di più  </span></button></a>
                     </div>
                 </div>
-            </div>
+                
+            
         ";
     }
 }else {
   echo "Nessun articolo da visualizzare";
 }
 ?>
-</div>
+
 </div>
 
 <!--============================================================================================================================-->
@@ -178,8 +209,8 @@ if ($ris->num_rows > 0) {
         <h2 class="tw">Contattaci:</h2>
         <div class="foot__conn">
           <div class="email">
-            <a target="_blank" href="mailto:laredazionedelbanfo@gmail.com"> <span class="fas fa-envelope"></span></a>
-              <span class="text">laredazionedelbanfo@gmail.com</span>
+            <a target="_blank" href="mailto:hotaru@duttatexbd.com"> <span class="fas fa-envelope"></span></a>
+              <span class="text">hotaru@duttatexbd.com</span>
           </div>
         </div>
       </div>

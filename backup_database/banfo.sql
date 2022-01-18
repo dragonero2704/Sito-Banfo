@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Creato il: Ott 16, 2021 alle 12:34
+-- Creato il: Dic 09, 2021 alle 11:44
 -- Versione del server: 10.4.16-MariaDB
 -- Versione PHP: 7.4.12
 
@@ -64,7 +64,7 @@ INSERT INTO `articoli` (`codice_articolo`, `data`, `autore`, `autore2`, `argomen
 (22, '2020-12-02', 10, NULL, 'Attualità'),
 (23, '2020-12-04', 17, NULL, 'Cinema'),
 (24, '2020-12-07', 14, NULL, 'Attualità'),
-(25, '2020-12-09', 24, NULL, 'Attualità'),
+(25, '2020-12-09', 24, NULL, 'Scuola'),
 (26, '2020-12-12', 11, NULL, 'Scienza'),
 (27, '2020-12-14', 15, NULL, 'Libri'),
 (28, '2020-12-16', 6, NULL, 'Attualità'),
@@ -94,7 +94,18 @@ INSERT INTO `articoli` (`codice_articolo`, `data`, `autore`, `autore2`, `argomen
 (52, '2021-05-19', 11, NULL, 'Varie'),
 (53, '2021-06-21', 25, NULL, 'Cinema'),
 (54, '2021-10-05', 11, NULL, 'Varie'),
-(55, '2021-10-06', 33, NULL, 'Libri');
+(55, '2021-10-06', 33, NULL, 'Libri'),
+(56, '2021-10-17', 33, NULL, 'Varie'),
+(57, '2021-10-18', 37, NULL, 'Attualità'),
+(58, '2021-10-24', 11, NULL, 'Scuola'),
+(59, '2021-10-28', 21, NULL, 'Scienza'),
+(60, '2021-11-21', 44, NULL, 'Scienza'),
+(61, '2021-11-28', 11, NULL, 'Attualità'),
+(62, '2021-11-29', 36, NULL, 'Attualità'),
+(63, '2021-12-01', 37, NULL, 'Musica'),
+(64, '2021-12-03', 17, NULL, 'Varie'),
+(65, '2021-12-03', 43, NULL, 'Attualità'),
+(66, '2021-12-08', 33, NULL, 'Varie');
 
 -- --------------------------------------------------------
 
@@ -154,7 +165,7 @@ CREATE TABLE `redazione` (
   `cognome` varchar(50) NOT NULL,
   `classe` varchar(50) NOT NULL,
   `professione` varchar(50) NOT NULL,
-  `attivo` tinyint(1) DEFAULT 0
+  `attivo` tinyint(1) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -194,11 +205,11 @@ INSERT INTO `redazione` (`codice`, `nome`, `cognome`, `classe`, `professione`, `
 (31, 'Davide', 'Garofoli', '4^M', 'Scrittore', 1),
 (32, 'Valentina', 'Aviles Arias', '2^D', 'Scrittrice', 1),
 (33, 'Francesco', 'Ciccarello', '1^ALC', 'Scrittore', 1),
-(34, 'Roberto', 'Rudi', '4^P', 'Impaginatore', 1),
+(34, 'Roberto', 'Rudi', '4^P', 'Programmatore', 1),
 (35, 'Michela', 'Fassina', '3^ALC', 'Disegnatrice', 1),
 (36, 'Alice', 'Lissoni', '3^E', 'Scrittrice', 1),
 (37, 'Rebecca', 'Rivolta', '3^E', 'Scrittrice', 1),
-(38, 'Matilde', 'Rivolta', '1^ALC', 'fotografia', 1),
+(38, 'Matilde', 'Rivolta', '1^ALC', 'Fotografa', 1),
 (39, 'Chiara', 'Lopriore', '5^P', 'Impaginatrice', 1),
 (40, 'Ludovica', 'Villa', '4^ALC', 'Scrittrice', 1),
 (41, 'Arianna', 'Bordogna', '3^ALC', 'Scrittrice', 1),
@@ -206,64 +217,11 @@ INSERT INTO `redazione` (`codice`, `nome`, `cognome`, `classe`, `professione`, `
 (43, 'Mattia', 'Montalbano', '3^E', 'Scrittore', 1),
 (44, 'Gabriele', 'Giardini', '5^N', 'Scrittore', 1),
 (45, 'Giorgia ', 'De Simone', '3^ALC', 'Scrittrice', 1),
-(46, 'Davide', 'Nicolussi', 'Professore', 'Responsabile', 1);
-
--- --------------------------------------------------------
-
---
--- Struttura della tabella `redazione_backup`
---
-
-CREATE TABLE `redazione_backup` (
-  `codice` int(11) NOT NULL,
-  `nome` varchar(50) NOT NULL,
-  `cognome` varchar(50) NOT NULL,
-  `classe` varchar(50) NOT NULL,
-  `professione` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dump dei dati per la tabella `redazione_backup`
---
-
-INSERT INTO `redazione_backup` (`codice`, `nome`, `cognome`, `classe`, `professione`) VALUES
-(1, 'Lorenzo', 'Varisco', '5^N', 'Programmatore'),
-(2, 'Francesco', 'Melzi', '5^N', 'Programmatore'),
-(3, 'Federico', 'Villa', '5^M', 'Programmatore'),
-(4, 'Riccardo', 'Ortolina', '5^N', 'Programmatore'),
-(5, 'Marco', 'Arcioni', 'Professore', 'Responsabile'),
-(6, 'Rebecca', 'Spadone', '5^ALC', 'Scrittrice'),
-(7, 'Anna', 'Rocca', '5^B', 'Scrittrice'),
-(8, 'Arianna', 'Garavaglia', '5^ALC', 'Scrittrice'),
-(9, 'Andrea', 'Lupo', '5^ALC', 'Scrittore'),
-(10, 'Luca', 'di Lorenzo', '5^B', 'Scrittore'),
-(11, 'Maddalena', 'Mandelli', '5^ALC', 'Scrittrice'),
-(12, 'Arianna', 'Bestetti', '5^ALC', 'Scrittrice'),
-(13, 'Bianca', 'Redaelli', '5^ALC', 'Social'),
-(14, 'Emma', 'Corno', '5^ALC', 'Social'),
-(15, 'Davide', 'Crippa', '3^N', 'Scrittore'),
-(16, 'Elena', 'Sana', '5^ALC', 'Disegnatrice'),
-(17, 'Margherita', 'Imbriani', '5^P', 'Scrittrice'),
-(18, 'Nicolò', 'Di Trani', '5^B', 'Social'),
-(19, 'Elena', 'Milani', '5^ALC', 'Correttrice'),
-(20, 'Sofia', 'Villa', '5^ALC', 'Scrittrice'),
-(21, 'Sabrina', 'Baeli', '2^ALC', 'Scrittrice'),
-(23, 'Sofia', 'Galbiati', '3^ALC', 'Scrittrice'),
-(24, 'Valentina', 'Croce', '5^ALC', 'Scrittrice'),
-(25, 'Andrea', 'Ornaghi', '4^O', 'Scrittore'),
-(26, 'Il', 'Banfo', 'Giornalino', 'Scrittore'),
-(27, 'Elisa', 'Agostoni', '5^D', 'Scrittrice'),
-(28, 'Noel', 'Di Gioia', '2^ALC', 'Scrittore'),
-(29, 'Letizia', 'Fumagalli', '4^ALC', 'Scrittrice'),
-(30, 'Matteo', 'Germanò', '4^P', 'Impaginatore'),
-(31, 'Davide', 'Garofoli', '4^M', 'Scrittore'),
-(32, 'Valentina', 'Aviles Arias', '2^D', 'Scrittrice'),
-(33, 'Francesco', 'Ciccarello', '1^ALC', 'Scrittore'),
-(34, 'Roberto', 'Rudi', '4^P', 'Impaginatore'),
-(35, 'Michela', 'Fassina', '3^ALC', 'Disegnatrice'),
-(36, 'Alice', 'Lissoni', '3^E', 'Scrittrice'),
-(37, 'Rebecca', 'Rivolta', '3^E', 'Scrittrice'),
-(38, 'Davide', 'Nicolussi', 'Professore', 'Responsabile');
+(46, 'Davide', 'Nicolussi', 'Professore', 'Responsabile', 1),
+(47, 'Jacopo', 'Pacelli', '5^N', 'Scrittore', 1),
+(48, 'Chantal', 'Lupo', '4^D', 'Disegnatrice', 1),
+(49, 'Asia', 'Anastasi', '2^ALC', 'Scrittrice', 1),
+(51, 'Myriam', 'Allenza', '2^ALC', 'Scrittrice', 1);
 
 --
 -- Indici per le tabelle scaricate
@@ -297,12 +255,6 @@ ALTER TABLE `redazione`
   ADD PRIMARY KEY (`codice`);
 
 --
--- Indici per le tabelle `redazione_backup`
---
-ALTER TABLE `redazione_backup`
-  ADD PRIMARY KEY (`codice`);
-
---
 -- AUTO_INCREMENT per le tabelle scaricate
 --
 
@@ -310,19 +262,13 @@ ALTER TABLE `redazione_backup`
 -- AUTO_INCREMENT per la tabella `articoli`
 --
 ALTER TABLE `articoli`
-  MODIFY `codice_articolo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
+  MODIFY `codice_articolo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=67;
 
 --
 -- AUTO_INCREMENT per la tabella `redazione`
 --
 ALTER TABLE `redazione`
-  MODIFY `codice` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
-
---
--- AUTO_INCREMENT per la tabella `redazione_backup`
---
-ALTER TABLE `redazione_backup`
-  MODIFY `codice` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
+  MODIFY `codice` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
 
 --
 -- Limiti per le tabelle scaricate
@@ -333,8 +279,7 @@ ALTER TABLE `redazione_backup`
 --
 ALTER TABLE `articoli`
   ADD CONSTRAINT `FK_articoli_categorie` FOREIGN KEY (`argomento`) REFERENCES `categorie` (`argomento`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `FK_articoli_redazione` FOREIGN KEY (`autore`) REFERENCES `redazione_backup` (`codice`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `articoli_ibfk_1` FOREIGN KEY (`Autore2`) REFERENCES `redazione_backup` (`codice`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `FK_articoli_redazione` FOREIGN KEY (`autore`) REFERENCES `redazione` (`codice`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
