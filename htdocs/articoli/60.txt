@@ -1,17 +1,16 @@
 Alla scoperta del sonno: L'inizio del viaggio
 
-IL SONNO
 Benvenuti e Benvenute.
 State per intraprendere un viaggio alla scoperta del sonno. 
 Questo viaggio sarà costituito da diverse tappe in cui analizzeremo diversi aspetti del mondo del sonno al fine di farvi diventare “dormitori” più consapevoli. 
 Il viaggio prevede le seguenti tappe:
 
-	Perché dormiamo?
-	Com’è strutturato il sonno?
-	Come caffeina e alcool affliggono il nostro sonno
-	Quanto abbiamo veramente bisogno di dormire
-	Come il sonno modifica le nostre emozioni
-	Agire sulla memoria col sonno
+-     Perché dormiamo?
+-     Com’è strutturato il sonno?
+-     Come caffeina e alcool affliggono il nostro sonno
+-     Quanto abbiamo veramente bisogno di dormire
+-     Come il sonno modifica le nostre emozioni
+-     Agire sulla memoria col sonno
 
 In questa prima edizione ci concentreremo sulle prime due tappe del viaggio alla scoperta del sonno.
 
@@ -50,7 +49,6 @@ Sei a scuola, stai seguendo una lezione. In questa fase sei sveglio (a) e la tua
 STADIO 1 DEL SONNO
 Sei molto stanco e la conferenza sulla Fenomenologia dello spirito è tanto noiosa quanto incomprensibile. Decidi di chiudere gli occhi, ma solo per un momentino. La situazione, chiaramente, ti sfugge di mano e inizi a dormicchiare: sei entrato nella fase 1 del sonno. I tuoi muscoli si rilassano e la frequenza cardiaca diminuisce. I tuoi neuroni iniziano a generare potenziali d’azione in modo più sincronizzato. La cacofonia assume un ritmo. Il tracciato dell’EEG è più regolare e ha frequenza leggermente minore rispetto allo stato di veglia. Accomodati, i tuoi successivi dieci minuti li passerai in questa fase. 
 
-
 STADIO 2 DEL SONNO
 Nello stadio 2 compaiono dei nuovi tratti sul tracciato dell’EEG: i fusi del sonno e i complessi K. Queste sequenze sono caratteristiche del secondo stadio del sonno e sono utilizzate dalla comunità scientifica per operare una distinzione tra le diverse fasi del sonno. 
 
@@ -60,7 +58,7 @@ STADIO 3 DEL SONNO
 Lo stadio 3 del sonno viene soventemente sovente chiamato anche il sonno a onde lente, perché l’EEG registra onde lente e grandi, di ampiezza alta e frequenza molto più bassa. Nello stadio 3 l’attività celebrale è molto diversa dall’attività desincronizzata dello stadio di veglia. I neuroni si coordinano e in gruppo producono potenziali d’azione secondo uno schema ben ritmato. Se dovessimo fare la stessa similitudine di prima, in questo caso le persone nell’auditorium non sarebbero più impegnate in conversazioni singole ma canterebbero all’unisono come un coro di monaci gregoriani. Questo stadio dura circa 45 minuti ed è fondamentale per gli effetti rigenerativi del sonno menzionati prima. In questo stadio il sonno è profondo.
 
 FASE REM
-La fase REM è la fase finale del sonno e ha una durata tipicamente di 15-25 minuti. Il nome REM sta in inglese per “Rapid Eye Movement” ossia movimento oculare rapido. Dall’esterno il corpo sembra stare attraversando la fase di riposo più profonda, ma l’unica contraddizione apparente è che il movimento oculare sotto le palpebre è molto rapido. I tuoi muscoli sono completamente rilassati e se una persona qualunque ti prendesse il braccio e lo lasciasse cadere sul banco, tu non opporresti neanche la minima resistenza. La particolarità che dall’esterno non si riesce a cogliere è che l’attività cerebrale in questa fase è molto simile a quella in fase di veglia. Il tracciato dell’EEG nella fase REM cambia conformazione rispetto a quello del terzo stadio del sonno per assumere un aspetto similare a quello della fase di veglia. Per questa discrepanza tra attività motoria e cerebrale il sonno REM è stato chiamato anche “sonno paradossale”. È in questa fase che sperimentiamo i sogni più vividi, e si ritiene che i movimenti oculari del sonno REM corrispondano ai movimenti che eseguiamo per assistere alle scene dei sogni. 
+La fase REM è la fase finale del sonno e ha una durata tipicamente di 15-25 minuti. Il nome REM sta in inglese per “Rapid Eye Movement” ossia movimento oculare rapido. Dall’esterno il corpo sembra stare attraversando la fase di riposo più profonda, ma l’unica contraddizione apparente è che il movimento oculare sotto le palpebre è molto rapido. I tuoi muscoli sono completamente rilassati e se una persona qualunque ti prendesse il braccio e lo lasciasse cadere sul banco, tu non opporresti neanche la minima resistenza. La particolarità che dall’esterno non si riesce a cogliere è che l’attività cerebrale in questa fase è molto simile a quella in fase di veglia. Il tracciato dell’EEG nella fase REM cambia conformazione rispetto a quello del terzo stadio del sonno per assumere un aspetto similare a quello della fase di veglia. Per questa discrepanza tra attività motoria e cerebrale il sonno REM è stato chiamato anche “sonno paradossale”. È in questa fase che sperimentiamo i sogni più vividi, e si ritiene che i movimenti oculari del sonno REM corrispondano ai movimenti che faremmo se stessimo osservando le scene che si svolgono nei nostri sogni. 
 
 
 Conclusa la fase REM si chiude il primo ciclo del sonno, dalla durata complessiva di circa 80-100 minuti. Durante la notte, il nostro corpo va complessivamente incontro a circa 4-6 cicli. Con il progredire dei cicli, il tempo trascorso nella fase 3 diminuisce leggermente per concedere più spazio alla fase REM. Nella prossima tappa del nostro viaggio vi insegnerò a calcolare da quante fasi REM è composto il vostro sonno ma per questa edizione è tutto.
