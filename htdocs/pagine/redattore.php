@@ -131,8 +131,7 @@
                 <?php
                     $sql = "SELECT codice, nome, cognome
                     FROM redazione
-                    WHERE professione <> 'Programmatore'
-                    ORDER BY cognome";
+                    WHERE professione <> 'Programmatore'";
                     $ris = $conn->query($sql) or die("<p>Query fallita! ".$conn->error."</p>");
                     if ($ris->num_rows > 0) {
                         while($row = $ris->fetch_assoc()) {
@@ -148,8 +147,7 @@
                 <?php
                     $sql = "SELECT codice, nome, cognome
                     FROM redazione
-                    WHERE professione <> 'Programmatore'
-                    ORDER BY cognome";
+                    WHERE professione <> 'Programmatore'";
                     $ris = $conn->query($sql) or die("<p>Query fallita! ".$conn->error."</p>");
                     if ($ris->num_rows > 0) {
                         while($row = $ris->fetch_assoc()) {

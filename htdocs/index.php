@@ -23,7 +23,6 @@
 <script src="https://kit.fontawesome.com/bb4d7bec8d.js" crossorigin="anonymous"></script>
   <!-- Il nostro css -->
   <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="css/style_1.css">
   <!--Font Lato  -->
   <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
@@ -46,7 +45,7 @@
     </div>
   </div>
 
- 
+      <!-- Da testare -->
       <!-- <div class="header_menu">
         <div class="menu_logo">
           <a href="index.php"><img src="immagini/ilbanfotipo.png" alt=""></a>
@@ -55,14 +54,17 @@
           <span onclick="openNav()">&#9776;</span>
         </div>
       </div> -->
-      <header>
-        <div class="menu_logo">
-          <a href="index.php"><img src="immagini/ilbanfotipo.png" alt=""></a>
+      <!-- Da testare -RR -->
+      <div class="cont_menu">
+        <div class="header_menu clearfix">
+          <div class="menu_logo">
+            <a href="../index.php"><img src="../immagini/ilbanfotipo.png" alt=""></a>
+          </div>
+          <div class="menu_hamburger">
+            <span onclick="openNav()">&#9776;</span>
+          </div>
         </div>
-        <div class="menu_hamburger">
-          <span onclick="openNav()">&#9776;</span>
-        </div>
-      </header>
+    </div>
   
 
     <!--============================================================================================================================-->
@@ -78,20 +80,23 @@
       <h1 class="big-text aligncenter">Argomenti</h1>
   </div>
 
-  <div class="container_argomenti">
-    <a href="pagine/argomento.php?argomento=Ambiente">
-      <div class="argomenticard">
+  <div class="sezione_tabella">
+    <div class="argomentirow">
+      <a href="pagine/argomento.php?argomento=Ambiente">
+      <div class="argomenticolumn">
+        <div class="argomenticard">
           <div id="Ambienteback" class="ingrandimento">
             <div class="argomenticontainer">
               <h2>Ambiente</h2>
               <p class="text-bold">There's no planet B. Cosa succederà se non ci attiviamo per salvare il nostro pianeta?</p>
             </div>
-          </div> 
+          </div>
         </div>
+      </div>
     </a>
 
     <a href="pagine/argomento.php?argomento=Attualità">
-      
+      <div class="argomenticolumn">
         <div class="argomenticard">
           <div id="attualitaback" class="ingrandimento">
             <div class="argomenticontainer">
@@ -100,8 +105,8 @@
             </div>
           </div>
         </div>
-      
-    </a>
+      </div>
+</a>
 
 
 <a href="pagine/argomento.php?argomento=Cinema">
@@ -242,6 +247,12 @@
                     $articolo = fopen("articoli/".$row["cod"].".txt", "r");
                     $titolo = fgets($articolo);
                     $testo = fread($articolo,"450");
+                    for ($index=0; $index < strlen($testo); $index++) { 
+                        if($testo[$index]=='\n'){
+                          $testo[$index]=' ';
+                        }
+                    }
+
                     fclose($articolo);
                     echo "
                     <div class='news_elemento'>

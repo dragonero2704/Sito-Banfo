@@ -1,6 +1,40 @@
 /* ! Definiamo gli stili base della pagina */
 
-@import "./standard.css";
+body {
+    font-family: 'Lato', sans-serif;
+    font-size: 16px;
+}
+
+a {
+    text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+p {
+    color: #000;
+}
+
+p {
+    line-height: 25px;
+    font-weight: 400;
+}
+
+h1 {
+    margin: 50px auto;
+    max-width: 650px;
+    position: relative;
+}
+
+@media (max-width: 768px) {
+    h1 {
+        max-width: 400px;
+    }
+}
+
 .white span {
     background: #fff;
 }
@@ -56,7 +90,130 @@ h1:after {
 
 /* ! Definiamo gli Helpers per stili delle scritte */
 
-@import "./helpers.css";
+.big-text {
+    font-size: 70px;
+    font-weight: 900;
+}
+
+.med-text {
+    font-size: 40px;
+}
+
+.normal-text {
+    font-size: 20px;
+    line-height: 1.6;
+}
+
+.mez-text {
+    font-size: 18px;
+}
+
+.small-text {
+    font-size: 14px;
+}
+
+.aligncenter {
+    text-align: center;
+}
+
+.text-color-white {
+    color: white;
+}
+
+.text-justify {
+    text-align: justify;
+}
+
+.text-bold {
+    font-weight: bold;
+}
+
+.intro-text {
+    text-transform: uppercase;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.b-intro-text {
+    text-transform: uppercase;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+@media (max-width: 768px) {
+    .big-text {
+        font-size: 50px;
+        font-weight: 900;
+    }
+}
+
+.colorblue {
+    color: #0071e3;
+}
+
+
+/* !============================================================================================================================ */
+
+
+/* ! Definiamo Helpers dei margini*/
+
+.m0auto {
+    margin: 0 auto;
+}
+
+.mt-1 {
+    margin-top: 50px;
+}
+
+.mt-2 {
+    margin-top: 100px;
+}
+
+.mt-2b {
+    margin-top: 100px;
+}
+
+@media (max-width: 768px) {
+    .mt-2 {
+        margin-top: 0px;
+    }
+    .mt-2b {
+        margin-top: 50px;
+    }
+}
+
+.mt-3 {
+    margin-top: 150px;
+}
+
+.tw {
+    color: #fff;
+}
+
+.mb-1 {
+    margin-bottom: 50px;
+}
+
+.mt-25 {
+    margin-top: 25px;
+}
+
+.mg-l20 {
+    margin-left: 20px;
+}
+
+@media (max-width: 768px) {
+    .mt-sma-0 {
+        margin-top: 0;
+    }
+    .mb-sma-0 {
+        margin-bottom: 0;
+    }
+    .mg-l20 {
+        margin-left: 0px;
+    }
+}
+
 .bottone_blue {
     border: none;
     outline: 0;
@@ -197,22 +354,6 @@ h1:after {
     width: 20%;
     margin-bottom: 16px;
     padding: 0 8px;
-}
-
-.container_argomenti {
-    display: flex;
-    max-width: 1200px;
-    margin: 0 auto;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 20px;
-}
-
-@media (max-width:1200px) {
-    .container_argomenti {
-        justify-content: center;
-    }
 }
 
 .argomenticard {
@@ -466,30 +607,24 @@ h1:after {
 }
 
 .container_news {
-    display: flex;
     max-width: 1200px;
     margin: 0 auto;
+    /* display: table; */
+    display: flex;
     align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 20px;
-}
-
-.justify_center {
     justify-content: center;
+    flex-wrap: wrap;
+    flex-direction: row;
 }
 
-@media (max-width: 1200px) {
-    .container_news {
-        justify-content: center;
-    }
-}
 
 .news_elemento {
+    /* display: block; */
     padding: 0 20px;
+    margin: 15px 1.7%;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     width: 350px;
-    height: max-content;
+    height: auto;
 }
 
 .news_titolo {
@@ -498,6 +633,9 @@ h1:after {
     text-align: center;
     height: 100px;
 }
+
+
+
 
 .news_immagine {
     position: relative;
@@ -559,8 +697,9 @@ h1:after {
 .news_introduzione {
     text-align: justify;
     padding: 15px;
-    height: fit-content;
-    height: auto;
+    height: 380px;
+    /* height: auto; */
+    /* overflow: hidden; */
 }
 
 .news_bottone {
@@ -587,7 +726,7 @@ h1:after {
     transition: 0.5s;
 }
 
-.il_mio_bottone span:after {
+.il_mio_bottone span::after {
     content: '\00bb';
     position: absolute;
     opacity: 0;
@@ -605,13 +744,12 @@ h1:after {
     right: 0;
 }
 
-
-/* .news_elemento::after,
+.news_elemento::after,
 .news_riga::after {
     content: "";
     clear: both;
     display: table;
-} */
+}
 
 
 /* @media (max-width: 1024px) {
@@ -630,7 +768,7 @@ h1:after {
 }
 
 @media (max-width: 550px) {
-    .news_colonna {
+    /* .news_colonna {
         width: 100%;
         display: block;
         padding: 0 40px;
@@ -638,7 +776,7 @@ h1:after {
     .news_colonna {
         margin: 0px;
         margin-bottom: 20px;
-    }
+    } */
     /* .news_introduzione {
         height: auto;
     } */
@@ -1921,8 +2059,8 @@ input.invalid {
 /* IE7 */
 
 *,
-*::before,
-*::after {
+*:before,
+*:after {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
