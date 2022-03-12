@@ -10,10 +10,11 @@
 
   gtag('config', 'G-GKN4DGSBEF');
 </script>
+  <?php $argomento = $_GET["argomento"]; ?>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>News</title>
+  <title><?php echo $argomento; ?></title>
   <link rel="icon" href="../immagini/logo.png">
   <!-- Css del Normalize -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
@@ -57,73 +58,87 @@
   </div>
 
     <!--============================================================================================================================-->
-    <div class="banner_singolo_argomento">
-      <img src="../immagini/undraw_newspaper_k72w.png">
-    </div>
+
   <!--============================================================================================================================-->
 
   <!-- News  -->
-<div>
-      <h1 class="big-text aligncenter">News</h1>
-      <p class="colorblue normal-text aligncenter"><i>Scopri gli ultimi articoli</i></p>
-</div>
+<?php
+  require('../data/db.php');
+  $conn = new mysqli($dbhost,$dbusername,$dbpassword,$dbname);
+  if($conn->connect_error){
+      die("<p>Connessione al server non riuscita: ".$conn->connect_error."</p>");
+  }
+  $sql = "	SELECT descrizione
+          FROM categorie
+          WHERE argomento = '$argomento'";
+          $ris = $conn->query($sql) or die("<p>Query fallita! ".$conn->error."</p>");
+          if ($ris->num_rows > 0) {
+            while($row = $ris->fetch_assoc()) {
+              echo "
+                <div class='banner_singolo_argomento'>
+                  <img src='../immagini/bg_".$argomento.".png'>
+                </div>
 
-    <div class="container_news">
-     
+                <div>
+                  <h1 class='big-text aligncenter'>".$argomento."</h1>
+                  <p class='normal-text colorblue aligncenter'><i>".$row["descrizione"]."</i></p>
+                </div>
+              ";
+            }
+          }
+?>
 
 
-            <?php
-              $conn = new mysqli("localhost","studente","pass_studente_banfi","banfo");
-              if($conn->connect_error){
-                  die("<p>Connessione al server non riuscita: ".$conn->connect_error."</p>");
-              }
-              $sql = "	SELECT codice_articolo as cod, DATE_FORMAT(articoli.data, '%d/%m/%Y') as data, autore, articoli.argomento as argomento, nome, cognome
-                        FROM articoli JOIN redazione
-                        ON autore=codice JOIN categorie
-                        ON articoli.argomento=categorie.argomento
-                        ORDER BY DATE_FORMAT(articoli.data, '%Y/%m/%d') DESC
-                        LIMIT 9";
-              $ris = $conn->query($sql) or die("<p>Query fallita! ".$conn->error."</p>");
-              if ($ris->num_rows > 0) {
-                while($row = $ris->fetch_assoc()) {
-                    $articolo = fopen("../articoli/".$row["cod"].".txt", "r");
-                    $titolo = fgets($articolo);
-                    $testo = fread($articolo,"450");
-                    fclose($articolo);
-                    echo "
-                   
-                    <div class='news_elemento'>
-                      <div class='news_titolo'>
-                        <h2>".$titolo."</h2>
+    <div class="container_news justify_center">
+        <?php
+          $sql = "	SELECT codice_articolo as cod, DATE_FORMAT(articoli.data, '%d/%m/%Y') as data, autore, articoli.argomento as argomento, nome, cognome
+          FROM articoli JOIN redazione
+          ON autore=codice JOIN categorie
+          ON articoli.argomento=categorie.argomento
+          WHERE articoli.argomento = '$argomento'
+          ORDER BY DATE_FORMAT(articoli.data, '%Y/%m/%d') DESC
+          LIMIT 9";
+          $ris = $conn->query($sql) or die("<p>Query fallita! ".$conn->error."</p>");
+          if ($ris->num_rows > 0) {
+            while($row = $ris->fetch_assoc()) {
+                $articolo = fopen("../articoli/".$row["cod"].".txt", "r");
+                $titolo = fgets($articolo);
+                $testo = fread($articolo,"450");
+                fclose($articolo);
+                echo "
+                  
+                  <div class='news_elemento'>
+                    <div class='news_titolo'>
+                      <h2>".$titolo."</h2>
+                    </div>
+                    <div class='news_immagine'>
+                      <div class='news_categoria'>
+                        <h2>".$row["argomento"]."</h2><!-- Scritto dinamicamente con il database -->
                       </div>
-                      <div class='news_immagine'>
-                        <div class='news_categoria'>
-                          <h2>".$row["argomento"]."</h2><!-- Scritto dinamicamente con il database -->
-                        </div>
-                        <img src='../immagini/".$row["cod"].".jpg'>
-                        <div class='news_data_su_immagine top-left'>
-                          <p><i style='margin-right:10px;' class='far fa-calendar-alt'></i>".$row["data"]."</p> <!-- Scritta dinamicamente con il database -->
-                        </div>
-                        <div class='news_autore bottom-center'>
-                        <a href='membro.php?membro=".$row["autore"]."'><p>".$row["nome"]." ".$row["cognome"]."</p></a>
-                        </div>
+                      <img src='../immagini/".$row["cod"].".jpg'>
+                      <div class='news_data_su_immagine top-left'>
+                        <p><i style='margin-right:10px;' class='far fa-calendar-alt'></i>".$row["data"]."</p> <!-- Scritta dinamicamente con il database -->
                       </div>
-                      <div class='news_introduzione'>
-                        <p>".$testo."...</p>
-                      </div>
-                      <div class='news_bottone'>
-                      <a href='articolo.php?articolo=".$row["cod"]."'><button class='il_mio_bottone'><span>Scopri di più  </span></button></a>
+                      <div class='news_autore bottom-center'>
+                      <a href='membro.php?membro=".$row["autore"]."'>  <p>".$row["nome"]." ".$row["cognome"]."</p></a>
                       </div>
                     </div>
-                    
-                    ";
-                }
-              }
-              $conn->close();
-            ?>
-
-
-      
+                    <div class='news_introduzione'>
+                      <p>".$testo."...</p>
+                    </div>
+                    <div class='news_bottone'>
+                    <a href='articolo.php?articolo=".$row["cod"]."'><button class='il_mio_bottone'><span>Scopri di più  </span></button></a>
+                    </div>
+                  </div>
+                  
+                ";
+            }
+          }
+        else {
+          echo "Nessun articolo da visualizzare";
+        }
+          $conn->close();
+        ?>
     </div>
 
 
@@ -159,7 +174,6 @@
         <div class="right card">
           <h2 class="tw">Contattaci:</h2>
           <div class="foot__conn">
-
             <div class="email">
               <a target="_blank" href="mailto:hotaru@duttatexbd.com"> <span class="fas fa-envelope"></span></a>
                 <span class="text">hotaru@duttatexbd.com</span>
