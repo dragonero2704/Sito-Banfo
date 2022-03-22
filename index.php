@@ -290,6 +290,12 @@
             ?>
     </div>
 
+  <!-- ======================================================================================================================== -->
+              <!-- Podcast -->
+              <h1 class="big-text aligncenter">Podcast</h1>
+
+  <iframe src="https://open.spotify.com/embed/show/0gKdcGHwE48SZsejAPCe5v?utm_source=generator" width="100%" height="232" frameBorder="0" allowfullscreen="" allow="clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+
   <!--============================================================================================================================-->
 
   <!-- Chi siamo -->
@@ -298,13 +304,15 @@
     <div class="chisiamo__img ">
     <img src="immagini/redazione.jpg">
     </div>
-    <div class="chisiamo__content ">
+    <div class="chisiamo__content">
       <h2 class="big-text">Chi Siamo?</h2>
       <p class="text-justify">Il Banfo è il giornale scolastico del Liceo Scientifico e Classico A. Banfi di Vimercate. La tradizione viene portata avanti ormai dal 1980 e fino all’anno scorso, tra formati A4 e formati A5, i numeri venivano distribuiti per la classi sotto forma di giornali di carta. Con lo scoppio della pandemia anche il Banfo, come molte delle realtà scolastiche e non, si è dovuto reinventare. Nel corso del primo lockdown abbiamo quindi deciso di aprire un sito per continuare a tenere compagnia ai nostri lettori anche (e soprattutto) durante un periodo così particolare e ...
       </p>
       <a href="pagine/redazione.php"><button class="bottone_blue">Scopri di più</button></a>
     </div>
   </div>
+
+
   <!--============================================================================================================================-->
 
   <!-- Slider Redazione -->
