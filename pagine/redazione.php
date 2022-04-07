@@ -84,11 +84,11 @@ La redazione del Banfo, tra chi si occupa di scrivere, chi di disegnare, chi di 
 </div>
 <!-- Redazione -->
 <div class="chisiamo_container">
-  <div class="chisiamo_container_in">
+
     <div class="chisiamo_titolo">
       <h1 class=" big-text"><span>Redazione</span></h1>
     </div>
-    <div class="riga">
+    <div class="Red_flex">
         <?php
             require('../data/db.php');
             $conn = new mysqli($dbhost,$dbusername,$dbpassword,$dbname);
@@ -103,7 +103,7 @@ La redazione del Banfo, tra chi si occupa di scrivere, chi di disegnare, chi di 
                 while($row = $ris->fetch_assoc()) {
                   if(file_exists("../immagini/".$row["nome"]."_".$row["cognome"].".jpg")){
                     echo "
-                        <div class='Red_colonna aligncenter'>
+                        
                             <div class='Red_singolo-membro'>
                                 <div class='Red_singolo_membro_img'>
                                     <img src='../immagini/".$row["nome"]."_".$row["cognome"].".jpg'>
@@ -115,11 +115,10 @@ La redazione del Banfo, tra chi si occupa di scrivere, chi di disegnare, chi di 
                                     <a href='membro.php?membro=".$row["codice"]."'><button class='il_mio_bottone'><span>Scopri di più  </span></button></a>
                                 </div>
                             </div>
-                        </div>
+                       
                     ";
                   }else{
                     echo "
-                        <div class='Red_colonna aligncenter'>
                             <div class='Red_singolo-membro'>
                                 <div class='Red_singolo_membro_img'>
                                     <img src='../immagini/user.jpg'>
@@ -131,7 +130,7 @@ La redazione del Banfo, tra chi si occupa di scrivere, chi di disegnare, chi di 
                                     <a href='membro.php?membro=".$row["codice"]."'><button class='il_mio_bottone'><span>Scopri di più  </span></button></a>
                                 </div>
                             </div>
-                        </div>
+                      
                     ";
                   }
                     
@@ -141,7 +140,7 @@ La redazione del Banfo, tra chi si occupa di scrivere, chi di disegnare, chi di 
         ?>
     </div>
 
-  </div>
+
 </div>
 <!--============================================================================================================================-->
 

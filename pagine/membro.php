@@ -133,9 +133,9 @@
     }
 }
 
-$sql = "SELECT codice_articolo as codice, DATE_FORMAT(data, '%d/%m/%Y') as data, argomento
-        FROM articoli
-        WHERE autore = $cod OR autore2=$cod
+$sql = "SELECT collabora.codice_articolo as codice, DATE_FORMAT(data, '%d/%m/%Y') as data, argomento
+        FROM collabora JOIN articoli ON articoli.codice_articolo=collabora.codice_articolo
+        WHERE collabora.codice_autore = $cod
         ORDER BY DATE_FORMAT(data, '%Y/%m/%d') DESC";
 $ris = $conn->query($sql) or die("<p>Query fallita! ".$conn->error."</p>");
 if ($ris->num_rows > 0) {

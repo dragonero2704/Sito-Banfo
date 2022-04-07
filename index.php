@@ -58,7 +58,7 @@
       <div class="cont_menu">
         <div class="header_menu clearfix">
           <div class="menu_logo">
-            <a href="../index.php"><img src="../immagini/ilbanfotipo.png" alt=""></a>
+            <a href="../index.php"><img src="./immagini/ilbanfotipo.png" alt=""></a>
           </div>
           <div class="menu_hamburger">
             <span onclick="openNav()">&#9776;</span>
@@ -236,10 +236,12 @@
               if($conn->connect_error){
                   die("<p>Connessione al server non riuscita: ".$conn->connect_error."</p>");
               }
-              $sql = "	SELECT codice_articolo as cod, DATE_FORMAT(articoli.data, '%d/%m/%Y') as data, autore, articoli.argomento as argomento, nome, cognome
-                        FROM articoli JOIN redazione
-                        ON autore=codice JOIN categorie
-                        ON articoli.argomento=categorie.argomento
+              $sql = "	SELECT DISTINCT collabora.codice_articolo as cod, DATE_FORMAT(articoli.data, '%d/%m/%Y') as data, collabora.codice_autore as autore, articoli.argomento as argomento, nome, cognome
+                        FROM collabora JOIN articoli
+                        ON collabora.codice_articolo=articoli.codice_articolo JOIN categorie
+                        ON articoli.argomento=categorie.argomento JOIN redazione 
+                        ON redazione.codice=collabora.codice_autore
+                        WHERE collabora.ruolo IN ('Scrittore', 'Scrittrice')
                         ORDER BY DATE_FORMAT(articoli.data, '%Y/%m/%d') DESC
                         LIMIT 6";
               $ris = $conn->query($sql) or die("<p>Query fallita! ".$conn->error."</p>");

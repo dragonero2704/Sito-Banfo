@@ -91,11 +91,13 @@
 
     <div class="container_news justify_center">
         <?php
-          $sql = "	SELECT codice_articolo as cod, DATE_FORMAT(articoli.data, '%d/%m/%Y') as data, autore, articoli.argomento as argomento, nome, cognome
-          FROM articoli JOIN redazione
-          ON autore=codice JOIN categorie
-          ON articoli.argomento=categorie.argomento
-          WHERE articoli.argomento = '$argomento'
+          $sql = "	SELECT DISTINCT collabora.codice_articolo as cod, DATE_FORMAT(articoli.data, '%d/%m/%Y') as data, collabora.codice_autore as autore, articoli.argomento as argomento, nome, cognome
+          FROM collabora JOIN articoli
+          ON collabora.codice_articolo=articoli.codice_articolo JOIN categorie
+          ON articoli.argomento=categorie.argomento JOIN redazione 
+          ON redazione.codice=collabora.codice_autore
+          WHERE articoli.argomento = '$argomento' AND collabora.ruolo IN ('Scrittore', 'Scrittrice')
+          GROUP BY collabora.codice_articolo
           ORDER BY DATE_FORMAT(articoli.data, '%Y/%m/%d') DESC
           LIMIT 9";
           $ris = $conn->query($sql) or die("<p>Query fallita! ".$conn->error."</p>");
