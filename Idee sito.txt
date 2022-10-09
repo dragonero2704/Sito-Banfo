@@ -1,4 +1,4 @@
-- esportare documenti come html per il sito
+- esportare documenti come html per il sito [no lol]
 
 account: laredazionedelbanfo@gmail.com
 password: readazionebanfo18

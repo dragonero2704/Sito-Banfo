@@ -84,13 +84,14 @@ La redazione del Banfo, tra chi si occupa di scrivere, chi di disegnare, chi di 
 </div>
 <!-- Redazione -->
 <div class="chisiamo_container">
-  <div class="chisiamo_container_in">
+
     <div class="chisiamo_titolo">
       <h1 class=" big-text"><span>Redazione</span></h1>
     </div>
-    <div class="riga">
+    <div class="Red_flex">
         <?php
-            $conn = new mysqli("localhost","studente","pass_studente_banfi","banfo");
+            require('../data/db.php');
+            $conn = new mysqli($dbhost,$dbusername,$dbpassword,$dbname);
             if($conn->connect_error){
                 die("<p>Connessione al server non riuscita: ".$conn->connect_error."</p>");
             }
@@ -102,7 +103,7 @@ La redazione del Banfo, tra chi si occupa di scrivere, chi di disegnare, chi di 
                 while($row = $ris->fetch_assoc()) {
                   if(file_exists("../immagini/".$row["nome"]."_".$row["cognome"].".jpg")){
                     echo "
-                        <div class='Red_colonna aligncenter'>
+                        
                             <div class='Red_singolo-membro'>
                                 <div class='Red_singolo_membro_img'>
                                     <img src='../immagini/".$row["nome"]."_".$row["cognome"].".jpg'>
@@ -114,11 +115,10 @@ La redazione del Banfo, tra chi si occupa di scrivere, chi di disegnare, chi di 
                                     <a href='membro.php?membro=".$row["codice"]."'><button class='il_mio_bottone'><span>Scopri di più  </span></button></a>
                                 </div>
                             </div>
-                        </div>
+                       
                     ";
                   }else{
                     echo "
-                        <div class='Red_colonna aligncenter'>
                             <div class='Red_singolo-membro'>
                                 <div class='Red_singolo_membro_img'>
                                     <img src='../immagini/user.jpg'>
@@ -130,7 +130,7 @@ La redazione del Banfo, tra chi si occupa di scrivere, chi di disegnare, chi di 
                                     <a href='membro.php?membro=".$row["codice"]."'><button class='il_mio_bottone'><span>Scopri di più  </span></button></a>
                                 </div>
                             </div>
-                        </div>
+                      
                     ";
                   }
                     
@@ -140,53 +140,14 @@ La redazione del Banfo, tra chi si occupa di scrivere, chi di disegnare, chi di 
         ?>
     </div>
 
-  </div>
+
 </div>
 <!--============================================================================================================================-->
 
   <!-- footer -->
-  <div class="wrapper">
-      <div class="nested0">
-        <div class="title">
-          <h2>IL BANFO</h2>
-        </div>
-        <div class="arrow">
-          <a class="smooth" href="#goHere"><span class="fas fa-chevron-circle-up"></span></a>
-          </div>
-        </div>
-        <div class="left card">
-          <h2  class="tw">Social:</h2>
-          <div class="foot__conn">
-            <div class="social">
-              <a target="_blank" href="https://www.instagram.com/ilbanfo/"><span class="fab fa-instagram fa-2x"></span></a>
-              <span class="text">@IlBanfo</span>
-            </div>
-          </div>
-        </div>
-        <div class="center card">
-          <h2  class="tw">Dove Siamo:</h2>
-          <div class="foot__conn">
-            <div class="place">
-              <a target="_blank" href="https://goo.gl/maps/3iN3kXD4J7tHWehG7"><span class="fas fa-map-marker-alt"></span></a>
-              <span class="text">Via Adda, 6, Vimercate</span>
-            </div>
-          </div>
-        </div>
-        <div class="right card">
-          <h2 class="tw">Contattaci:</h2>
-          <div class="foot__conn">
-
-            <div class="email">
-              <a target="_blank" href="mailto:hotaru@duttatexbd.com"> <span class="fas fa-envelope"></span></a>
-                <span class="text">hotaru@duttatexbd.com</span>
-            </div>
-          </div>
-        </div>
-        <div class="bottom">
-       <span class="credit">Sito Realizzato da "Il Banfo" | </span>
-       <span class="far fa-copyright"></span><span> 2021 Tutti i diritti riservati.</span>
-      </div>
-    </div>
+  <?php
+    require_once('../components/footer.php');
+  ?>
 <!--============================================================================================================================-->
 
 <!-- Scripts -->

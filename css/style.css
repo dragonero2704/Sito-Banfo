@@ -617,7 +617,6 @@ h1:after {
     flex-direction: row;
 }
 
-
 .news_elemento {
     /* display: block; */
     padding: 0 20px;
@@ -634,20 +633,18 @@ h1:after {
     height: 100px;
 }
 
-
-
-
 .news_immagine {
     position: relative;
 }
 
 .news_immagine img {
     opacity: 1;
-    max-width: 100%;
-    max-height: 100%;
+    width: 100%;
+    height: 100%;
     display: block;
     z-index: 0;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    aspect-ratio: 16/9;
 }
 
 .news_immagine:hover img {
@@ -948,8 +945,10 @@ h1:after {
 /* ! ================================================================================================================================================== */
 
 
-/* ! Definiamo gli stilidella sezione eventi */
+/* ! Definiamo gli stili della sezione eventi */
 
+
+/* 
 .eventi {
     background: linear-gradient(0deg, rgba(0, 0, 0, .3), rgba(0, 0, 0, 0.5)), url('../immagini/bg_Eventi.png'), no-repeat center center;
     background-size: cover;
@@ -982,7 +981,7 @@ h1:after {
     .eventi__title {
         width: 100%;
     }
-}
+} */
 
 
 /* ! ================================================================================================================================================== */
@@ -1448,16 +1447,36 @@ h1:after {
     text-align: justify;
 }
 
-.Red_colonna {
+
+/* .Red_colonna {
     float: left;
     width: 33.3%;
     margin-bottom: 16px;
     padding: 0 8px;
+} */
+
+.Red_flex {
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    /* display: table; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    /* flex-direction: row; */
 }
 
 .Red_singolo-membro {
+    position: relative;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     margin: 8px;
+    width: 30%;
+    z-index: 100;
+}
+
+.Red_singolo-membro * {
+    text-align: center;
 }
 
 .Red_contenitore_membro {
@@ -1470,17 +1489,26 @@ h1:after {
 
 .Red_singolo_membro_img img {
     width: 100%;
+    object-fit: contain;
 }
 
-.Red_contenitore_membro::after,
+
+/* .Red_contenitore_membro::after,
 .riga::after {
     content: "";
     clear: both;
     display: table;
-}
+} */
 
 .Red_professione {
     color: grey;
+}
+
+.Red_professione input {
+    outline: none;
+    border: 1px solid gray;
+    width: 100%;
+    height: auto;
 }
 
 .Red_buttoncino {
@@ -2030,6 +2058,45 @@ input.invalid {
     background: rgba(255, 255, 255, 0.2);
     resize: none;
     overflow: auto;
+}
+
+.delete_button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 30px;
+    height: 30px;
+    z-index: 101;
+    /* transform: translate(-50%, -50%); */
+    cursor: pointer;
+    border-radius: 100%;
+    padding: 5px;
+}
+
+.delete_button span {
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 5px;
+    border-radius: 5px;
+    background-color: darkred;
+    top: 50%;
+    transform: translateX(-50%);
+    right: 0;
+}
+
+.delete_button span:nth-child(1) {
+    transform-origin: center center;
+    transform: rotate(-45deg);
+}
+
+.delete_button span:nth-child(2) {
+    transform-origin: center center;
+    transform: rotate(45deg);
+}
+
+.hidden {
+    display: none;
 }
 
 

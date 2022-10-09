@@ -58,7 +58,7 @@
       <div class="cont_menu">
         <div class="header_menu clearfix">
           <div class="menu_logo">
-            <a href="../index.php"><img src="../immagini/ilbanfotipo.png" alt=""></a>
+            <a href="../index.php"><img src="./immagini/ilbanfotipo.png" alt=""></a>
           </div>
           <div class="menu_hamburger">
             <span onclick="openNav()">&#9776;</span>
@@ -231,14 +231,17 @@
 
     <div class="container_news">
             <?php
-              $conn = new mysqli("localhost","studente","pass_studente_banfi","banfo");
+              require('./data/db.php');
+              $conn = new mysqli($dbhost,$dbusername,$dbpassword,$dbname);
               if($conn->connect_error){
                   die("<p>Connessione al server non riuscita: ".$conn->connect_error."</p>");
               }
-              $sql = "	SELECT codice_articolo as cod, DATE_FORMAT(articoli.data, '%d/%m/%Y') as data, autore, articoli.argomento as argomento, nome, cognome
-                        FROM articoli JOIN redazione
-                        ON autore=codice JOIN categorie
-                        ON articoli.argomento=categorie.argomento
+              $sql = "	SELECT DISTINCT collabora.codice_articolo as cod, DATE_FORMAT(articoli.data, '%d/%m/%Y') as data, collabora.codice_autore as autore, articoli.argomento as argomento, nome, cognome
+                        FROM collabora JOIN articoli
+                        ON collabora.codice_articolo=articoli.codice_articolo JOIN categorie
+                        ON articoli.argomento=categorie.argomento JOIN redazione 
+                        ON redazione.codice=collabora.codice_autore
+                        WHERE collabora.ruolo IN ('Scrittore', 'Scrittrice')
                         ORDER BY DATE_FORMAT(articoli.data, '%Y/%m/%d') DESC
                         LIMIT 6";
               $ris = $conn->query($sql) or die("<p>Query fallita! ".$conn->error."</p>");
@@ -289,6 +292,12 @@
             ?>
     </div>
 
+  <!-- ======================================================================================================================== -->
+              <!-- Podcast -->
+              <h1 class="big-text aligncenter">Podcast</h1>
+
+  <iframe src="https://open.spotify.com/embed/show/0gKdcGHwE48SZsejAPCe5v?utm_source=generator" width="100%" height="232" frameBorder="0" allowfullscreen="" allow="clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+
   <!--============================================================================================================================-->
 
   <!-- Chi siamo -->
@@ -297,13 +306,15 @@
     <div class="chisiamo__img ">
     <img src="immagini/redazione.jpg">
     </div>
-    <div class="chisiamo__content ">
+    <div class="chisiamo__content">
       <h2 class="big-text">Chi Siamo?</h2>
       <p class="text-justify">Il Banfo è il giornale scolastico del Liceo Scientifico e Classico A. Banfi di Vimercate. La tradizione viene portata avanti ormai dal 1980 e fino all’anno scorso, tra formati A4 e formati A5, i numeri venivano distribuiti per la classi sotto forma di giornali di carta. Con lo scoppio della pandemia anche il Banfo, come molte delle realtà scolastiche e non, si è dovuto reinventare. Nel corso del primo lockdown abbiamo quindi deciso di aprire un sito per continuare a tenere compagnia ai nostri lettori anche (e soprattutto) durante un periodo così particolare e ...
       </p>
       <a href="pagine/redazione.php"><button class="bottone_blue">Scopri di più</button></a>
     </div>
   </div>
+
+
   <!--============================================================================================================================-->
 
   <!-- Slider Redazione -->
@@ -321,7 +332,7 @@
               
               <!-- Card 1 -->
                   <?php
-                      $conn = new mysqli("localhost","studente","pass_studente_banfi","banfo");
+                      $conn = new mysqli($dbhost,$dbusername,$dbpassword,$dbname);
                       if($conn->connect_error){
                           die("<p>Connessione al server non riuscita: ".$conn->connect_error."</p>");
                       }
@@ -398,47 +409,9 @@
   -->
   <!--============================================================================================================================-->
   <!-- footer -->
-  <div class="wrapper">
-      <div class="nested0">
-        <div class="title">
-          <h2>IL BANFO</h2>
-        </div>
-        <div class="arrow">
-          <a class="smooth" href="#goHere"><span class="fas fa-chevron-circle-up"></span></a>
-          </div>
-        </div>
-        <div class="left card">
-          <h2  class="tw">Social:</h2>
-          <div class="foot__conn">
-            <div class="social">
-              <a target="_blank" href="https://www.instagram.com/ilbanfo/"><span class="fab fa-instagram fa-2x"></span></a>
-              <span class="text">@IlBanfo</span>
-            </div>
-          </div>
-        </div>
-        <div class="center card">
-          <h2  class="tw">Dove Siamo:</h2>
-          <div class="foot__conn">
-            <div class="place">
-              <a target="_blank" href="https://goo.gl/maps/3iN3kXD4J7tHWehG7"><span class="fas fa-map-marker-alt"></span></a>
-              <span class="text">Via Adda, 6, Vimercate</span>
-            </div>
-          </div>
-        </div>
-        <div class="right card">
-          <h2 class="tw">Contattaci:</h2>
-          <div class="foot__conn">
-            <div class="email">
-              <a target="_blank" href="mailto:hotaru@duttatexbd.com"> <span class="fas fa-envelope"></span></a>
-                <span class="text">hotaru@duttatexbd.com</span>
-            </div>
-          </div>
-        </div>
-        <div class="bottom">
-       <span class="credit">Sito Realizzato da "Il Banfo" | </span>
-       <span class="far fa-copyright"></span><span> 2021 Tutti i diritti riservati.</span>
-      </div>
-    </div>
+  <?php
+    require_once('./components/footer.php');
+  ?>
 <!--============================================================================================================================-->
 
 <!-- Scripts -->

@@ -117,7 +117,8 @@
               echo "<p>Errore in Username o Password, riprova</p>";
             }
             else {
-                $conn = new mysqli("localhost", "studente", "pass_studente_banfi", "banfo");
+                require('../data/db.php');
+                $conn = new mysqli($dbhost,$dbusername,$dbpassword,$dbname);
                 if($conn->connect_error){
                     die("<p>Connessione al server non riuscita: ".$conn->connect_error."</p>");
                 }

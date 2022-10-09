@@ -63,7 +63,8 @@
 
   <!-- News  -->
 <?php
-  $conn = new mysqli("localhost","studente","pass_studente_banfi","banfo");
+  require('../data/db.php');
+  $conn = new mysqli($dbhost,$dbusername,$dbpassword,$dbname);
   if($conn->connect_error){
       die("<p>Connessione al server non riuscita: ".$conn->connect_error."</p>");
   }
@@ -90,11 +91,13 @@
 
     <div class="container_news justify_center">
         <?php
-          $sql = "	SELECT codice_articolo as cod, DATE_FORMAT(articoli.data, '%d/%m/%Y') as data, autore, articoli.argomento as argomento, nome, cognome
-          FROM articoli JOIN redazione
-          ON autore=codice JOIN categorie
-          ON articoli.argomento=categorie.argomento
-          WHERE articoli.argomento = '$argomento'
+          $sql = "	SELECT DISTINCT collabora.codice_articolo as cod, DATE_FORMAT(articoli.data, '%d/%m/%Y') as data, collabora.codice_autore as autore, articoli.argomento as argomento, nome, cognome
+          FROM collabora JOIN articoli
+          ON collabora.codice_articolo=articoli.codice_articolo JOIN categorie
+          ON articoli.argomento=categorie.argomento JOIN redazione 
+          ON redazione.codice=collabora.codice_autore
+          WHERE articoli.argomento = '$argomento' AND collabora.ruolo IN ('Scrittore', 'Scrittrice')
+          GROUP BY collabora.codice_articolo
           ORDER BY DATE_FORMAT(articoli.data, '%Y/%m/%d') DESC
           LIMIT 9";
           $ris = $conn->query($sql) or die("<p>Query fallita! ".$conn->error."</p>");
@@ -143,47 +146,9 @@
 
   <!--============================================================================================================================-->
   <!-- footer -->
-  <div class="wrapper">
-      <div class="nested0">
-        <div class="title">
-          <h2>IL BANFO</h2>
-        </div>
-        <div class="arrow">
-          <a class="smooth" href="#goHere"><span class="fas fa-chevron-circle-up"></span></a>
-          </div>
-        </div>
-        <div class="left card">
-          <h2  class="tw">Social:</h2>
-          <div class="foot__conn">
-            <div class="social">
-              <a target="_blank" href="https://www.instagram.com/ilbanfo/"><span class="fab fa-instagram fa-2x"></span></a>
-              <span class="text">@IlBanfo</span>
-            </div>
-          </div>
-        </div>
-        <div class="center card">
-          <h2  class="tw">Dove Siamo:</h2>
-          <div class="foot__conn">
-            <div class="place">
-              <a target="_blank" href="https://goo.gl/maps/3iN3kXD4J7tHWehG7"><span class="fas fa-map-marker-alt"></span></a>
-              <span class="text">Via Adda, 6, Vimercate</span>
-            </div>
-          </div>
-        </div>
-        <div class="right card">
-          <h2 class="tw">Contattaci:</h2>
-          <div class="foot__conn">
-            <div class="email">
-              <a target="_blank" href="mailto:hotaru@duttatexbd.com"> <span class="fas fa-envelope"></span></a>
-                <span class="text">hotaru@duttatexbd.com</span>
-            </div>
-          </div>
-        </div>
-        <div class="bottom">
-       <span class="credit">Sito Realizzato da "Il Banfo" | </span>
-       <span class="far fa-copyright"></span><span> 2021 Tutti i diritti riservati.</span>
-      </div>
-    </div>
+  <?php
+    require_once('../components/footer.php');
+  ?>
 <!--============================================================================================================================-->
 
 <!-- Scripts -->

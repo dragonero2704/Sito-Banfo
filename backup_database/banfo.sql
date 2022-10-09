@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Creato il: Dic 10, 2021 alle 15:07
+-- Creato il: Apr 07, 2022 alle 14:33
 -- Versione del server: 10.4.16-MariaDB
 -- Versione PHP: 7.4.12
 
@@ -75,7 +75,6 @@ INSERT INTO `articoli` (`codice_articolo`, `data`, `autore`, `autore2`, `argomen
 (33, '2021-01-03', 23, NULL, 'Cinema'),
 (34, '2021-01-09', 17, NULL, 'Scienza'),
 (35, '2021-01-11', 24, NULL, 'Varie'),
-(36, '2021-01-13', 11, NULL, 'Varie'),
 (37, '2021-01-16', 9, 19, 'Varie'),
 (38, '2021-01-17', 31, NULL, 'Cinema'),
 (39, '2021-01-20', 28, NULL, 'Sport'),
@@ -98,14 +97,47 @@ INSERT INTO `articoli` (`codice_articolo`, `data`, `autore`, `autore2`, `argomen
 (56, '2021-10-17', 33, NULL, 'Varie'),
 (57, '2021-10-18', 37, NULL, 'Attualità'),
 (58, '2021-10-24', 11, NULL, 'Scuola'),
-(59, '2021-10-28', 21, NULL, 'Scienza'),
+(59, '2021-10-28', 21, NULL, 'Ambiente'),
 (60, '2021-11-21', 44, NULL, 'Scienza'),
 (61, '2021-11-28', 11, NULL, 'Attualità'),
 (62, '2021-11-29', 36, NULL, 'Attualità'),
 (63, '2021-12-01', 37, NULL, 'Musica'),
 (64, '2021-12-03', 17, NULL, 'Varie'),
 (65, '2021-12-03', 43, NULL, 'Attualità'),
-(66, '2021-12-08', 33, NULL, 'Varie');
+(66, '2021-12-08', 33, NULL, 'Varie'),
+(67, '2021-12-14', 23, NULL, 'Varie'),
+(68, '2021-12-25', 11, NULL, 'Varie'),
+(69, '2021-12-29', 53, NULL, 'Attualità'),
+(70, '2022-01-03', 41, NULL, 'Libri'),
+(71, '2022-01-05', 53, NULL, 'Attualità'),
+(72, '2022-01-11', 37, NULL, 'Musica'),
+(73, '2022-01-10', 11, NULL, 'Varie'),
+(74, '2022-01-11', 29, NULL, 'Varie'),
+(76, '2022-01-14', 11, NULL, 'Scuola'),
+(77, '2022-01-19', 53, NULL, 'Libri'),
+(78, '2022-01-25', 45, NULL, 'Libri'),
+(79, '2022-01-25', 33, NULL, 'Cinema'),
+(80, '2022-01-25', 37, NULL, 'Attualità'),
+(81, '2022-01-30', 11, NULL, 'Scienza'),
+(82, '2022-02-04', 37, NULL, 'Musica'),
+(83, '2022-02-04', 11, NULL, 'Storia'),
+(84, '2022-02-12', 29, NULL, 'Attualità'),
+(85, '2022-02-15', 37, NULL, 'Scuola'),
+(86, '2022-02-18', 11, NULL, 'Storia'),
+(87, '2022-02-27', 26, NULL, 'Attualità'),
+(88, '2022-02-27', 33, NULL, 'Musica'),
+(89, '2022-03-01', 55, NULL, 'Varie'),
+(90, '2022-03-03', 11, NULL, 'Scienza'),
+(91, '2022-03-09', 11, NULL, 'Attualità'),
+(92, '2022-03-09', 53, NULL, 'Attualità'),
+(93, '2022-03-13', 11, NULL, 'Varie'),
+(94, '2022-03-20', 29, NULL, 'Varie'),
+(95, '2022-03-24', 55, NULL, 'Varie'),
+(96, '2022-03-29', 11, NULL, 'Storia'),
+(97, '2022-03-29', 37, NULL, 'Attualità'),
+(98, '2022-03-31', 29, NULL, 'Libri'),
+(99, '2022-04-04', 29, NULL, 'Varie'),
+(100, '2022-04-07', 56, NULL, 'Cinema');
 
 -- --------------------------------------------------------
 
@@ -173,32 +205,32 @@ CREATE TABLE `redazione` (
 --
 
 INSERT INTO `redazione` (`codice`, `nome`, `cognome`, `classe`, `professione`, `attivo`) VALUES
-(1, 'Lorenzo', 'Varisco', '5^N', 'Programmatore', 0),
-(2, 'Francesco', 'Melzi', '5^N', 'Programmatore', 0),
-(3, 'Federico', 'Villa', '5^M', 'Programmatore', 0),
-(4, 'Riccardo', 'Ortolina', '5^N', 'Programmatore', 0),
-(5, 'Marco', 'Arcioni', 'Professore', 'Responsabile', 0),
-(6, 'Rebecca', 'Spadone', '5^ALC', 'Scrittrice', 0),
-(7, 'Anna', 'Rocca', '5^B', 'Scrittrice', 0),
-(8, 'Arianna', 'Garavaglia', '5^ALC', 'Scrittrice', 0),
-(9, 'Andrea', 'Lupo', '5^ALC', 'Scrittore', 0),
-(10, 'Luca', 'di Lorenzo', '5^B', 'Scrittore', 0),
+(1, 'Lorenzo', 'Varisco', 'ex studente', 'Programmatore', 0),
+(2, 'Francesco', 'Melzi', 'ex studente', 'Programmatore', 0),
+(3, 'Federico', 'Villa', 'ex studente', 'Programmatore', 0),
+(4, 'Riccardo', 'Ortolina', 'ex studente', 'Programmatore', 0),
+(5, 'Marco', 'Arcioni', 'Professore', 'Ex-responsabile', 0),
+(6, 'Rebecca', 'Spadone', 'ex studente', 'Scrittrice', 0),
+(7, 'Anna', 'Rocca', 'ex studente', 'Scrittrice', 0),
+(8, 'Arianna', 'Garavaglia', 'ex studente', 'Scrittrice', 0),
+(9, 'Andrea', 'Lupo', 'ex studente', 'Scrittore', 0),
+(10, 'Luca', 'di Lorenzo', 'ex studente', 'Scrittore', 0),
 (11, 'Maddalena', 'Mandelli', '5^ALC', 'Scrittrice', 1),
-(12, 'Arianna', 'Bestetti', '5^ALC', 'Scrittrice', 0),
-(13, 'Bianca', 'Redaelli', '5^ALC', 'Social', 0),
-(14, 'Emma', 'Corno', '5^ALC', 'Social', 0),
-(15, 'Davide', 'Crippa', '3^N', 'Scrittore', 0),
+(12, 'Arianna', 'Bestetti', 'ex studente', 'Scrittrice', 0),
+(13, 'Bianca', 'Redaelli', 'ex studente', 'Social', 0),
+(14, 'Emma', 'Corno', 'ex studente', 'Social', 0),
+(15, 'Davide', 'Crippa', '4^N', 'Scrittore', 0),
 (16, 'Elena', 'Sana', '5^ALC', 'Disegnatrice', 1),
 (17, 'Margherita', 'Imbriani', '5^P', 'Scrittrice', 1),
-(18, 'Nicolò', 'Di Trani', '5^B', 'Social', 0),
-(19, 'Elena', 'Milani', '5^ALC', 'Correttrice', 0),
-(20, 'Sofia', 'Villa', '5^ALC', 'Scrittrice', 0),
+(18, 'Nicolò', 'Di Trani', 'ex studente', 'Social', 0),
+(19, 'Elena', 'Milani', 'ex studente', 'Correttrice', 0),
+(20, 'Sofia', 'Villa', 'ex studente', 'Scrittrice', 0),
 (21, 'Sabrina', 'Baeli', '2^ALC', 'Scrittrice', 1),
 (23, 'Sofia', 'Galbiati', '3^ALC', 'Scrittrice', 1),
-(24, 'Valentina', 'Croce', '5^ALC', 'Scrittrice', 0),
+(24, 'Valentina', 'Croce', 'ex studente', 'Scrittrice', 0),
 (25, 'Andrea', 'Ornaghi', '4^O', 'Scrittore', 1),
 (26, 'Il', 'Banfo', 'Giornalino', 'Scrittore', 1),
-(27, 'Elisa', 'Agostoni', '5^D', 'Scrittrice', 0),
+(27, 'Elisa', 'Agostoni', 'ex studente', 'Scrittrice', 0),
 (28, 'Noel', 'Di Gioia', '2^ALC', 'Scrittore', 1),
 (29, 'Letizia', 'Fumagalli', '4^ALC', 'Scrittrice', 1),
 (30, 'Matteo', 'Germanò', '4^P', 'Impaginatore', 1),
@@ -209,7 +241,6 @@ INSERT INTO `redazione` (`codice`, `nome`, `cognome`, `classe`, `professione`, `
 (35, 'Michela', 'Fassina', '3^ALC', 'Disegnatrice', 1),
 (36, 'Alice', 'Lissoni', '3^E', 'Scrittrice', 1),
 (37, 'Rebecca', 'Rivolta', '3^E', 'Scrittrice', 1),
-(38, 'Matilde', 'Rivolta', '1^ALC', 'Fotografa', 1),
 (39, 'Chiara', 'Lopriore', '5^P', 'Impaginatrice', 1),
 (40, 'Ludovica', 'Villa', '4^ALC', 'Scrittrice', 1),
 (41, 'Arianna', 'Bordogna', '3^ALC', 'Scrittrice', 1),
@@ -218,10 +249,17 @@ INSERT INTO `redazione` (`codice`, `nome`, `cognome`, `classe`, `professione`, `
 (44, 'Gabriele', 'Giardini', '5^N', 'Scrittore', 1),
 (45, 'Giorgia ', 'De Simone', '3^ALC', 'Scrittrice', 1),
 (46, 'Davide', 'Nicolussi', 'Professore', 'Responsabile', 1),
-(47, 'Jacopo', 'Pacelli', '5^N', 'Scrittore', 1),
 (48, 'Chantal', 'Lupo', '4^D', 'Disegnatrice', 1),
 (49, 'Asia', 'Anastasi', '2^ALC', 'Scrittrice', 1),
-(51, 'Myriam', 'Allenza', '2^ALC', 'Scrittrice', 1);
+(51, 'Myriam', 'Allenza', '2^ALC', 'Disegnatrice', 1),
+(53, 'Greta', 'Gervasoni', '1^ALC', 'Scrittrice', 1),
+(54, 'Sveva', 'Samburgato', '4^ALC', 'Disegnatrice', 1),
+(55, 'Giulia', 'Riccio', '4^ALC', 'Scrittrice', 1),
+(56, 'Simone', 'Modola', '4^ALC', 'Scrittore', 1),
+(57, 'Vittoria', 'Villa', '4^ALC', 'Social', 1),
+(58, 'Davide', 'Lugo', '3^P', 'Impaginatore', 1),
+(59, 'Emma', 'Bordogna', '4^ALC', 'Scrittrice', 1),
+(60, 'Claudio', 'Allenza', '4^ALC', 'Social', 1);
 
 --
 -- Indici per le tabelle scaricate
@@ -262,13 +300,13 @@ ALTER TABLE `redazione`
 -- AUTO_INCREMENT per la tabella `articoli`
 --
 ALTER TABLE `articoli`
-  MODIFY `codice_articolo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=67;
+  MODIFY `codice_articolo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=101;
 
 --
 -- AUTO_INCREMENT per la tabella `redazione`
 --
 ALTER TABLE `redazione`
-  MODIFY `codice` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
+  MODIFY `codice` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=61;
 
 --
 -- Limiti per le tabelle scaricate
