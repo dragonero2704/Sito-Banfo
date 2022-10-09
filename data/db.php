@@ -15,16 +15,16 @@ define("DEVELOPEMENT",
 * Decommentare false se si vuole effettuare il deploy
 */
 
-//false
-true
+false
+// true
 );
 //
 class Database
 {
-    private $database = DEVELOPEMENT ? "banfo" : "Sql1660750_1";
-    private $username = DEVELOPEMENT ? "studente" : "Sql1660750";
-    private $password = DEVELOPEMENT ? "pass_studente_banfi" : "Fizz001[c@t]";
-    private $host = DEVELOPEMENT ? "localhost" : "localhost"; //in caso cambi l'host del db in futuro
+    private $database = DEVELOPMENT ? "banfo" : "Sql1660750_1";
+    private $username = DEVELOPMENT ? "studente" : "Sql1660750";
+    private $password = DEVELOPMENT ? "pass_studente_banfi" : "Fizz001[c@t]";
+    private $host = DEVELOPMENT ? "localhost" : "localhost"; //in caso cambi l'host del db in futuro
     private $connection;
     public $error = array();
     public $connerror = array();
