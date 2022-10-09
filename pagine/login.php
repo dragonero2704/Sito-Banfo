@@ -121,7 +121,7 @@
                 require_once('../data/db.php');
                 // $conn = new mysqli($dbhost,$dbusername,$dbpassword,$dbname);
                 $database = new Database() or die("<p>Connessione al server non riuscita: ".$database->connerror['message']."</p>");
-                // $username = $database->escape_string($username);
+                $username = $database->escape_string($username);
                 // if($conn->connect_error){
                 //     die("<p>Connessione al server non riuscita: ".$conn->connect_error."</p>");
                 // }
