@@ -111,26 +111,28 @@
     <?php
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $p = strval(hash('sha256',$password));
+            // echo $p;
             if( empty($_POST["username"]) or empty($_POST["password"])) {
                 echo "<p>Campi lasciati vuoti</p>";
             } elseif (strpos($_POST["username"],'/') !== false and strpos($_POST["username"],' ') !== false and strpos($_POST["username"],'"') !== false and strpos($_POST["username"],'-') !== false){
               echo "<p>Errore in Username o Password, riprova</p>";
             }
             else {
-                require('../data/db.php');
-                $conn = new mysqli($dbhost,$dbusername,$dbpassword,$dbname);
-                $username = $conn->escape_string($username);
-                if($conn->connect_error){
-                    die("<p>Connessione al server non riuscita: ".$conn->connect_error."</p>");
-                }
+                require_once('../data/db.php');
+                // $conn = new mysqli($dbhost,$dbusername,$dbpassword,$dbname);
+                $database = new Database() or die("<p>Connessione al server non riuscita: ".$database->connerror['message']."</p>");
+                // $username = $database->escape_string($username);
+                // if($conn->connect_error){
+                //     die("<p>Connessione al server non riuscita: ".$conn->connect_error."</p>");
+                // }
                 $sql = "SELECT username, password
                         FROM redattore
                         WHERE username='$username' AND password='$p'";
-                $ris = $conn->query($sql) or die("<p>Query fallita! ".$conn->error."</p>");
+                // $ris = $conn->query($sql) or die("<p>Query fallita! ".$conn->error."</p>");
+                $ris = $database->query($sql) or die("<p>Query fallita! ".$database->error['message']."</p>");
 
                 if($ris->num_rows > 0) {
                     $_SESSION["username"] = $username;
-                    $conn->close();
                     header('location: redattore.php');
                 }
             }

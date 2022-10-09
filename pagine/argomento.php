@@ -64,14 +64,14 @@
   <!-- News  -->
 <?php
   require_once('../data/db.php');
-  $conn = new mysqli($dbhost,$dbusername,$dbpassword,$dbname);
-  if($conn->connect_error){
-      die("<p>Connessione al server non riuscita: ".$conn->connect_error."</p>");
-  }
-  $sql = "	SELECT descrizione
+  // $conn = new mysqli($dbhost,$dbusername,$dbpassword,$dbname);
+  $database = new Database() or die("<p>Connessione al server non riuscita: ".$database->connerror['message']."</p>");
+  
+  $sql = "SELECT descrizione
           FROM categorie
           WHERE argomento = '$argomento'";
-          $ris = $conn->query($sql) or die("<p>Query fallita! ".$conn->error."</p>");
+
+          $ris = $database->query($sql) or die("<p>Query fallita! ".$database->error['message']."</p>");
           if ($ris->num_rows > 0) {
             while($row = $ris->fetch_assoc()) {
               echo "
@@ -100,7 +100,7 @@
           GROUP BY collabora.codice_articolo
           ORDER BY DATE_FORMAT(articoli.data, '%Y/%m/%d') DESC
           LIMIT 9";
-          $ris = $conn->query($sql) or die("<p>Query fallita! ".$conn->error."</p>");
+          $ris = $database->query($sql) or die("<p>Query fallita! ".$database->error['message']."</p>");
           if ($ris->num_rows > 0) {
             while($row = $ris->fetch_assoc()) {
                 $articolo = fopen("../articoli/".$row["cod"].".txt", "r");
@@ -139,7 +139,6 @@
         else {
           echo "Nessun articolo da visualizzare";
         }
-          $conn->close();
         ?>
     </div>
 

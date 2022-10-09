@@ -1,33 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-GKN4DGSBEF"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-GKN4DGSBEF"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
 
-  gtag('config', 'G-GKN4DGSBEF');
-</script>
-    <?php
-        $cod = $_GET["membro"];
-        require('../data/db.php');
-        $conn = new mysqli($dbhost,$dbusername,$dbpassword,$dbname);
-        if($conn->connect_error){
-            die("<p>Connessione al server non riuscita: ".$conn->connect_error."</p>");
-        }
-        $sql = "SELECT nome, cognome, classe, professione
-                FROM redazione
-                WHERE codice = $cod";
-        $ris = $conn->query($sql) or die("<p>Query fallita! ".$conn->error."</p>");
-        if ($ris->num_rows > 0) {
-          while($row = $ris->fetch_assoc()) {
-    ?>
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+
+    gtag('config', 'G-GKN4DGSBEF');
+  </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title><?php echo "".$row["nome"]." ".$row["cognome"].""; ?></title>
+  <title><?php echo "" . $row["nome"] . " " . $row["cognome"] . ""; ?></title>
   <link rel="icon" href="../immagini/logo.png">
 
   <!-- Css del Normalize -->
@@ -35,12 +25,12 @@
   <!-- Css dello Slider -->
   <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
   <!--Script per le icone di fontawesome-->
-<script src="https://kit.fontawesome.com/bb4d7bec8d.js" crossorigin="anonymous"></script>
+  <script src="https://kit.fontawesome.com/bb4d7bec8d.js" crossorigin="anonymous"></script>
   <!-- Il nostro css -->
   <link rel="stylesheet" href="../css/style.css">
   <!--Font Lato  -->
   <link rel="preconnect" href="https://fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -55,42 +45,53 @@
       <a href="nuoviarticoli.php">News</a>
       <a href="redazione.php">Chi Siamo</a>
       <div class="tdn">
-           <a href="login.php">Redattore</a>
+        <a href="login.php">Redattore</a>
       </div>
     </div>
   </div>
 
   <div class="cont_menu">
-      <div class="header_menu clearfix">
-        <div class="menu_logo">
-          <a href="home.php"><img src="../immagini/ilbanfotipo.png" alt=""></a>
-        </div>
-        <div class="menu_hamburger">
-          <span onclick="openNav()">&#9776;</span>
-        </div>
+    <div class="header_menu clearfix">
+      <div class="menu_logo">
+        <a href="home.php"><img src="../immagini/ilbanfotipo.png" alt=""></a>
       </div>
+      <div class="menu_hamburger">
+        <span onclick="openNav()">&#9776;</span>
+      </div>
+    </div>
   </div>
 
-<!--============================================================================================================================-->
-<!-- Singola Persona -->
-<?php
-        if(file_exists("../immagini/".$row["nome"]."_".$row["cognome"].".jpg")){
-          echo "
-            <div class='persona_contenitore  clearfix'>
+  <!--============================================================================================================================-->
+  <!-- Singola Persona -->
+  <?php
+  $cod = $_GET["membro"];
+  require_once('../data/db.php');
+  // $conn = new mysqli($dbhost,$dbusername,$dbpassword,$dbname);
+  $database = new Database() or die("<p>Connessione al server non riuscita: " . $database->connerror['message'] . "</p>");
+
+  $sql = "SELECT nome, cognome, classe, professione
+        FROM redazione
+        WHERE codice = $cod";
+  $ris = $database->getAllFrom('redazione', "codice = $cod") or die("<p>Query fallita! " . $database->error['message'] . "</p>");
+  $row = $ris[0];
+  $img_path = file_exists("../immagini/" . $row["nome"] . "_" . $row["cognome"] . ".jpg") ? "../immagini/" . $row["nome"] . "_" . $row["cognome"] . ".jpg" : '../immagini.user.jpg';
+  
+    
+            echo "<div class='persona_contenitore clearfix'>
                 <div class='persona_card clearfix'>
                     <div class='persona_foto'>
-                        <img src='../immagini/".$row["nome"]."_".$row["cognome"].".jpg'>
+                        <img src='$img_path'>
                     </div>
 
                     <div class='persona_generalita'>
                         <div class='persona_nome normal-text'>
-                            <h2>".$row["nome"]." ".$row["cognome"]."</h2>
+                            <h2>" . $row['nome'] . " " . $row['cognome'] . "</h2>
                         </div>
                         <div class='persona_testo normal-text'>
                             <h3>Classe:</h3>
-                            <p>".$row["classe"]."</p>
+                            <p>" . $row['classe'] . "</p>
                             <h3>Ruolo:</h3>
-                            <p>".$row["professione"]."</p>
+                            <p>" . $row['professione'] . "</p>
                         </div>
                     </div>
                 </div>
@@ -98,135 +99,104 @@
             <div class='chisiamo_titolo normal-text'>
               <h1><span>I miei articoli</span></h1>
             </div>
-            <div class='container_news clearfix'>
+            <div class='container_news clearfix'>";
               
-        ";
-        }else{
-          echo "
-            <div class='persona_contenitore  clearfix'>
-                <div class='persona_card clearfix'>
-                    <div class='persona_foto'>
-                        <img src='../immagini/user.jpg'>
-                    </div>
-
-                    <div class='persona_generalita'>
-                        <div class='persona_nome normal-text'>
-                            <h2>".$row["nome"]." ".$row["cognome"]."</h2>
-                        </div>
-                        <div class='persona_testo normal-text'>
-                            <h3>Classe:</h3>
-                            <p>".$row["classe"]."</p>
-                            <h3>Ruolo:</h3>
-                            <p>".$row["professione"]."</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class='chisiamo_titolo normal-text'>
-              <h1><span>I miei articoli</span></h1>
-            </div>
-            <div class='container_news clearfix'>
-              
-        ";
-        }
-        
-    }
-}
-
-$sql = "SELECT collabora.codice_articolo as codice, DATE_FORMAT(data, '%d/%m/%Y') as data, argomento
+      
+  $sql = "SELECT collabora.codice_articolo as codice, DATE_FORMAT(data, '%d/%m/%Y') as data, argomento
         FROM collabora JOIN articoli ON articoli.codice_articolo=collabora.codice_articolo
         WHERE collabora.codice_autore = $cod
         ORDER BY DATE_FORMAT(data, '%Y/%m/%d') DESC";
-$ris = $conn->query($sql) or die("<p>Query fallita! ".$conn->error."</p>");
-if ($ris->num_rows > 0) {
-    while($row = $ris->fetch_assoc()) {
-        $articolo = fopen("../articoli/".$row["codice"].".txt", "r");
-        $titolo = fgets($articolo);
-        $testo = fread($articolo,"450");
-        fclose($articolo);
-        echo "
+  $ris = $database->query($sql) or die("<p>Query fallita! " . $database->error['message'] . "</p>");
+  if ($ris->num_rows > 0) {
+    while ($row = $ris->fetch_assoc()) {
+      $articolo = fopen("../articoli/" . $row["codice"] . ".txt", "r");
+      $titolo = fgets($articolo);
+      $testo = fread($articolo, "450");
+      fclose($articolo);
+      echo "
             
                 <div class='news_elemento'>
                     <div class='news_titolo'>
-                        <h2>".$titolo."</h2>
+                        <h2>" . $titolo . "</h2>
                     </div>
                     <div class='news_immagine'>
                         <div class='news_categoria'>
-                            <h2>".$row["argomento"]."</h2><!-- Scritto dinamicamente con il database -->
+                            <h2>" . $row["argomento"] . "</h2><!-- Scritto dinamicamente con il database -->
                     </div>
-                    <img src='../immagini/".$row["codice"].".jpg'>
+                    <img src='../immagini/" . $row["codice"] . ".jpg'>
                     <div class='news_data_su_immagine top-left'>
-                        <p><i style='margin-right:10px;' class='far fa-calendar-alt'></i>".$row["data"]."</p> <!-- Scritta dinamicamente con il database -->
+                        <p><i style='margin-right:10px;' class='far fa-calendar-alt'></i>" . $row["data"] . "</p> <!-- Scritta dinamicamente con il database -->
                     </div>
                     </div>
                     <div class='news_introduzione'>
-                        <p>".$testo."...</p>
+                        <p>" . $testo . "...</p>
                     </div>
                     <div class='news_bottone'>
-                        <a href='articolo.php?articolo=".$row["codice"]."'><button class='il_mio_bottone'><span>Scopri di più  </span></button></a>
+                        <a href='articolo.php?articolo=" . $row["codice"] . "'><button class='il_mio_bottone'><span>Scopri di più  </span></button></a>
                     </div>
                 </div>
                 
             
         ";
     }
-}else {
-  echo "Nessun articolo da visualizzare";
-}
-?>
-
-</div>
-
-<!--============================================================================================================================-->
-<!-- footer -->
-<?php
-    require_once('../components/footer.php');
+  } else {
+    echo "Nessun articolo da visualizzare";
+  }
   ?>
-<!--============================================================================================================================-->
 
-<!-- Scripts -->
+  </div>
+
+  <!--============================================================================================================================-->
+  <!-- footer -->
+  <?php
+  require_once('../components/footer.php');
+  ?>
+  <!--============================================================================================================================-->
+
+  <!-- Scripts -->
 
   <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 
   <!-- Initialize Swiper -->
-   <script>
-     var swiper = new Swiper('.swiper-container', {
-       effect: 'coverflow',
-       grabCursor: true,
-       centeredSlides: true,
-       slidesPerView: 'auto',
-       coverflowEffect: {
-         rotate: 0,
-         stretch: 0,
-         depth: 0,
-         modifier: 1,
-         slideShadows: true,
-       },
-       loop: true,
-     });
-   </script>
+  <script>
+    var swiper = new Swiper('.swiper-container', {
+      effect: 'coverflow',
+      grabCursor: true,
+      centeredSlides: true,
+      slidesPerView: 'auto',
+      coverflowEffect: {
+        rotate: 0,
+        stretch: 0,
+        depth: 0,
+        modifier: 1,
+        slideShadows: true,
+      },
+      loop: true,
+    });
+  </script>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script>
-function openNav() {
-  document.getElementById("myNav").style.width = "100%";
-}
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script>
+    function openNav() {
+      document.getElementById("myNav").style.width = "100%";
+    }
 
-function closeNav() {
-  document.getElementById("myNav").style.width = "0%";
-}
-</script>
-<script>
-        var smooth = [$('a.smooth'), 100, 850];
+    function closeNav() {
+      document.getElementById("myNav").style.width = "0%";
+    }
+  </script>
+  <script>
+    var smooth = [$('a.smooth'), 100, 850];
 
-        smooth[0].click(function() {
-          $('html, body').animate({
-            scrollTop: $('[id="' + $.attr(this, 'href').substr(1) + '"]').offset().top -smooth[1]
-          }, smooth[2]);
-          return false;
-        });
-</script>
+    smooth[0].click(function() {
+      $('html, body').animate({
+        scrollTop: $('[id="' + $.attr(this, 'href').substr(1) + '"]').offset().top - smooth[1]
+      }, smooth[2]);
+      return false;
+    });
+  </script>
   <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 
 </body>
+
 </html>

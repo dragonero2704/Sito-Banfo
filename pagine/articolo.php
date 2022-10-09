@@ -14,16 +14,17 @@
   <?php
   $cod = $_GET["articolo"];
   require_once('../data/db.php');
-  $conn = new mysqli($dbhost, $dbusername, $dbpassword, $dbname);
-  if ($conn->connect_error) {
-    die("<p>Connessione al server non riuscita: " . $conn->connect_error . "</p>");
-  }
+  $database = new Database() or die("<p>Connessione al server non riuscita: ".$database->connerror['message']."</p>");
+  // $conn = new mysqli($dbhost, $dbusername, $dbpassword, $dbname);
+  // if ($conn->connect_error) {
+  //   die("<p>Connessione al server non riuscita: " . $conn->connect_error . "</p>");
+  // }
   $sql = "SELECT collabora.codice_articolo as codice, DATE_FORMAT(articoli.data, '%d/%m/%Y') as data, argomento
           FROM collabora 
           JOIN articoli ON collabora.codice_articolo=articoli.codice_articolo
           WHERE collabora.codice_articolo = $cod";
 
-  $ris = $conn->query($sql) or die("<p>Query fallita! " . $conn->error . "</p>");
+  $ris = $database->query($sql) or die("<p>Query fallita! " . $conn->error['message'] . "</p>");
 
 
   function standard($profession){

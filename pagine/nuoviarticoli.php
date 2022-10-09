@@ -77,11 +77,10 @@
 
 
     <?php
-    require('../data/db.php');
-    $conn = new mysqli($dbhost, $dbusername, $dbpassword, $dbname);
-    if ($conn->connect_error) {
-      die("<p>Connessione al server non riuscita: " . $conn->connect_error . "</p>");
-    }
+    require_once('../data/db.php');
+    // $conn = new mysqli($dbhost, $dbusername, $dbpassword, $dbname);
+    $database = new Database() or die("<p>Connessione al server non riuscita: " . $database->connerror['message'] . "</p>");
+
     $sql = "	SELECT DISTINCT collabora.codice_articolo as cod, DATE_FORMAT(articoli.data, '%d/%m/%Y') as data, collabora.codice_autore as autore, articoli.argomento as argomento, nome, cognome
                         FROM collabora JOIN articoli
                         ON collabora.codice_articolo=articoli.codice_articolo JOIN categorie
@@ -90,7 +89,7 @@
                         WHERE collabora.ruolo IN ('Scrittore', 'Scrittrice')
                         ORDER BY DATE_FORMAT(articoli.data, '%Y/%m/%d') DESC
                         LIMIT 9";
-    $ris = $conn->query($sql) or die("<p>Query fallita! " . $conn->error . "</p>");
+    $ris = $database->query($sql) or die("<p>Query fallita! " . $database->error['message'] . "</p>");
     if ($ris->num_rows > 0) {
       while ($row = $ris->fetch_assoc()) {
         $articolo = fopen("../articoli/" . $row["cod"] . ".txt", "r");
@@ -126,7 +125,7 @@
                     ";
       }
     }
-    $conn->close();
+    
     ?>
 
 
@@ -137,7 +136,7 @@
   <!--============================================================================================================================-->
   <!-- footer -->
   <?php
-    require_once('../components/footer.php');
+  require_once('../components/footer.php');
   ?>
   <!--============================================================================================================================-->
 

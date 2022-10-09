@@ -2,24 +2,38 @@
 
 <?php
 //questa pagina verrà chiamata in modo asiconrono da una AJAX, non deve essere accessibile normalmente nel sito
-require('../data/db.php');
+require_once('../data/db.php');
 $codice = $_GET['q'];
-$conn = new mysqli($dbhost, $dbusername, $dbpassword, $dbname) or die("Connessione fallita, come te.");
+
+$database = new Database();
+
+// $conn = new mysqli($dbhost, $dbusername, $dbpassword, $dbname) or die("Connessione fallita, come te.");
 
 $query = "SELECT nome, cognome, professione, classe
         FROM redazione
         WHERE codice='$codice'
         ";
 
-$ris = $conn->query($query);
-$conn->close();
+// $ris = $conn->query($query);
+// $conn->close();
+$ris = $database->getAllFrom('redazione', "
+codice = '$codice'
+");
 
-$row = $ris->fetch_assoc();
-if (file_exists('../immagini/' . $row['nome'] . '_' . $row['cognome'] . '.jpg')) {
-    $img_path = '../immagini/' . $row['nome'] . '_' . $row['cognome'] . '.jpg';
-} else {
-    $img_path = '../immagini/user.jpg';
-}
+$row = $ris[0];
+
+$img_path = file_exists('../immagini/' . $row['nome'] . '_' . $row['cognome'] . '.jpg') ? '../immagini/' . $row['nome'] . '_' . $row['cognome'] . '.jpg' : '../immagini/user.jpg';
+
+
+
+// json_encode(array(
+//     "img_path" => $img_path,
+//     "nome" => $nome,
+//     "congnome"=>$cognome,
+//     "codice"=>$codice,
+//     "professione"=>$row['professione'],
+//     "classe"=>$row['classe']
+// ));
 // echo '<div class="item" onclick="deselect(this)" id="'.$codice.'-display"><h1>'.$row['nome'].' '.$row['cognome'].'</h1></div>';
 echo "<div class='Red_singolo-membro' id='".$codice."-display'>
     

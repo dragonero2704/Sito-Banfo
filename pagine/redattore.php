@@ -34,16 +34,14 @@
     $username = $_SESSION["username"];
 
     require_once('../data/db.php');
-    $conn = new mysqli($dbhost, $dbusername, $dbpassword, $dbname);
-    if ($conn->connect_error) {
-        die("<p>Connessione al server non riuscita: " . $conn->connect_error . "</p>");
-    }
+    $database = new Database() or die("<p>Connessione al server non riuscita: " . $database->connerror['message'] . "</p>");
+
     //prende l'ultimo articolo pubblicato
     $sql = "SELECT codice_articolo
     FROM articoli
     ORDER BY codice_articolo DESC
     LIMIT 1";
-    $ris = $conn->query($sql) or die("<p>Query fallita! " . $conn->error . "</p>");
+    $ris = $database->query($sql) or die("<p>Query fallita! " . $database->error['message'] . "</p>");
     if ($ris->num_rows > 0) {
         while ($row = $ris->fetch_assoc()) {
             $codice = $row["codice_articolo"] + 1;
@@ -111,7 +109,7 @@
                 $sql = "SELECT argomento
                     FROM categorie
                     ORDER BY argomento";
-                $ris = $conn->query($sql) or die("<p>Query fallita! " . $conn->error . "</p>");
+                $ris = $database->query($sql) or die("<p>Query fallita! " . $database->error['message'] . "</p>");
                 if ($ris->num_rows > 0) {
                     while ($row = $ris->fetch_assoc()) {
                         echo "<option value='" . $row["argomento"] . "'>" . $row["argomento"] . "</option>";
@@ -131,7 +129,7 @@
                     FROM redazione
                     WHERE attivo = 1
                     ORDER BY cognome";
-                $ris = $conn->query($sql) or die("<p>Query fallita! " . $conn->error . "</p>");
+                $ris = $database->query($sql) or die("<p>Query fallita! " . $database->error['message'] . "</p>");
                 if ($ris->num_rows > 0) {
                     while ($row = $ris->fetch_assoc()) {
                         echo '<option class="option" value=' . $row['codice'] . '>' . $row["nome"] . ' ' . $row["cognome"] . '</option>';
@@ -148,7 +146,7 @@
                     FROM redazione
                     WHERE attivo = 1
                     ORDER BY cognome";
-                $ris = $conn->query($sql) or die("<p>Query fallita! " . $conn->error . "</p>");
+                $ris = $database->query($sql) or die("<p>Query fallita! " . $database->error['message'] . "</p>");
                 if ($ris->num_rows > 0) {
                     while ($row = $ris->fetch_assoc()) {
                         echo '<option value=' . $row['codice'] . ' id=' . $row['codice'] . '></option>';
@@ -361,9 +359,9 @@
                             VALUES ('" . $_POST["data"] . "',
                                     '" . $_POST["titolo"] . "',
                                     '" . $_POST["argomento"] . "')";
-            $ris = $conn->query($sql) or die("<p>Query fallita! " . $conn->error . "</p>");
+            $ris = $database->query($sql) or die("<p>Query fallita! " . $database->error['message'] . "</p>");
 
-            $conn->query('SET FOREIGN_KEY_CHECKS=0;');
+            $database->query('SET FOREIGN_KEY_CHECKS=0;');
             //autori
             foreach ($autori as $aut) {
                 $ruolo = $ruoli[$aut];
@@ -371,10 +369,10 @@
                             VALUES ('$codice',
                                     '$aut',
                                     '$ruolo')";
-                $ris = $conn->query($sql) or die("<p>Query fallita! " . $conn->error . "</p>");
+                $ris = $database->query($sql) or die("<p>Query fallita! " . $database->error['message'] . "</p>");
             }
-            $conn->query('SET FOREIGN_KEY_CHECKS=1;');
-            $conn->close();
+            $database->query('SET FOREIGN_KEY_CHECKS=1;');
+        
         }
     }
     ?>

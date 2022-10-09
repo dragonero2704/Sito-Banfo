@@ -76,7 +76,7 @@
     <p class="normal-text">Il Banfo è il giornale scolastico del Liceo Scientifico e Classico A. Banfi di Vimercate. La tradizione viene portata avanti ormai dal 1980 e fino all’anno scorso, tra formati A4 e formati A5, i numeri venivano distribuiti per la classi sotto forma di giornali di carta. Con lo scoppio della pandemia anche il Banfo, come molte delle realtà scolastiche e non, si è dovuto reinventare. Nel corso del primo lockdown abbiamo quindi deciso di aprire un sito per continuare a tenere compagnia ai nostri lettori anche (e soprattutto) durante un periodo così particolare e difficile. <br>
 Una volta tornati a scuola, nel settembre del 2020, pensando alle complicazioni che la pandemia avrebbe inevitabilmente portato sulla distribuzione delle copie in carta ed all’impatto ambientale che può avere stampare così tante pagine, abbiamo convenuto che procedere online sarebbe stata la scelta migliore.<br>
 Un gruppo di ragazzi del Liceo delle Scienze applicate ha così creato questo sito.<br>
-La redazione del Banfo, tra chi si occupa di scrivere, chi di disegnare, chi di correggere, chi dei social e chi dell’impaginazione, è composta da 29 studenti che si impegnano a portare nella quotidianità dei banfiani qualche interessante articolo di attualità, scienza, cinema, musica, letteratura e storia. Oltre a questo sul sito troverete anche vignette e disegni, novità ed eventi della nostra scuola e del nostro territorio.
+La redazione del Banfo, tra chi si occupa di scrivere, chi di disegnare, chi di correggere, chi dei social e chi dell’impaginazione, è composta da studenti che si impegnano a portare nella quotidianità dei banfiani qualche interessante articolo di attualità, scienza, cinema, musica, letteratura e storia. Oltre a questo sul sito troverete anche vignette e disegni, novità ed eventi della nostra scuola e del nostro territorio.
 
 </p>
     </div>
@@ -90,23 +90,22 @@ La redazione del Banfo, tra chi si occupa di scrivere, chi di disegnare, chi di 
     </div>
     <div class="Red_flex">
         <?php
-            require('../data/db.php');
-            $conn = new mysqli($dbhost,$dbusername,$dbpassword,$dbname);
-            if($conn->connect_error){
-                die("<p>Connessione al server non riuscita: ".$conn->connect_error."</p>");
-            }
+            require_once('../data/db.php');
+            $database = new Database() or die("<p>Connessione al server non riuscita: " . $database->connerror['message'] . "</p>");
+
             $sql = "	SELECT codice, nome, cognome, professione, classe
                         FROM redazione
+                        WHERE attivo = 1
                         ORDER BY cognome";
-            $ris = $conn->query($sql) or die("<p>Query fallita! ".$conn->error."</p>");
+            $ris = $database->query($sql) or die("<p>Query fallita! ".$database->error['message']."</p>");
             if ($ris->num_rows > 0) {
                 while($row = $ris->fetch_assoc()) {
-                  if(file_exists("../immagini/".$row["nome"]."_".$row["cognome"].".jpg")){
+                  $img_path = file_exists("../immagini/".$row["nome"]."_".$row["cognome"].".jpg") ? "../immagini/".$row["nome"]."_".$row["cognome"].".jpg" : "../immagini/user.jpg";
                     echo "
                         
                             <div class='Red_singolo-membro'>
                                 <div class='Red_singolo_membro_img'>
-                                    <img src='../immagini/".$row["nome"]."_".$row["cognome"].".jpg'>
+                                    <img src='".$img_path."'>
                                 </div>
                                 <div class='Red_contenitore_membro'>
                                     <h2>".$row["nome"]." ".$row["cognome"]."</h2>
@@ -117,26 +116,8 @@ La redazione del Banfo, tra chi si occupa di scrivere, chi di disegnare, chi di 
                             </div>
                        
                     ";
-                  }else{
-                    echo "
-                            <div class='Red_singolo-membro'>
-                                <div class='Red_singolo_membro_img'>
-                                    <img src='../immagini/user.jpg'>
-                                </div>
-                                <div class='Red_contenitore_membro'>
-                                    <h2>".$row["nome"]." ".$row["cognome"]."</h2>
-                                    <p class='Red_professione'>".$row["professione"]."</p>
-                                    <p>".$row["classe"]."</p>
-                                    <a href='membro.php?membro=".$row["codice"]."'><button class='il_mio_bottone'><span>Scopri di più  </span></button></a>
-                                </div>
-                            </div>
-                      
-                    ";
-                  }
-                    
                 }
             }
-            $conn->close();
         ?>
     </div>
 
