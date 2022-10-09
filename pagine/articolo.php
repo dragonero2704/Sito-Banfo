@@ -13,7 +13,7 @@
   </script>
   <?php
   $cod = $_GET["articolo"];
-  require('../data/db.php');
+  require_once('../data/db.php');
   $conn = new mysqli($dbhost, $dbusername, $dbpassword, $dbname);
   if ($conn->connect_error) {
     die("<p>Connessione al server non riuscita: " . $conn->connect_error . "</p>");
@@ -92,7 +92,7 @@
   <div id="myNav" class="overlay">
     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
     <div class="overlay-content">
-      <a href="../index.php">Home</a>
+      <a href="home.php">Home</a>
       <a href="nuoviarticoli.php">News</a>
       <a href="redazione.php">Chi Siamo</a>
       <div class="tdn">
@@ -104,7 +104,7 @@
   <div class="cont_menu">
     <div class="header_menu clearfix">
       <div class="menu_logo">
-        <a href="../index.php"><img src="../immagini/ilbanfotipo.png" alt=""></a>
+        <a href="home.php"><img src="../immagini/ilbanfotipo.png" alt=""></a>
       </div>
       <div class="menu_hamburger">
         <span onclick="openNav()">&#9776;</span>
@@ -128,7 +128,7 @@
 
                 <div class='intestazione_del_mio_articolo'>
                   <ul class='breadcrumb'>
-                  <li><a href='../index.php'>Home</a></li>
+                  <li><a href='home.php'>Home</a></li>
                     <li><a href='argomento.php?argomento=" . $row["argomento"] . "'>" . $row["argomento"] . "</a></li>
                     <li>" . $titolo . "</li>
                   </ul>
