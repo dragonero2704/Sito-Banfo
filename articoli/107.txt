@@ -1,0 +1,40 @@
+Alla scoperta del sonno: dipendenza e alcolismo
+
+Bentornati(e) alla rubrica del sonno. 
+Oggi tratteremo del modo in cui sostanze come l’etanolo (alcool etilico) e la caffeina interferiscono sul sonno.
+Partiamo dall’etanolo. 
+Birra, vino e altre sostanze contenenti alcool ci piacciono e sono sempre piaciute nella storia perché causano euforia e ci fanno sentire più vivi, più spensierati. Mio nonno diceva sempre che “buon vino fa sangue”. Ma al di là delle credenze popolari e degli effetti tipici che percepiamo quando assumiamo queste sostanze, è interessante scoprire cosa succede al sonno sotto il loro effetto.
+L’alcool etilico ha un effetto ambivalente sul nostro cervello: sulle prime ci fa sentire molto assonnati, ma qualche ora dopo fa affiorare in noi un nervosismo recondito e un’agitazione tali per cui pare impossibile dormire.
+Quando assumiamo alcool, questo entra nel flusso sanguigno molto rapidamente: di solito impiega 20 minuti per entrare in circolo. Poiché la molecola dell’etanolo è una molecola piccola, essa riesce ad attraversare la barriera emato-encefalica (una barriera che impedisce alle sostanze nocive del sangue di raggiungere il cervello) e a influenzare i neuroni
+Nel nostro cervello l’alcool bersaglia delle molecole proteiche presenti sui neuroni, e tra queste anche dei particolari recettori: i GABA-A. I GABA-A sono dei recettori presenti su più dell’80% dei neuroni, a cui si lega abitualmente il neurotrasmettitore GABA. Questa molecola, legandosi al recettore GABA-A, ha il compito di permettere l’accesso nel neurone agli ioni cloro, che agiscono rallentandone l’attività cellulare. Il comportamento dell’alcool consiste nell’andare a bersagliare questi specifici recettori, che venendo stimolati a ridurre l’attività neuronale si comportano di conseguenza.
+Ma allora perché la qualità del sonno è così scarsa?
+Ancora una volta la risposta coinvolge i recettori GABA-A. Qualche ora dopo aver assunto una consistente quantità di alcool, questi recettori perdono la sensibilità alle molecole di GABA (e di etanolo) e vengono ritratti all’interno della cellula neuronale. Questo processo prende il nome di “receptor trafficking” (ricollocazione dei recettori). Una volta che i recettori sono stati retratti all’interno della cellula neuronale, gli ioni cloro non possono più entrare a rallentarne l’attività, e la cellula inizia a eccitarsi sempre di più. Quando l’eccitazione collettiva di tutte le cellule neuronali si fa significativa ci svegliamo e, proprio perché i nostri neuroni non hanno più la possibilità di rilassarsi, rimaniamo irrequieti.
+Nella realtà la questione è più complicata di quanto traspaia da questo articolo. Vi basti sapere che oltre che ai recettori GABA vengono influenzati tanti altri recettori. Potremmo stare qui a elencarli per ore.  Sebbene questo processo coinvolga molti recettori, i GABA sembrano avere un ruolo più importante per quanto riguarda gli effetti che interessano a noi, ed è proprio per questo che la nostra attenzione si è focalizzata su di essi.
+
+Passiamo alla caffeina. 
+Immaginiamo di esserci appena alzati dal letto e di doverci preparare per andare a scuola. Siamo molto stanchi e magari abbiamo qualche ora di sonno arretrata. In qualche modo però dobbiamo prendere il pullman e raggiungere il nostro banco. Come possiamo fare?
+Ma certo, con una bella tazza di caffè caldo.
+Tutti sanno che il caffè ci tiene svegli perché contiene la caffeina, che rientra nella categoria di alcune sostanze note come psicoattive. (Grazie al ca… direte voi, “altrimenti perché lo beviamo?”).
+Le sostanze psicoattive sono particolari sostanze che hanno il potere di alterare le condizioni psico-fisiche di un individuo, facendogli sentire meno la stanchezza e l’affaticamento.
+
+Anche se tutti conosciamo cosa ci provoca assumere caffeina, non tutti abbiamo bene in mente quale sia la durata degli effetti indotti da questa e per quanto tempo essa rimanga nel sangue.
+20 minuti? 2 ore? 4 ore? 10 ore?
+
+In un adulto medio la caffeina ha un’emivita di 5-6; dove per emivita si intende il tempo di dimezzamento della quantità di una molecola nel sangue. Questo significa che dopo 5-6 ore la metà della caffeina che è stata assunta in precedenza è ancora in circolo nel corpo e che dopo circa 10-12 ore rimarrà in corpo una quantità di caffeina pari a un quarto di quella assunta mezza giornata prima. Per assurdo, se si assumesse una tazza alle 14 di pomeriggio, a mezzanotte si avrebbe un quarto di caffeina ancora in circolo. Il grande problema di avere in corpo elevate dosi di caffeina in corrispondenza degli orari dedicati al riposo sta tanto nella capacità di prendere sonno quanto nella qualità del sonno che ci accingiamo a principiare.
+
+Un caffè, in media, impiega circa 20 minuti per fare effetto perché in questo lasso di tempo la caffeina deve riuscire ad arrivare al cervello tramite il flusso sanguigno e oltrepassare la barriera ematoencefalica. Nel cervello, la caffeina si comporta in modo da bloccare gli effetti di un neurotrasmettitore che durante l’arco della giornata viene regolarmente prodotto: l’adenosina. L’adenosina è una molecola che quando si lega ai rispettivi recettori rilassa il cervello e ha effetti profondi sui vasi sanguigni e sul cuore, dove serve a fare diminuire la frequenza cardiaca. Quando introduciamo caffeina nel corpo questa va a legarsi ai recettori dell’adenosina senza però attivarli. Da questo consegue una sensazione di vigore e di minor stanchezza fisica. 
+Anche se può sembrare eccessivo, dato che la caffeina colpisce il cervello, essa viene spesso considerata come una droga psicoattiva.
+
+Siamo giunti alla conclusione.
+Ancora una volta spero di essere riuscito a trasmettervi qualcosa e a stupirvi almeno un poco. 
+Magari alla prossima bevuta potrete vantarvi con i vostri amici dicendo: “so cosa sta per succedere al mio cervello”.
+Magari no. 
+In ogni caso, bevete responsabilmente. 
+Alla prossima.
+Gabriele Giardini 
+
+
+Bibliografia:
+https://www.livescience.com/58990-why-drinking-alcohol-makes-you-sleepy.html
+https://www.my-personaltrainer.it/alimentazione/caffeina-fa-bene-o-male.html#:~:text=La%20caffeina%20aiuta%20a%20restare,'adenosina%2C%20riducendo%20la%20stanchezza.
+https://www.pianetachimica.it/didattica/caffeina/caffeina.htm

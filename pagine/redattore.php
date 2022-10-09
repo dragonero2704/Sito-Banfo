@@ -17,15 +17,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Redattore</title>
-    <link rel="icon" href="../immagini/logo.png">
-    <!-- Css del Normalize -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
-    <!-- Css dello Slider -->
-    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
-    <!--Script per le icone di fontawesome-->
-    <script src="https://kit.fontawesome.com/bb4d7bec8d.js" crossorigin="anonymous"></script>
-    <!-- Il nostro css -->
-    <link rel="stylesheet" href="../css/style.css">
+    <?php
+    require_once('../components/head.php');
+    ?>
     <?php
     session_start();
     if (!isset($_SESSION['username'])) {
@@ -290,8 +284,8 @@
             $autori = $_POST['autore'];
             $ruoli = array();
 
-            foreach($autori as $aut){
-                $ruoli[$aut] = $_POST[$aut.'-ruolo'];
+            foreach ($autori as $aut) {
+                $ruoli[$aut] = $_POST[$aut . '-ruolo'];
             }
 
             // settiamo alcune variabili coinvolte nello script:
@@ -372,7 +366,6 @@
                 $ris = $database->query($sql) or die("<p>Query fallita! " . $database->error['message'] . "</p>");
             }
             $database->query('SET FOREIGN_KEY_CHECKS=1;');
-        
         }
     }
     ?>
