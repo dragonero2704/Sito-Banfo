@@ -8,7 +8,7 @@ $dbhost = "localhost";
 ?>
 
 <?php
-define("DEVELOPEMENT", 
+define("DEVELOPMENT", 
 
 /*
 * Decommentare true se si vuole sviluppare in locale
