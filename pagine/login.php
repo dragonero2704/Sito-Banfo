@@ -119,6 +119,7 @@
             else {
                 require('../data/db.php');
                 $conn = new mysqli($dbhost,$dbusername,$dbpassword,$dbname);
+                $username = $conn->escape_string($username);
                 if($conn->connect_error){
                     die("<p>Connessione al server non riuscita: ".$conn->connect_error."</p>");
                 }
