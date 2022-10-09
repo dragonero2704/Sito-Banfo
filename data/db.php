@@ -1,5 +1,5 @@
 <?php
-$dbname = "banfo_experimental";
+$dbname = "banfo";
 $dbusername = "studente";
 $dbpassword = "pass_studente_banfi";
 $dbhost = "localhost";
