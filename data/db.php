@@ -15,7 +15,7 @@ class Database
     private $database = DEVELOPMENT ? "banfo" : "Sql1660750_1";
     private $username = DEVELOPMENT ? "root" : "Sql1660750";
     private $password = DEVELOPMENT ? "" : "Fizz001[c@t]";
-    private $host = DEVELOPMENT ? "localhost" : "localhost"; //in caso cambi l'host del db in futuro
+    private $host = DEVELOPMENT ? "localhost" : "31.11.39.34"; //in caso cambi l'host del db in futuro
     private $connection;
     public $error = array();
     public $connerror = array();

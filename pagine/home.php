@@ -239,7 +239,7 @@
                         ON articoli.argomento=categorie.argomento JOIN redazione 
                         ON redazione.codice=collabora.codice_autore
                         WHERE collabora.ruolo IN ('Scrittore', 'Scrittrice')
-                        ORDER BY DATE_FORMAT(articoli.data, '%Y/%m/%d') DESC
+                        ORDER BY DATE_FORMAT(articoli.data, '%d/%m/%Y') DESC
                         LIMIT 6";
     $ris = $database->query($sql) or die("<p>Query fallita! " . $database->error['message'] . "</p>");
     if ($ris->num_rows > 0) {
