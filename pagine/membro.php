@@ -17,6 +17,19 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <?php
+      $cod = $_GET["membro"];
+      require_once('../data/db.php');
+      // $conn = new mysqli($dbhost,$dbusername,$dbpassword,$dbname);
+      $database = new Database() or die("<p>Connessione al server non riuscita: " . $database->connerror['message'] . "</p>");
+    
+      $sql = "SELECT nome, cognome, classe, professione
+            FROM redazione
+            WHERE codice = $cod";
+      $ris = $database->getAllFrom('redazione', "codice = $cod") or die("<p>Query fallita! " . $database->error['message'] . "</p>");
+      $row = $ris[0];
+    ?>
+
   <title><?php echo "" . $row["nome"] . " " . $row["cognome"] . ""; ?></title>
   <?php
     require_once('../components/head.php');
@@ -54,17 +67,8 @@
   <!--============================================================================================================================-->
   <!-- Singola Persona -->
   <?php
-  $cod = $_GET["membro"];
-  require_once('../data/db.php');
-  // $conn = new mysqli($dbhost,$dbusername,$dbpassword,$dbname);
-  $database = new Database() or die("<p>Connessione al server non riuscita: " . $database->connerror['message'] . "</p>");
-
-  $sql = "SELECT nome, cognome, classe, professione
-        FROM redazione
-        WHERE codice = $cod";
-  $ris = $database->getAllFrom('redazione', "codice = $cod") or die("<p>Query fallita! " . $database->error['message'] . "</p>");
-  $row = $ris[0];
-  $img_path = file_exists("../immagini/" . $row["nome"] . "_" . $row["cognome"] . ".jpg") ? "../immagini/" . $row["nome"] . "_" . $row["cognome"] . ".jpg" : '../immagini.user.jpg';
+  
+  $img_path = file_exists("../immagini/" . $row["nome"] . "_" . $row["cognome"] . ".jpg") ? "../immagini/" . $row["nome"] . "_" . $row["cognome"] . ".jpg" : '../immagini/user.jpg';
   
     
             echo "<div class='persona_contenitore clearfix'>
@@ -130,7 +134,7 @@
         ";
     }
   } else {
-    echo "Nessun articolo da visualizzare";
+    echo "<p class='aligncenter' style='heigth:100%'>Nessun articolo da visualizzare</p>";
   }
   ?>
 
