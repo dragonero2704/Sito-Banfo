@@ -21,7 +21,10 @@
       $cod = $_GET["membro"];
       require_once('../data/db.php');
       // $conn = new mysqli($dbhost,$dbusername,$dbpassword,$dbname);
-      $database = new Database() or die("<p>Connessione al server non riuscita: " . $database->connerror['message'] . "</p>");
+      $database = new Database();
+if(!empty($database->connerror)){
+    echo "<p>Errore di connessione ".$database->connerror['code'].":".$database->connerror['message']."</p>";
+}
     
       $sql = "SELECT nome, cognome, classe, professione
             FROM redazione

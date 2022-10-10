@@ -6,7 +6,9 @@ require_once('../data/db.php');
 $codice = $_GET['q'];
 
 $database = new Database();
-
+if(!empty($database->connerror)){
+    echo "<p>Errore di connessione ".$database->connerror['code'].":".$database->connerror['message']."</p>";
+}
 // $conn = new mysqli($dbhost, $dbusername, $dbpassword, $dbname) or die("Connessione fallita, come te.");
 
 $query = "SELECT nome, cognome, professione, classe

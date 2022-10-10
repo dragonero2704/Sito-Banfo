@@ -28,7 +28,10 @@
     $username = $_SESSION["username"];
 
     require_once('../data/db.php');
-    $database = new Database() or die("<p>Connessione al server non riuscita: " . $database->connerror['message'] . "</p>");
+    $database = new Database();
+    if (!empty($database->connerror)) {
+        echo "<p>Errore di connessione " . $database->connerror['code'] . ":" . $database->connerror['message'] . "</p>";
+    }
 
     //prende l'ultimo articolo pubblicato
     $sql = "SELECT codice_articolo
@@ -349,8 +352,9 @@
             fclose($articolo);
 
 
-            $sql = "INSERT INTO articoli (data,titolo, argomento)
-                            VALUES ('" . $_POST["data"] . "',
+            $sql = "INSERT INTO articoli (codice,data,titolo, argomento)
+                            VALUES ('" . $codice . "',
+                                    '" . $_POST["data"] . "',
                                     '" . $_POST["titolo"] . "',
                                     '" . $_POST["argomento"] . "')";
             $ris = $database->query($sql) or die("<p>Query fallita! " . $database->error['message'] . "</p>");

@@ -14,7 +14,10 @@
   <?php
   $cod = $_GET["articolo"];
   require_once('../data/db.php');
-  $database = new Database() or die("<p>Connessione al server non riuscita: ".$database->connerror['message']."</p>");
+  $database = new Database();
+if(!empty($database->connerror)){
+    echo "<p>Errore di connessione ".$database->connerror['code'].":".$database->connerror['message']."</p>";
+}
   // $conn = new mysqli($dbhost, $dbusername, $dbpassword, $dbname);
   // if ($conn->connect_error) {
   //   die("<p>Connessione al server non riuscita: " . $conn->connect_error . "</p>");
@@ -53,7 +56,7 @@
                 ON collabora.codice_autore=redazione.codice
                 WHERE collabora.codice_articolo = $cod";
 
-        $ris1 = $databse->query($sql1) or die("<p>Query fallita! ".$databse->error['message']."</p>");
+        $ris1 = $database->query($sql1) or die("<p>Query fallita! ".$database->error['message']."</p>");
         $autori = array();
         if($ris1->num_rows > 0){
           while($row1 = $ris1->fetch_assoc()){

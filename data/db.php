@@ -6,8 +6,8 @@ define("DEVELOPMENT",
 * false se si vuole effettuare il deploy
 */
 
-false
-// true
+// false
+true
 );
 //
 class Database

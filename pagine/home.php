@@ -231,15 +231,18 @@
     //   if($conn->connect_error){
     //       die("<p>Connessione al server non riuscita: ".$conn->connect_error."</p>");
     //   }
-    $database = new Database() or die("<p>Connessione al server non riuscita: " . $database->connerror['message'] . "</p>");
+    $database = new Database();
+if(!empty($database->connerror)){
+    echo "<p>Errore di connessione ".$database->connerror['code'].":".$database->connerror['message']."</p>";
+}
     
-    $sql = "	SELECT DISTINCT collabora.codice_articolo as cod, DATE_FORMAT(articoli.data, '%d/%m/%Y') as data, collabora.codice_autore as autore, articoli.argomento as argomento, nome, cognome
+    $sql = "	SELECT DISTINCT collabora.codice_articolo as cod, DATE_FORMAT(articoli.data, '%d/%m/%Y') as 'data', collabora.codice_autore as autore, articoli.argomento as argomento, nome, cognome
                         FROM collabora JOIN articoli
                         ON collabora.codice_articolo=articoli.codice_articolo JOIN categorie
                         ON articoli.argomento=categorie.argomento JOIN redazione 
                         ON redazione.codice=collabora.codice_autore
                         WHERE collabora.ruolo IN ('Scrittore', 'Scrittrice')
-                        ORDER BY DATE_FORMAT(articoli.data, '%d/%m/%Y') DESC
+                        ORDER BY DATE_FORMAT(articoli.data, '%Y/%m/%d') DESC
                         LIMIT 6";
     $ris = $database->query($sql) or die("<p>Query fallita! " . $database->error['message'] . "</p>");
     if ($ris->num_rows > 0) {
@@ -266,7 +269,7 @@
                           </div>
                           <img src='../immagini/" . $row["cod"] . ".jpg'>
                           <div class='news_data_su_immagine top-left'>
-                            <p><i style='margin-right:10px;' class='far fa-calendar-alt'></i>" . $row["data"] . "</p> <!-- Scritta dinamicamente con il database -->
+                            <p><i style='margin-right:10px;' class='far fa-calendar-alt'></i>" .$row["data"] . "</p> <!-- Scritta dinamicamente con il database -->
                           </div>
                           <div class='news_autore bottom-center'>
                           <a href='membro.php?membro=" . $row["autore"] . "'><p>" . $row["nome"] . " " . $row["cognome"] . "</p></a>
