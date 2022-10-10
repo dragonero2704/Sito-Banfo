@@ -22,8 +22,8 @@ false
 class Database
 {
     private $database = DEVELOPMENT ? "banfo" : "Sql1660750_1";
-    private $username = DEVELOPMENT ? "studente" : "Sql1660750";
-    private $password = DEVELOPMENT ? "pass_studente_banfi" : "Fizz001[c@t]";
+    private $username = DEVELOPMENT ? "root" : "Sql1660750";
+    private $password = DEVELOPMENT ? "" : "Fizz001[c@t]";
     private $host = DEVELOPMENT ? "localhost" : "localhost"; //in caso cambi l'host del db in futuro
     private $connection;
     public $error = array();
