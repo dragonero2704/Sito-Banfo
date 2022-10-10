@@ -352,7 +352,7 @@
             fclose($articolo);
 
 
-            $sql = "INSERT INTO articoli (codice,data,titolo, argomento)
+            $sql = "INSERT INTO articoli (codice_articolo,data,titolo, argomento)
                             VALUES ('" . $codice . "',
                                     '" . $_POST["data"] . "',
                                     '" . $_POST["titolo"] . "',
