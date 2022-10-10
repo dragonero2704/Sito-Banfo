@@ -63,7 +63,7 @@
     <p class="colorblue normal-text aligncenter"><i>Scopri gli ultimi articoli</i></p>
   </div>
 
-  <div class="container_news">
+  <div class="homeflex">
 
 
 

@@ -89,7 +89,7 @@
             <div class='chisiamo_titolo normal-text'>
               <h1><span>I miei articoli</span></h1>
             </div>
-            <div class='container_news clearfix'>";
+            <div class='homeflex clearfix'>";
               
       
   $sql = "SELECT collabora.codice_articolo as codice, DATE_FORMAT(data, '%d/%m/%Y') as data, argomento

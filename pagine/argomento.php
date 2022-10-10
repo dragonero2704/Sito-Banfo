@@ -80,7 +80,7 @@
 ?>
 
 
-    <div class="container_news justify_center">
+    <div class="homeflex justify_center">
         <?php
           $sql = "	SELECT DISTINCT collabora.codice_articolo as cod, DATE_FORMAT(articoli.data, '%d/%m/%Y') as data, collabora.codice_autore as autore, articoli.argomento as argomento, nome, cognome
           FROM collabora JOIN articoli
