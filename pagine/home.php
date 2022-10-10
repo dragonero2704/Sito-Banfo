@@ -232,7 +232,7 @@
     //       die("<p>Connessione al server non riuscita: ".$conn->connect_error."</p>");
     //   }
     $database = new Database() or die("<p>Connessione al server non riuscita: " . $database->connerror['message'] . "</p>");
-
+    
     $sql = "	SELECT DISTINCT collabora.codice_articolo as cod, DATE_FORMAT(articoli.data, '%d/%m/%Y') as data, collabora.codice_autore as autore, articoli.argomento as argomento, nome, cognome
                         FROM collabora JOIN articoli
                         ON collabora.codice_articolo=articoli.codice_articolo JOIN categorie

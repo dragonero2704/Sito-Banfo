@@ -58,8 +58,15 @@ class Database
         if (!empty($additionalOptions)) {
             $sql = $sql .' '. $additionalOptions;
         }
+        try{
+            $ris = $this->connection->query($sql);
+        }catch(Exception $e){
+            $this->error['code'] = 404;
 
-        $ris = $this->connection->query($sql);
+            $this->error['message'] = $e->getMessage();
+            return false;
+        }
+        
 
         if (!empty($this->connection->errno)) {
             $this->error['code'] = $this->connection->errno;
@@ -81,7 +88,14 @@ class Database
         $this->error = array();
         // $sql = $this->connection->escape_string($sql);
 
-        $ris = $this->connection->query($sql);
+        try{
+            $ris = $this->connection->query($sql);
+        }catch(Exception $e){
+            $this->error['code'] = 404;
+
+            $this->error['message'] = $e->getMessage();
+            return false;
+        }
 
         if (!empty($this->connection->errno)) {
             $this->error['code'] = $this->connection->errno;
@@ -104,5 +118,3 @@ class Database
         $this->__destruct();
     }
 }
-
-?>
