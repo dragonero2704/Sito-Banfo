@@ -1,18 +1,9 @@
 <?php
-$dbname = "banfo";
-$dbusername = "studente";
-$dbpassword = "pass_studente_banfi";
-$dbhost = "localhost";
-// $conn = new mysqli($dbhost,$dbusername,$dbpassword,$dbname);
-
-?>
-
-<?php
 define("DEVELOPMENT", 
 
 /*
-* Decommentare true se si vuole sviluppare in locale
-* Decommentare false se si vuole effettuare il deploy
+* true se si vuole sviluppare in locale
+* false se si vuole effettuare il deploy
 */
 
 false
