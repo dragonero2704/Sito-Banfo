@@ -24,7 +24,7 @@
           JOIN articoli ON collabora.codice_articolo=articoli.codice_articolo
           WHERE collabora.codice_articolo = $cod";
 
-  $ris = $database->query($sql) or die("<p>Query fallita! " . $conn->error['message'] . "</p>");
+  $ris = $database->query($sql) or die("<p>Query fallita! " . $database->error['message'] . "</p>");
 
 
   function standard($profession){
@@ -53,7 +53,7 @@
                 ON collabora.codice_autore=redazione.codice
                 WHERE collabora.codice_articolo = $cod";
 
-        $ris1 = $conn->query($sql1) or die("<p>Query fallita! ".$conn->error."</p>");
+        $ris1 = $databse->query($sql1) or die("<p>Query fallita! ".$databse->error['message']."</p>");
         $autori = array();
         if($ris1->num_rows > 0){
           while($row1 = $ris1->fetch_assoc()){
