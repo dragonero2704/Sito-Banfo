@@ -96,7 +96,7 @@
           ON redazione.codice=collabora.codice_autore
           WHERE articoli.argomento = '$argomento' AND collabora.ruolo IN ('Scrittore', 'Scrittrice')
           GROUP BY collabora.codice_articolo, DATE_FORMAT(articoli.data, '%Y/%m/%d'), collabora.codice_autore, articoli.argomento, nome, cognome
-          ORDER BY data DESC
+          ORDER BY DATE_FORMAT(articoli.data, '%Y/%m/%d') DESC
           LIMIT 9";
     $ris = $database->query($sql) or die("<p>Query fallita! " . $database->error['message'] . "</p>");
     if ($ris->num_rows > 0) {
