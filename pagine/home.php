@@ -236,7 +236,7 @@ if(!empty($database->connerror)){
     echo "<p>Errore di connessione ".$database->connerror['code'].":".$database->connerror['message']."</p>";
 }
     
-    $sql = "	SELECT DISTINCT collabora.codice_articolo as cod, DATE_FORMAT(articoli.data, '%d/%m/%Y') as 'data', collabora.codice_autore as autore, articoli.argomento as argomento, nome, cognome
+    $sql = "	SELECT DISTINCT collabora.codice_articolo as cod, DATE_FORMAT(articoli.data, '%d/%m/%Y') as 'data', collabora.codice_autore as autore, articoli.argomento as argomento, nome, cognome, DATE_FORMAT(articoli.data, '%Y/%m/%d')
                         FROM collabora JOIN articoli
                         ON collabora.codice_articolo=articoli.codice_articolo JOIN categorie
                         ON articoli.argomento=categorie.argomento JOIN redazione 
