@@ -6,8 +6,8 @@ define("DEVELOPMENT",
 * false se si vuole effettuare il deploy
 */
 
-// false
-true
+false
+// true
 );
 //
 class Database
@@ -33,6 +33,7 @@ class Database
             $this->connerror['message'] = $this->connection->connect_error;
             return false;
         }
+        $this->query('SET NAMES utf8');
     }
 
     function __destruct()
