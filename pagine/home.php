@@ -53,7 +53,7 @@
   <div class="cont_menu">
     <div class="header_menu clearfix">
       <div class="menu_logo">
-        <a href="home.php"><img src="./immagini/ilbanfotipo.png" alt=""></a>
+        <a href="home.php"><img src="../immagini/ilbanfotipo.png" alt=""></a>
       </div>
       <div class="menu_hamburger">
         <span onclick="openNav()">&#9776;</span>
