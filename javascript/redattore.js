@@ -35,7 +35,7 @@ select.addEventListener('change', async() => {
         }
     }
 
-    xhttp.open("GET", `addauthor.php?q=${id}`)
+    xhttp.open("GET", `../ajax/addauthor.php?q=${id}`)
     xhttp.send()
 
 
