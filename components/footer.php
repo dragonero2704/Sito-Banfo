@@ -14,6 +14,10 @@
                 <a target="_blank" href="https://www.instagram.com/ilbanfo/"><span class="fab fa-instagram fa-2x"></span></a>
                 <span class="text">@IlBanfo</span>
             </div>
+            <div class="social">
+                <a target="_blank" href="https://www.twitter.com/ilbanfo/"><span class="fab fa-twitter fa-2x"></span></a>
+                <span class="text">@IlBanfo</span>
+            </div>
         </div>
     </div>
     <div class="center card">
