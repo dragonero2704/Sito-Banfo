@@ -324,8 +324,6 @@ h1:after {
     padding: 10px;
 }
 
-.tdn {}
-
 @media (max-width: 998px) {
     .tdn {
         display: none;
@@ -345,18 +343,6 @@ h1:after {
 
 
 /* !============================================================================================================================ */
-
-/* .sezione_tabella {
-    max-width: 1200px;
-    margin: 0 auto;
-} */
-
-/* .argomenticolumn {
-    float: left;
-    width: 20%;
-    margin-bottom: 16px;
-    padding: 0 8px;
-} */
 
 .argomenticard {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
@@ -965,47 +951,6 @@ h1:after {
 }
 
 
-/* ! ================================================================================================================================================== */
-
-
-/* ! Definiamo gli stili della sezione eventi */
-
-
-/* 
-.eventi {
-    background: linear-gradient(0deg, rgba(0, 0, 0, .3), rgba(0, 0, 0, 0.5)), url('../immagini/bg_Eventi.png'), no-repeat center center;
-    background-size: cover;
-    color: white;
-    height: 450px;
-    display: flex;
-    padding: 100px 0;
-}
-
-.eventi__title {
-    width: 50%;
-    padding: 0 100px;
-    display: flex;
-    align-items: center;
-}
-
-.eventi__text {
-    width: 50%;
-    padding: 0 100px;
-}
-
-@media (max-width: 768px) {
-    .eventi {
-        flex-wrap: wrap;
-        height: auto;
-    }
-    .eventi__text {
-        width: 100%;
-    }
-    .eventi__title {
-        width: 100%;
-    }
-} */
-
 
 /* ! ================================================================================================================================================== */
 
@@ -1071,21 +1016,6 @@ h1:after {
 .arrow .fas:hover {
     background: #0071e3;
 }
-
-
-/*.arrow a span{
-      height: 50px;
-      width: 50px;
-      background: #1a1a1a;
-      line-height: 50px;
-      text-align: center;
-      font-size: 35px;
-      border-radius: 100px;
-      transition: 0.3s;
-  }
-  .arrow a span:hover{
-      background:  #0071e3;
-  }*/
 
 .left {
     /*border: 1px solid orange;*/
@@ -1592,8 +1522,6 @@ h1:after {
     left: 0;
 }
 
-.contenitore_articolo_pagina {}
-
 .immagine_del_mio_articolo {
     width: 100%;
     height: 90vh;
@@ -1766,9 +1694,6 @@ ul.breadcrumb li a {
 .evento_titolo {
     width: 100%;
 }
-
-.evento_descrizione {}
-
 .evento_bottone {
     background: #0071e3;
     margin: 0 20px;
@@ -1825,8 +1750,6 @@ ul.breadcrumb li a {
 
 
 /* !============================================================================================================================ */
-
-.contenitore_spazioinfo {}
 
 .sezioneinfo {
     width: 100%;
@@ -2125,14 +2048,18 @@ input.invalid {
 
 /* ! clearfix */
 
-.clearfix::after {
+.clearfix{
+    display: flow-root;
+}
+
+/* .clearfix::after {
     visibility: hidden;
     display: block;
     font-size: 0;
     content: " ";
     clear: both;
     height: 0;
-}
+} */
 
 * html .clearfix {
     zoom: 1;
