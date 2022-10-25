@@ -1,5 +1,3 @@
- 
-
 <?php
 //questa pagina verrà chiamata in modo asiconrono da una AJAX, non deve essere accessibile normalmente nel sito
 require_once('../data/db.php');
