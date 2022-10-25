@@ -3,7 +3,8 @@
 <?php
 //questa pagina verrà chiamata in modo asiconrono da una AJAX, non deve essere accessibile normalmente nel sito
 require_once('../data/db.php');
-$codice = $_GET['q'];
+//il numero 26 è il membro della redazione di default "Il Banfo"
+$codice = empty($_GET['q']) ? 26 : $_GET['q'];
 
 $database = new Database();
 if (!empty($database->connerror)) {
