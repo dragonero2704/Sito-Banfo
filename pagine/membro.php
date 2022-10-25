@@ -59,7 +59,7 @@ if(!empty($database->connerror)){
   <div class="cont_menu">
     <div class="header_menu clearfix">
       <div class="menu_logo">
-        <a href="home.php"><img src="../immagini/ilbanfotipo.png" alt=""></a>
+        <a href="home.php"><img src="../immagini/misc/ilbanfotipo.png" alt=""></a>
       </div>
       <div class="menu_hamburger">
         <span onclick="openNav()">&#9776;</span>
@@ -71,7 +71,7 @@ if(!empty($database->connerror)){
   <!-- Singola Persona -->
   <?php
   
-  $img_path = file_exists("../immagini/" . $row["nome"] . "_" . $row["cognome"] . ".jpg") ? "../immagini/" . $row["nome"] . "_" . $row["cognome"] . ".jpg" : '../immagini/user.jpg';
+  $img_path = file_exists("../immagini/redazione/" . $row["nome"] . "_" . $row["cognome"] . ".jpg") ? "../immagini/redazione/" . $row["nome"] . "_" . $row["cognome"] . ".jpg" : '../immagini/redazione/user.jpg';
   
     
             echo "<div class='persona_contenitore clearfix'>
@@ -120,7 +120,7 @@ if(!empty($database->connerror)){
                         <div class='news_categoria'>
                             <h2>" . $row["argomento"] . "</h2><!-- Scritto dinamicamente con il database -->
                     </div>
-                    <img src='../immagini/" . $row["codice"] . ".jpg'>
+                    <img src='../immagini/articoli/" . $row["codice"] . ".jpg'>
                     <div class='news_data_su_immagine top-left'>
                         <p><i style='margin-right:10px;' class='far fa-calendar-alt'></i>" . $row["data"] . "</p> <!-- Scritta dinamicamente con il database -->
                     </div>

@@ -24,7 +24,7 @@ codice = '$codice'
 
 $row = $ris[0];
 
-$img_path = file_exists('../immagini/' . $row['nome'] . '_' . $row['cognome'] . '.jpg') ? '../immagini/' . $row['nome'] . '_' . $row['cognome'] . '.jpg' : '../immagini/user.jpg';
+$img_path = file_exists('../immagini/redazione/' . $row['nome'] . '_' . $row['cognome'] . '.jpg') ? '../immagini/redazione' . $row['nome'] . '_' . $row['cognome'] . '.jpg' : '../immagini/redazione/user.jpg';
 
 
 

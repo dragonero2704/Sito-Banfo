@@ -1,4 +1,4 @@
-<link rel="icon" href="../immagini/logo.png">
+<link rel="icon" href="../immagini/misc/logo.png">
   <!-- Css del Normalize -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
   <!-- Css dello Slider -->

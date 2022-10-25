@@ -67,7 +67,7 @@
     <div class="cont_menu">
         <div class="header_menu clearfix">
             <div class="menu_logo">
-                <a href="home.php"><img src="../immagini/ilbanfotipo.png" alt=""></a>
+                <a href="home.php"><img src="../immagini/misc/ilbanfotipo.png" alt=""></a>
             </div>
             <div class="menu_hamburger">
                 <span onclick="openNav()">&#9776;</span>
@@ -293,7 +293,7 @@
 
             // settiamo alcune variabili coinvolte nello script:
             // 1) settiamo la cartella in cui fare l'upload
-            $cartella_upload = "../immagini/";
+            $cartella_upload = "../immagini/articoli/";
             $img = "" . $codice . ".jpg";
 
             // 2) settiamo un array in cui indichiamo il tipo di file che consentiamo l'upload

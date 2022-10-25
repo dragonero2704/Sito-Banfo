@@ -361,14 +361,14 @@ h1:after {
 }
 
 #Ambienteback {
-    background: url("../immagini/ambiente.jpg");
+    background: url("../immagini/misc/ambiente.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
 }
 
 #varieback {
-    background: url("../immagini/varie.jpg");
+    background: url("../immagini/misc/varie.jpg");
     /* background-size: cover; */
     background-size: cover;
     background-repeat: no-repeat;
@@ -376,7 +376,7 @@ h1:after {
 }
 
 #sportback {
-    background: url("../immagini/sport.jpg");
+    background: url("../immagini/misc/sport.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
@@ -384,7 +384,7 @@ h1:after {
 }
 
 #attualitaback {
-    background: url("../immagini/attualita.jpg");
+    background: url("../immagini/misc/attualita.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
@@ -392,7 +392,7 @@ h1:after {
 }
 
 #cinemaback {
-    background: url("../immagini/cinema.jpg");
+    background: url("../immagini/misc/cinema.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
@@ -400,7 +400,7 @@ h1:after {
 }
 
 #musicaback {
-    background: url("../immagini/musica.jpg");
+    background: url("../immagini/misc/musica.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
@@ -408,7 +408,7 @@ h1:after {
 }
 
 #libriback {
-    background: url("../immagini/libri.jpg");
+    background: url("../immagini/misc/libri.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
@@ -416,7 +416,7 @@ h1:after {
 }
 
 #scuolaback {
-    background: url("../immagini/scuola.jpg");
+    background: url("../immagini/misc/scuola.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
@@ -424,7 +424,7 @@ h1:after {
 }
 
 #scienzaback {
-    background: url("../immagini/scienza.jpg");
+    background: url("../immagini/misc/scienza.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
@@ -432,7 +432,7 @@ h1:after {
 }
 
 #storiaback {
-    background: url("../immagini/storia.jpg");
+    background: url("../immagini/misc/storia.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
@@ -1236,7 +1236,7 @@ h1:after {
     width: 50%;
     height: 100vh;
     float: left;
-    background: url("../immagini/login_wallpaper.jpg");
+    background: url("../immagini/misc/login_wallpaper.jpg");
     background-size: cover;
 }
 
@@ -1950,31 +1950,31 @@ input.invalid {
 }
 
 #bg-pubblicazione {
-    background-image: url('../immagini/pubblicazione.jpg');
+    background-image: url('../immagini/misc/pubblicazione.jpg');
 }
 
 #bg-titolo {
-    background-image: url('../immagini/titolo.jpg');
+    background-image: url('../immagini/misc/titolo.jpg');
 }
 
 #bg-autore {
-    background-image: url('../immagini/autore.jpg');
+    background-image: url('../immagini/misc/autore.jpg');
 }
 
 #bg-testo {
-    background-image: url('../immagini/testo.jpg');
+    background-image: url('../immagini/misc/testo.jpg');
 }
 
 #bg-data {
-    background-image: url('../immagini/data.jpg');
+    background-image: url('../immagini/misc/data.jpg');
 }
 
 #bg-categoria {
-    background-image: url('../immagini/categoria.jpg');
+    background-image: url('../immagini/misc/categoria.jpg');
 }
 
 #bg-immagine {
-    background-image: url('../immagini/immagine.jpg');
+    background-image: url('../immagini/misc/immagine.jpg');
 }
 
 .selectArgomento {

@@ -57,7 +57,7 @@
   <div class="cont_menu">
     <div class="header_menu clearfix">
       <div class="menu_logo">
-        <a href="home.php"><img src="../immagini/ilbanfotipo.png" alt=""></a>
+        <a href="home.php"><img src="../immagini/misc/ilbanfotipo.png" alt=""></a>
       </div>
       <div class="menu_hamburger">
         <span onclick="openNav()">&#9776;</span>
@@ -69,7 +69,7 @@
   <!--============================================================================================================================-->
   <!-- Banner-videobackground -->
   <div class="banner">
-    <img src="../immagini/bg2.jpg" alt="">
+    <img src="../immagini/misc/bg2.jpg" alt="">
   </div>
   <!--============================================================================================================================-->
   <!-- sezione info  -->
@@ -259,7 +259,7 @@ if(!empty($database->connerror)){
             $testo[$index] = ' ';
           }
         }
-
+        $img_path = "../immagini/articoli/" . $row["cod"] . ".jpg";
         fclose($articolo);
         echo "
                     <div class='news_elemento'>
@@ -271,7 +271,7 @@ if(!empty($database->connerror)){
                           <div class='news_categoria'>
                             <h2>" . $row["argomento"] . "</h2><!-- Scritto dinamicamente con il database -->
                           </div>
-                          <img src='../immagini/" . $row["cod"] . ".jpg'>
+                          <img src='$img_path'>
                           <div class='news_data_su_immagine top-left'>
                             <p><i style='margin-right:10px;' class='far fa-calendar-alt'></i>" .$row["data"] . "</p> <!-- Scritta dinamicamente con il database -->
                           </div>
@@ -307,7 +307,7 @@ if(!empty($database->connerror)){
 
   <div class="chisiamo  mt-2">
     <div class="chisiamo__img ">
-      <img src="../immagini/redazione.jpg">
+      <img src="../immagini/misc/redazione.jpg">
     </div>
     <div class="chisiamo__content">
       <h2 class="big-text">Chi Siamo?</h2>
@@ -345,7 +345,7 @@ if(!empty($database->connerror)){
             $ris = $database->query($sql) or die("<p>Query fallita! " . $conn->error['message'] . "</p>");
             if ($ris->num_rows > 0) {
               while ($row = $ris->fetch_assoc()) {
-                $img_path = file_exists("../immagini/" . $row["nome"] . "_" . $row["cognome"] . ".jpg") ? "../immagini/" . $row["nome"] . "_" . $row["cognome"] . ".jpg" : "../immagini/user.jpg";
+                $img_path = file_exists("../immagini/redazione/" . $row["nome"] . "_" . $row["cognome"] . ".jpg") ? "../immagini/redazione/" . $row["nome"] . "_" . $row["cognome"] . ".jpg" : "../immagini/redazione/user.jpg";
 
                 echo "
                                 <div class='swiper-slide'>
