@@ -114,7 +114,7 @@ if(!empty($database->connerror)){
   echo "
                 <div class='contenitore_articolo_pagina'>
                 <div class='immagine_del_mio_articolo'>
-                  <img src='../immagini/articoli" . $row["codice"] . ".jpg'>
+                  <img src='../immagini/articoli/" . $row["codice"] . ".jpg'>
                 </div>
                 <div class='cont_titolo_articolo'>
                   <h2 class='med-text text-bold'>" . $titolo . "</h2>

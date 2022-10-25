@@ -33,6 +33,39 @@
         $password = "";
     }
     ?>
+
+<?php
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        $p = strval(hash('sha256', $password));
+        // echo $p;
+        if (empty($_POST["username"]) or empty($_POST["password"])) {
+            echo "<p>Campi lasciati vuoti</p>";
+        } elseif (strpos($_POST["username"], '/') !== false and strpos($_POST["username"], ' ') !== false and strpos($_POST["username"], '"') !== false and strpos($_POST["username"], '-') !== false) {
+            echo "<p>Errore in Username o Password, riprova</p>";
+        } else {
+            require_once('../data/db.php');
+            // $conn = new mysqli($dbhost,$dbusername,$dbpassword,$dbname);
+            $database = new Database();
+            if (!empty($database->connerror)) {
+                echo "<p>Errore di connessione " . $database->connerror['code'] . ":" . $database->connerror['message'] . "</p>";
+            }
+            $username = $database->escape_string($username);
+            // if($conn->connect_error){
+            //     die("<p>Connessione al server non riuscita: ".$conn->connect_error."</p>");
+            // }
+            $sql = "SELECT username, password
+                        FROM redattore
+                        WHERE username='$username' AND password='$p'";
+            // $ris = $conn->query($sql) or die("<p>Query fallita! ".$conn->error."</p>");
+            $ris = $database->query($sql) or die("<p>Query fallita! " . $database->error['message'] . "</p>");
+
+            if ($ris->num_rows > 0) {
+                $_SESSION["username"] = $username;
+                header('location: redattore.php');
+            }
+        }
+    }
+    ?>
 </head>
 
 <body>
@@ -108,38 +141,7 @@
 
     <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 
-    <?php
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        $p = strval(hash('sha256', $password));
-        // echo $p;
-        if (empty($_POST["username"]) or empty($_POST["password"])) {
-            echo "<p>Campi lasciati vuoti</p>";
-        } elseif (strpos($_POST["username"], '/') !== false and strpos($_POST["username"], ' ') !== false and strpos($_POST["username"], '"') !== false and strpos($_POST["username"], '-') !== false) {
-            echo "<p>Errore in Username o Password, riprova</p>";
-        } else {
-            require_once('../data/db.php');
-            // $conn = new mysqli($dbhost,$dbusername,$dbpassword,$dbname);
-            $database = new Database();
-            if (!empty($database->connerror)) {
-                echo "<p>Errore di connessione " . $database->connerror['code'] . ":" . $database->connerror['message'] . "</p>";
-            }
-            $username = $database->escape_string($username);
-            // if($conn->connect_error){
-            //     die("<p>Connessione al server non riuscita: ".$conn->connect_error."</p>");
-            // }
-            $sql = "SELECT username, password
-                        FROM redattore
-                        WHERE username='$username' AND password='$p'";
-            // $ris = $conn->query($sql) or die("<p>Query fallita! ".$conn->error."</p>");
-            $ris = $database->query($sql) or die("<p>Query fallita! " . $database->error['message'] . "</p>");
-
-            if ($ris->num_rows > 0) {
-                $_SESSION["username"] = $username;
-                header('location: redattore.php');
-            }
-        }
-    }
-    ?>
+    
     <script>
         function openNav() {
             document.getElementById("myNav").style.width = "100%";
