@@ -96,7 +96,7 @@ if(!empty($database->connerror)){
   </div>
 
   <div class="cont_menu">
-    <div class="header_menu clearfix">
+    <div class="header_menu">
       <div class="menu_logo">
         <a href="home.php"><img src="../immagini/misc/ilbanfotipo.png" alt=""></a>
       </div>
