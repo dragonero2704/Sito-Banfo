@@ -36,11 +36,6 @@ class Database
         $this->query('SET NAMES utf8');
     }
 
-    function __destruct()
-    {
-        $this->connection->close();
-    }
-
     function getConnection()
     {
         return new mysqli($this->host, $this->username, $this->password, $this->database);
@@ -115,7 +110,7 @@ class Database
     {
         $this->error = array();
         $this->connerror = array();
-
-        $this->__destruct();
+    
+        $this->connection->close();
     }
 }

@@ -33,82 +33,8 @@
         $password = "";
     }
     ?>
-</head>
 
-<body>
-    <div class="super-container">
-        <!-- Menu di navigazione -->
-        <div id="myNav" class="overlay">
-            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-            <div class="overlay-content">
-                <a href="home.php">Home</a>
-                <a href="nuoviarticoli.php">News</a>
-                <a href="redazione.php">Chi Siamo</a>
-                <div class="tdn">
-                    <a href="login.php">Redattore</a>
-                </div>
-            </div>
-        </div>
-
-        <div class="cont_menu">
-            <div class="header_menu clearfix">
-                <div class="menu_logo">
-                    <a href="home.php"><img src="../immagini/ilbanfotipo.png" alt=""></a>
-                </div>
-                <div class="menu_hamburger">
-                    <span onclick="openNav()">&#9776;</span>
-                </div>
-            </div>
-        </div>
-
-
-        <div class="contenitore_all clearfix">
-            <div class="contenitore_pagina_login">
-                <div class="contenitore_titolo mt-2">
-                    <h2>Diventa un redattore anche tu!</h2>
-                    <p class="normal-text">Se vuoi accedere a questa pagina devi fare parte della redazione</p>
-                </div>
-            </div>
-            <div class="contenitore_form">
-
-                <div class="form-login">
-                    <form action="<?php $_SERVER['PHP_SELF'] ?>" method="post">
-                        <div class="contenitore_login">
-                            <div class="contenitore_pagina_form">
-                                <div class="img_login">
-                                    <img src="../immagini/logo.png">
-                                </div>
-                                <div class="form">
-                                    <div class="name-section">
-                                        <input type="text" name="username" autocomplete="off" required>
-                                        <label for="username" class="label-name">
-                                            <span class="content-name">Username</span>
-                                        </label>
-                                    </div>
-                                </div>
-                                <div class="form">
-                                    <div class="name-section">
-                                        <input type="password" name="password" required>
-                                        <label for="password" class="label-name">
-                                            <span class="content-name">Password</span>
-                                        </label>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="contenitore_bottone_form">
-                                <button class="bottone_login" type="submit">Login</button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-
-            </div>
-        </div>
-    </div>
-
-    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
-
-    <?php
+<?php
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $p = strval(hash('sha256', $password));
         // echo $p;
@@ -140,6 +66,82 @@
         }
     }
     ?>
+</head>
+
+<body>
+    <div class="super-container">
+        <!-- Menu di navigazione -->
+        <div id="myNav" class="overlay">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <div class="overlay-content">
+                <a href="home.php">Home</a>
+                <a href="nuoviarticoli.php">News</a>
+                <a href="redazione.php">Chi Siamo</a>
+                <div class="tdn">
+                    <a href="login.php">Redattore</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="cont_menu">
+            <div class="header_menu">
+                <div class="menu_logo">
+                    <a href="home.php"><img src="../immagini/misc/ilbanfotipo.png" alt=""></a>
+                </div>
+                <div class="menu_hamburger">
+                    <span onclick="openNav()">&#9776;</span>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="contenitore_all clearfix">
+            <div class="contenitore_pagina_login">
+                <div class="contenitore_titolo mt-2">
+                    <h2>Diventa un redattore anche tu!</h2>
+                    <p class="normal-text">Se vuoi accedere a questa pagina devi fare parte della redazione</p>
+                </div>
+            </div>
+            <div class="contenitore_form">
+
+                <div class="form-login">
+                    <form action="<?php $_SERVER['PHP_SELF'] ?>" method="post">
+                        <div class="contenitore_login">
+                            <div class="contenitore_pagina_form">
+                                <div class="img_login">
+                                    <img src="../immagini/misc/logo.png">
+                                </div>
+                                <div class="form">
+                                    <div class="name-section">
+                                        <input type="text" name="username" autocomplete="off" required>
+                                        <label for="username" class="label-name">
+                                            <span class="content-name">Username</span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="form">
+                                    <div class="name-section">
+                                        <input type="password" name="password" required>
+                                        <label for="password" class="label-name">
+                                            <span class="content-name">Password</span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="contenitore_bottone_form">
+                                <button class="bottone_login" type="submit">Login</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+
+    
     <script>
         function openNav() {
             document.getElementById("myNav").style.width = "100%";

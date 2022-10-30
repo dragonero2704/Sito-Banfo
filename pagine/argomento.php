@@ -42,9 +42,9 @@
   </div>
 
   <div class="cont_menu">
-    <div class="header_menu clearfix">
+    <div class="header_menu">
       <div class="menu_logo">
-        <a href="home.php"><img src="../immagini/ilbanfotipo.png" alt=""></a>
+        <a href="home.php"><img src="../immagini/misc/ilbanfotipo.png" alt=""></a>
       </div>
       <div class="menu_hamburger">
         <span onclick="openNav()">&#9776;</span>
@@ -74,7 +74,7 @@
     while ($row = $ris->fetch_assoc()) {
       echo "
                 <div class='banner_singolo_argomento'>
-                  <img src='../immagini/bg_" . $argomento . ".png'>
+                  <img src='../immagini/misc/bg_" . $argomento . ".png'>
                 </div>
 
                 <div>
@@ -115,7 +115,7 @@
                       <div class='news_categoria'>
                         <h2>" . $row["argomento"] . "</h2><!-- Scritto dinamicamente con il database -->
                       </div>
-                      <img src='../immagini/" . $row["cod"] . ".jpg'>
+                      <img src='../immagini/articoli/" . $row["cod"] . ".jpg'>
                       <div class='news_data_su_immagine top-left'>
                         <p><i style='margin-right:10px;' class='far fa-calendar-alt'></i>" . $row["data"] . "</p> <!-- Scritta dinamicamente con il database -->
                       </div>

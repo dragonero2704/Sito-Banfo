@@ -96,9 +96,9 @@ if(!empty($database->connerror)){
   </div>
 
   <div class="cont_menu">
-    <div class="header_menu clearfix">
+    <div class="header_menu">
       <div class="menu_logo">
-        <a href="home.php"><img src="../immagini/ilbanfotipo.png" alt=""></a>
+        <a href="home.php"><img src="../immagini/misc/ilbanfotipo.png" alt=""></a>
       </div>
       <div class="menu_hamburger">
         <span onclick="openNav()">&#9776;</span>
@@ -114,7 +114,7 @@ if(!empty($database->connerror)){
   echo "
                 <div class='contenitore_articolo_pagina'>
                 <div class='immagine_del_mio_articolo'>
-                  <img src='../immagini/" . $row["codice"] . ".jpg'>
+                  <img src='../immagini/articoli/" . $row["codice"] . ".jpg'>
                 </div>
                 <div class='cont_titolo_articolo'>
                   <h2 class='med-text text-bold'>" . $titolo . "</h2>
