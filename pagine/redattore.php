@@ -50,30 +50,9 @@
 
 <body>
     <!-- Menu di navigazione -->
-    <section id="goHere">
-    </section>
-    <div id="myNav" class="overlay">
-        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-        <div class="overlay-content">
-            <a href="home.php">Home</a>
-            <a href="nuoviarticoli.php">News</a>
-            <a href="redazione.php">Chi Siamo</a>
-            <div class="tdn">
-                <a href="logout.php">Logout</a>
-            </div>
-        </div>
-    </div>
-
-    <div class="cont_menu">
-        <div class="header_menu">
-            <div class="menu_logo">
-                <a href="home.php"><img src="../immagini/misc/ilbanfotipo.png" alt=""></a>
-            </div>
-            <div class="menu_hamburger">
-                <span onclick="openNav()">&#9776;</span>
-            </div>
-        </div>
-    </div>
+    <?php
+      require_once('../components/menu.php');
+    ?>
 
 
 
@@ -373,15 +352,6 @@
         }
     }
     ?>
-    <script>
-        function openNav() {
-            document.getElementById("myNav").style.width = "100%";
-        }
-
-        function closeNav() {
-            document.getElementById("myNav").style.width = "0%";
-        }
-    </script>
 </body>
 
 </html>

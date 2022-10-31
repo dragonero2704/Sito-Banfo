@@ -27,30 +27,9 @@
 
 
   <!-- Menu di navigazione -->
-  <section id="goHere">
-  </section>
-  <div id="myNav" class="overlay">
-    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-    <div class="overlay-content">
-      <a href="home.php">Home</a>
-      <a href="nuoviarticoli.php">News</a>
-      <a href="redazione.php">Chi Siamo</a>
-      <div class="tdn">
-        <a href="login.php">Redattore</a>
-      </div>
-    </div>
-  </div>
-
-  <div class="cont_menu">
-    <div class="header_menu">
-      <div class="menu_logo">
-        <a href="home.php"><img src="../immagini/misc/ilbanfotipo.png" alt=""></a>
-      </div>
-      <div class="menu_hamburger">
-        <span onclick="openNav()">&#9776;</span>
-      </div>
-    </div>
-  </div>
+  <?php
+  require_once('../components/menu.php');
+  ?>
 
   <div class="banner_singolo_argomento">
     <img src="../immagini/misc/chisiamotop.png">
@@ -151,15 +130,7 @@
   </script>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script>
-    function openNav() {
-      document.getElementById("myNav").style.width = "100%";
-    }
 
-    function closeNav() {
-      document.getElementById("myNav").style.width = "0%";
-    }
-  </script>
   <script>
     var smooth = [$('a.smooth'), 100, 850];
 
