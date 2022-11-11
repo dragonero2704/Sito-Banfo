@@ -33,7 +33,7 @@ $database->close();
 //     "professione" => $row['professione'],
 //     "classe" => $row['classe']
 // )))
-echo '<div class="item" onclick="deselect(this)" id="'.$codice.'-display"><h1>'.$row['nome'].' '.$row['cognome'].'</h1></div>';
+// echo '<div class="item" onclick="deselect(this)" id="'.$codice.'-display"><h1>'.$row['nome'].' '.$row['cognome'].'</h1></div>';
 echo "<div class='Red_singolo-membro' id='".$codice."-display'>
 
     <div class='Red_singolo_membro_img'>
