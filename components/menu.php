@@ -7,9 +7,10 @@
         <a href="home.php">Home</a>
         <a href="nuoviarticoli.php">News</a>
         <a href="redazione.php">Chi Siamo</a>
-
-        <a class="tdn" href="login.php">Redattore</a>
-
+        <?php
+            if(isset($_SESSION['username'])) echo '<a class="tdn" href="logout.php">Logout</a>';
+            else echo '<a class="tdn" href="login.php">Redattore</a>';
+        ?>
     </div>
 
     <div class="menu_hamburger" onclick="openNav()">
