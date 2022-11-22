@@ -329,8 +329,10 @@
             fwrite($articolo, "" . $_POST["titolo"] . "\n\n");
             fwrite($articolo, $_POST["testo"]);
             fclose($articolo);
-
-
+            foreach ($_POST as $key => $value) {
+                if($key == "autore") continue;
+                $_POST[$key] = $database->escape_string($value);
+            }
             $sql = "INSERT INTO articoli (codice_articolo,data,titolo, argomento)
                             VALUES ('" . $codice . "',
                                     '" . $_POST["data"] . "',
@@ -343,8 +345,8 @@
             foreach ($autori as $aut) {
                 $ruolo = $ruoli[$aut];
                 $sql = "INSERT INTO collabora (codice_articolo, codice_autore, ruolo)
-                            VALUES ('$codice',
-                                    '$aut',
+                            VALUES ($codice,
+                                    $aut,
                                     '$ruolo')";
                 $ris = $database->query($sql) or die("<p>Query fallita! " . $database->error['message'] . "</p>");
             }
