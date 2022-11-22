@@ -116,20 +116,20 @@
 
 
             <!-- real select, hidden -->
-            <select name="autore[]" multiple="true" class="hidden">
+            <!-- <select name="autore[]" multiple="true" class="hidden">
                 <?php
-                $sql = "SELECT codice, nome, cognome
-                    FROM redazione
-                    WHERE attivo = 1
-                    ORDER BY cognome";
-                $ris = $database->query($sql) or die("<p>Query fallita! " . $database->error['message'] . "</p>");
-                if ($ris->num_rows > 0) {
-                    while ($row = $ris->fetch_assoc()) {
-                        echo '<option value=' . $row['codice'] . ' id=' . $row['codice'] . '></option>';
-                    }
-                }
+                // $sql = "SELECT codice, nome, cognome
+                //     FROM redazione
+                //     WHERE attivo = 1
+                //     ORDER BY cognome";
+                // $ris = $database->query($sql) or die("<p>Query fallita! " . $database->error['message'] . "</p>");
+                // if ($ris->num_rows > 0) {
+                //     while ($row = $ris->fetch_assoc()) {
+                //         echo '<option value=' . $row['codice'] . ' id=' . $row['codice'] . '></option>';
+                //     }
+                // }
                 ?>
-            </select>
+            </select> -->
 
             <div class="Red_flex" style="margin-top: 400px;"></div>
 

@@ -2,48 +2,37 @@
 let select = document.getElementById("dummy_select")
 let options = select.children
 
-select.addEventListener('change', async() => {
+select.addEventListener('change', async () => {
     let selected = select.selectedIndex
     let id = options[selected].value
-
-    let true_option = document.getElementById(id)
-
-
     let result = document.getElementsByClassName('Red_flex')[0]
-    let result_children = result.children
-    let xhttp = new XMLHttpRequest()
+    let url = `../ajax/addauthor.php?q=${id}`;
+    let resJson = await fetch(url, {
+        method: "GET"
+    })
+        .then((data) => data.json())
+        .catch((error) => console.error(error));
+    let inHtml = `<div class='Red_singolo-membro'>
+    <input type="hidden" name="autore[]" value="${resJson.id}" id="${resJson.id}-identifier">
+    <div class='Red_singolo_membro_img'>
+        <img src='${resJson.imgPath}'>
+    </div>
+    <div class='delete_button' onclick='deselect(this.parentElement)'><span></span><span></span></div>
+    <div class='Red_contenitore_membro'>
+        <h2>${resJson.nome} ${resJson.cognome}</h2>
+        <div class='Red_professione'><input type='text' name='${resJson.id}-ruolo' value='${resJson.professione}'></div>
+        <p>${resJson.classe}</p>
+    </div>
+</div>`;
+    if (!document.getElementById(resJson.id)) {
+        let tmp = document.createElement('div');
+        tmp.innerHTML = inHtml;
+        inHtml = tmp.firstChild;
 
-    xhttp.onreadystatechange = function() {
-        if (this.readyState == 4 && this.status == 200) {
-            let response = this.responseText.trim()
-            let present = false
-
-            for (let i = 0; i < result_children.length; i++) {
-                console.log(`Child: ${result_children[i].outerHTML}`)
-                console.log(`Response: ${response}`)
-                if (response.includes(result_children[i].outerHTML.trim())) {
-                    present = true
-                        // result.removeChild(result_children[i])
-                }
-            }
-
-            if (!present) {
-                result.insertAdjacentHTML('beforeend', response)
-                true_option.toggleAttribute('selected')
-            }
-
-        }
+        result.append(inHtml)
     }
-
-    xhttp.open("GET", `../ajax/addauthor.php?q=${id}`)
-    xhttp.send()
-
-
 })
 
 function deselect(element) {
-    //trova il true option
-    let true_option = document.getElementById(element.id.split('-')[0]);
-    true_option.toggleAttribute('selected')
     element.remove();
 }
