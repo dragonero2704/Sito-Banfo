@@ -33,20 +33,6 @@ die(json_encode(array(
     "professione" => $row['professione'],
     "classe" => $row['classe']
 )));
-
-// echo "<div class='Red_singolo-membro' id='".$codice."-display'>
-        // <input type="hidden" name="autore[]" value="${id}">
-//     <div class='Red_singolo_membro_img'>
-//         <img src='".$img_path."'>
-//     </div>
-//     <div class='delete_button' onclick='deselect(this.parentElement)'><span></span><span></span></div>
-
-//     <div class='Red_contenitore_membro'>
-//         <h2>" . $row["nome"] . " " . $row["cognome"] . "</h2>
-//         <div class='Red_professione'><input type='text' name='".$codice."-ruolo' value='". $row["professione"] ."'></div>
-//         <p>" . $row["classe"] . "</p>
-//     </div>
-// </div>";
 ?>
 
 
