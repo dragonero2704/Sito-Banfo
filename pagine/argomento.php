@@ -14,13 +14,15 @@
 
     gtag('config', 'G-GKN4DGSBEF');
   </script>
-  <?php $argomento = $_GET["argomento"]; ?>
+  <?php if(!isset($argomento))$argomento = $_GET["argomento"]; 
+  
+  ?>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title><?php echo $argomento; ?></title>
   <?php
-  require_once('../components/head.php');
+  require_once('./components/head.php');
   ?>
 </head>
 
@@ -29,7 +31,7 @@
   <!-- Menu di navigazione -->
   <!-- Menu di navigazione -->
   <?php
-      require_once('../components/menu.php');
+      require_once('./components/menu.php');
     ?>
 
   <!--============================================================================================================================-->
@@ -38,7 +40,7 @@
 
   <!-- News  -->
   <?php
-  require_once('../data/db.php');
+  require_once('./data/db.php');
   // $conn = new mysqli($dbhost,$dbusername,$dbpassword,$dbname);
   $database = new Database();
   if (!empty($database->connerror)) {
@@ -50,6 +52,8 @@
           WHERE argomento = '$argomento'";
 
   $ris = $database->query($sql) or die("<p>Query fallita! " . $database->error['message'] . "</p>");
+  if($argomento == "Attualita") $title = "Attualità";
+  else $title = $argomento;
   if ($ris->num_rows > 0) {
     while ($row = $ris->fetch_assoc()) {
       echo "
@@ -58,7 +62,7 @@
                 </div>
 
                 <div>
-                  <h1 class='big-text aligncenter'>" . $argomento . "</h1>
+                  <h1 class='big-text aligncenter'>" . $title . "</h1>
                   <p class='normal-text colorblue aligncenter'><i>" . $row["descrizione"] . "</i></p>
                 </div>
               ";
@@ -81,7 +85,7 @@
     $ris = $database->query($sql) or die("<p>Query fallita! " . $database->error['message'] . "</p>");
     if ($ris->num_rows > 0) {
       while ($row = $ris->fetch_assoc()) {
-        $articolo = fopen("../articoli/" . $row["cod"] . ".txt", "r");
+        $articolo = fopen("./articoli/" . $row["cod"] . ".txt", "r");
         $titolo = fgets($articolo);
         $testo = fread($articolo, "450");
         fclose($articolo);
@@ -100,14 +104,14 @@
                         <p><i style='margin-right:10px;' class='far fa-calendar-alt'></i>" . $row["data"] . "</p> <!-- Scritta dinamicamente con il database -->
                       </div>
                       <div class='news_autore bottom-center'>
-                      <a href='membro.php?membro=" . $row["autore"] . "'>  <p>" . $row["nome"] . " " . $row["cognome"] . "</p></a>
+                      <a href='/".getSubDir()."/membro/" . $row["autore"] . "'>  <p>" . $row["nome"] . " " . $row["cognome"] . "</p></a>
                       </div>
                     </div>
                     <div class='news_introduzione'>
                       <p>" . $testo . "...</p>
                     </div>
                     <div class='news_bottone'>
-                    <a href='articolo.php?articolo=" . $row["cod"] . "'><button class='il_mio_bottone'><span>Scopri di più  </span></button></a>
+                    <a href='/".getSubDir()."/articolo/" . $row["cod"] . "'><button class='il_mio_bottone'><span>Scopri di più  </span></button></a>
                     </div>
                   </div>
                   
@@ -123,7 +127,7 @@
   <!--============================================================================================================================-->
   <!-- footer -->
   <?php
-  require_once('../components/footer.php');
+  require_once('./components/footer.php');
   ?>
   <!--============================================================================================================================-->
 

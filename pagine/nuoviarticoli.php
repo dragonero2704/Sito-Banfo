@@ -19,7 +19,7 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>News</title>
   <?php
-  require_once('../components/head.php');
+  require_once('./components/head.php');
   ?>
 </head>
 
@@ -27,7 +27,7 @@
 
   <!-- Menu di navigazione -->
   <?php
-      require_once('../components/menu.php');
+      require_once('./components/menu.php');
     ?>
 
   <!--============================================================================================================================-->
@@ -47,7 +47,7 @@
 
 
     <?php
-    require_once('../data/db.php');
+    require_once('./data/db.php');
     // $conn = new mysqli($dbhost, $dbusername, $dbpassword, $dbname);
     $database = new Database();
     if (!empty($database->connerror)) {
@@ -65,7 +65,7 @@
     $ris = $database->query($sql) or die("<p>Query fallita! " . $database->error['message'] . "</p>");
     if ($ris->num_rows > 0) {
       while ($row = $ris->fetch_assoc()) {
-        $articolo = fopen("../articoli/" . $row["cod"] . ".txt", "r");
+        $articolo = fopen("./articoli/" . $row["cod"] . ".txt", "r");
         $titolo = fgets($articolo);
         $testo = fread($articolo, "450");
         fclose($articolo);
@@ -84,14 +84,14 @@
                           <p><i style='margin-right:10px;' class='far fa-calendar-alt'></i>" . $row["data"] . "</p> <!-- Scritta dinamicamente con il database -->
                         </div>
                         <div class='news_autore bottom-center'>
-                        <a href='membro.php?membro=" . $row["autore"] . "'><p>" . $row["nome"] . " " . $row["cognome"] . "</p></a>
+                        <a href='/".getSubDir()."/membro/" . $row["autore"] . "'><p>" . $row["nome"] . " " . $row["cognome"] . "</p></a>
                         </div>
                       </div>
                       <div class='news_introduzione'>
                         <p>" . $testo . "...</p>
                       </div>
                       <div class='news_bottone'>
-                      <a href='articolo.php?articolo=" . $row["cod"] . "'><button class='il_mio_bottone'><span>Scopri di più  </span></button></a>
+                      <a href='/".getSubDir()."/articolo/" . $row["cod"] . "'><button class='il_mio_bottone'><span>Scopri di più  </span></button></a>
                       </div>
                     </div>
                     
@@ -109,7 +109,7 @@
   <!--============================================================================================================================-->
   <!-- footer -->
   <?php
-  require_once('../components/footer.php');
+  require_once('./components/footer.php');
   ?>
   <!--============================================================================================================================-->
 

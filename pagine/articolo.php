@@ -12,8 +12,8 @@
     gtag('config', 'G-GKN4DGSBEF');
   </script>
   <?php
-  $cod = $_GET["articolo"];
-  require_once('../data/db.php');
+  if(!isset($cod))$cod = $_GET["articolo"];
+  require_once('./data/db.php');
   $database = new Database();
 if(!empty($database->connerror)){
     echo "<p>Errore di connessione ".$database->connerror['code'].":".$database->connerror['message']."</p>";
@@ -46,9 +46,9 @@ if(!empty($database->connerror)){
 
   if ($ris->num_rows > 0) {
         $row = $ris->fetch_assoc();
-        $articolo = fopen("../articoli/".$row["codice"].".txt", "r");
+        $articolo = fopen("./articoli/".$row["codice"].".txt", "r");
         $titolo = fgets($articolo);
-        $testo = fread($articolo, filesize("../articoli/".$row["codice"].".txt"));
+        $testo = fread($articolo, filesize("./articoli/".$row["codice"].".txt"));
         fclose($articolo);
 
         $sql1 = "SELECT collabora.codice_autore as autore, nome, cognome, ruolo
@@ -73,7 +73,7 @@ if(!empty($database->connerror)){
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title><?php echo "$titolo"; ?></title>
   <?php
-    require_once('../components/head.php');
+    require_once('./components/head.php');
   ?>
 </head>
 
@@ -83,7 +83,7 @@ if(!empty($database->connerror)){
   <!-- Menu di navigazione -->
   <!-- Menu di navigazione -->
   <?php
-      require_once('../components/menu.php');
+      require_once('./components/menu.php');
     ?>
 
   <!--============================================================================================================================-->
@@ -102,8 +102,8 @@ if(!empty($database->connerror)){
 
                 <div class='intestazione_del_mio_articolo'>
                   <ul class='breadcrumb'>
-                  <li><a href='home.php'>Home</a></li>
-                    <li><a href='argomento.php?argomento=" . $row["argomento"] . "'>" . $row["argomento"] . "</a></li>
+                  <li><a href='home'>Home</a></li>
+                    <li><a href='/".getSubDir()."/argomento/" . $row["argomento"] . "'>" . $row["argomento"] . "</a></li>
                     <li>" . $titolo . "</li>
                   </ul>
                 </div>
@@ -134,7 +134,7 @@ if(!empty($database->connerror)){
     }
 
     foreach($autori[$prof] as $autore){
-      echo "<a href='membro.php?membro=".$autore["autore"]."'><p style='margin-top: 0' class='normal-text'>" . $autore["nome"] . " " . $autore["cognome"] . "</p></a>";
+      echo "<a href='/".getSubDir()."/membro/".$autore["autore"]."'><p style='margin-top: 0' class='normal-text'>" . $autore["nome"] . " " . $autore["cognome"] . "</p></a>";
     }
 
   }
@@ -155,7 +155,7 @@ if(!empty($database->connerror)){
   <!--============================================================================================================================-->
   <!-- footer -->
   <?php
-    require_once('../components/footer.php');
+    require_once('./components/footer.php');
   ?>
   <!--============================================================================================================================-->
 

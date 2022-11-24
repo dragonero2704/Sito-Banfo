@@ -19,7 +19,7 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Il Banfo</title>
   <?php
-    require_once('../components/head.php');
+    require_once("./components/head.php");
   ?>
 </head>
 
@@ -27,7 +27,7 @@
 
   <!-- Menu di navigazione -->
     <?php
-      require_once('../components/menu.php');
+      require_once('./components/menu.php');
     ?>
 
   <!--============================================================================================================================-->
@@ -45,7 +45,7 @@
 
   <div class="homeflex">
     
-      <a href="argomento.php?argomento=Ambiente">
+      <a href="/<?=getSubDir()?>/argomento/Ambiente">
         
           <div class="argomenticard">
             <div id="Ambienteback" class="ingrandimento">
@@ -58,7 +58,7 @@
       
       </a>
 
-      <a href="argomento.php?argomento=Attualità">
+      <a href="/<?=getSubDir()?>/argomento/Attualita">
         
           <div class="argomenticard">
             <div id="attualitaback" class="ingrandimento">
@@ -72,7 +72,7 @@
       </a>
 
 
-      <a href="argomento.php?argomento=Cinema">
+      <a href="/<?=getSubDir()?>/argomento/cinema">
         
           <div class="argomenticard">
             <div id="cinemaback" class="ingrandimento">
@@ -85,7 +85,7 @@
       
       </a>
 
-      <a href="argomento.php?argomento=Libri">
+      <a href="/<?=getSubDir()?>/argomento/libri">
         
           <div class="argomenticard">
             <div id="libriback" class="ingrandimento">
@@ -99,7 +99,7 @@
       </a>
 
 
-      <a href="argomento.php?argomento=Musica">
+      <a href="/<?=getSubDir()?>/argomento/Musica">
         
           <div class="argomenticard">
             <div id="musicaback" class="ingrandimento">
@@ -112,7 +112,7 @@
     
       </a>
 
-      <a href="argomento.php?argomento=Scienza">
+      <a href="/<?=getSubDir()?>/argomento/Scienza">
         
           <div class="argomenticard">
             <div id="scienzaback" class="ingrandimento">
@@ -126,7 +126,7 @@
       
       </a>
 
-      <a href="argomento.php?argomento=Scuola">
+      <a href="/<?=getSubDir()?>/argomento/Scuola">
         
           <div class="argomenticard">
             <div id="scuolaback" class="ingrandimento">
@@ -140,7 +140,7 @@
         
       </a>
 
-      <a href="argomento.php?argomento=Sport">
+      <a href="/<?=getSubDir()?>/argomento/Sport">
         
           <div class="argomenticard">
             <div id="sportback" class="ingrandimento">
@@ -154,7 +154,7 @@
      
       </a>
 
-      <a href="argomento.php?argomento=Storia">
+      <a href="/<?=getSubDir()?>/argomento/Storia">
         
           <div class="argomenticard">
             <div id="storiaback" class="ingrandimento">
@@ -168,7 +168,7 @@
       
       </a>
 
-      <a href="argomento.php?argomento=Varie">
+      <a href="/<?=getSubDir()?>/argomento/Varie">
         
           <div class="argomenticard">
             <div id="varieback" class="ingrandimento">
@@ -194,7 +194,7 @@
 
   <div class="homeflex">
     <?php
-    require_once('../data/db.php');
+    require_once('./data/db.php');
     //   $conn = new mysqli($dbhost,$dbusername,$dbpassword,$dbname);
     //   if($conn->connect_error){
     //       die("<p>Connessione al server non riuscita: ".$conn->connect_error."</p>");
@@ -215,7 +215,7 @@ if(!empty($database->connerror)){
     $ris = $database->query($sql) or die("<p>Query fallita! " . $database->error['message'] . "</p>");
     if ($ris->num_rows > 0) {
       while ($row = $ris->fetch_assoc()) {
-        $articolo = fopen("../articoli/" . $row["cod"] . ".txt", "r");
+        $articolo = fopen("./articoli/" . $row["cod"] . ".txt", "r");
         $titolo = fgets($articolo);
         $testo = fread($articolo, "450");
         for ($index = 0; $index < strlen($testo); $index++) {
@@ -240,7 +240,7 @@ if(!empty($database->connerror)){
                             <p><i style='margin-right:10px;' class='far fa-calendar-alt'></i>" .$row["data"] . "</p> <!-- Scritta dinamicamente con il database -->
                           </div>
                           <div class='news_autore bottom-center'>
-                          <a href='membro.php?membro=" . $row["autore"] . "'><p>" . $row["nome"] . " " . $row["cognome"] . "</p></a>
+                          <a href='/".getSubDir()."/membro/" . $row["autore"] . "'><p>" . $row["nome"] . " " . $row["cognome"] . "</p></a>
                           </div>
                         </div>
 
@@ -249,7 +249,7 @@ if(!empty($database->connerror)){
                         </div>
 
                         <div class='news_bottone'>
-                          <a href='articolo.php?articolo=" . $row["cod"] . "'><button class='il_mio_bottone'><span>Scopri di più  </span></button></a>
+                          <a href='/".getSubDir()."/articolo/" . $row["cod"] . "'><button class='il_mio_bottone'><span>Scopri di più  </span></button></a>
                         </div>
                     </div>
                     
@@ -277,7 +277,7 @@ if(!empty($database->connerror)){
       <h2 class="big-text">Chi Siamo?</h2>
       <p class="text-justify">Il Banfo è il giornale scolastico del Liceo Scientifico e Classico A. Banfi di Vimercate. La tradizione viene portata avanti ormai dal 1980 e fino all’anno scorso, tra formati A4 e formati A5, i numeri venivano distribuiti per la classi sotto forma di giornali di carta. Con lo scoppio della pandemia anche il Banfo, come molte delle realtà scolastiche e non, si è dovuto reinventare. Nel corso del primo lockdown abbiamo quindi deciso di aprire un sito per continuare a tenere compagnia ai nostri lettori anche (e soprattutto) durante un periodo così particolare e ...
       </p>
-      <a href="redazione.php"><button class="bottone_blue">Scopri di più</button></a>
+      <a href="/<?=getSubDir()?>/redazione/"><button class="bottone_blue">Scopri di più</button></a>
     </div>
   </div>
 
@@ -309,7 +309,7 @@ if(!empty($database->connerror)){
             $ris = $database->query($sql) or die("<p>Query fallita! " . $conn->error['message'] . "</p>");
             if ($ris->num_rows > 0) {
               while ($row = $ris->fetch_assoc()) {
-                $img_path = file_exists("../immagini/redazione/" . $row["nome"] . "_" . $row["cognome"] . ".jpg") ? "../immagini/redazione/" . $row["nome"] . "_" . $row["cognome"] . ".jpg" : "../immagini/redazione/user.jpg";
+                $img_path = file_exists("./immagini/redazione/" . $row["nome"] . "_" . $row["cognome"] . ".jpg") ? "../immagini/redazione/" . $row["nome"] . "_" . $row["cognome"] . ".jpg" : "../immagini/redazione/user.jpg";
 
                 echo "
                                 <div class='swiper-slide'>
@@ -320,7 +320,7 @@ if(!empty($database->connerror)){
                                       <img src='" . $img_path . "'>
                                     </div>
                                     <div class='details'>
-                                      <a href='./membro.php?membro=" . $row["codice"] . "'>
+                                      <a href='/".getSubDir()."/membro/" . $row["codice"] . "'>
                                         <h3>" . $row["nome"] . "<br>" . $row["cognome"] . "<br><span>" . $row["professione"] . "</span></h3>
                                       </a>
                                     </div>
@@ -348,14 +348,14 @@ if(!empty($database->connerror)){
         </div>
       <div class=" eventi__text">
           <p class="tw normal-text">Gli eventi imperdibili di questo mese: quello che accade intorno a noi</p>
-        <a href="argomento.php?argomento=Eventi"><button class="bottone_blue">Scopri di più</button></a>
+        <a href="/<?=getSubDir()?>/argomento/Eventi"><button class="bottone_blue">Scopri di più</button></a>
       </div>
     </div>
   -->
   <!--============================================================================================================================-->
   <!-- footer -->
   <?php
-  require_once('../components/footer.php');
+  require_once('./components/footer.php');
   ?>
   <!--============================================================================================================================-->
 
