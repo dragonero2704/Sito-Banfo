@@ -204,29 +204,36 @@ if(!empty($database->connerror)){
     echo "<p>Errore di connessione ".$database->connerror['code'].":".$database->connerror['message']."</p>";
 }
     
-    $sql = "	SELECT DISTINCT collabora.codice_articolo as cod, DATE_FORMAT(articoli.data, '%d/%m/%Y') as 'data', collabora.codice_autore as autore, articoli.argomento as argomento, nome, cognome, DATE_FORMAT(articoli.data, '%Y/%m/%d')
+    $sql = "SELECT DISTINCT collabora.codice_articolo as cod, DATE_FORMAT(articoli.data, '%d/%m/%Y') as data, collabora.codice_autore as autore, articoli.argomento as argomento, nome, cognome
                         FROM collabora JOIN articoli
                         ON collabora.codice_articolo=articoli.codice_articolo JOIN categorie
                         ON articoli.argomento=categorie.argomento JOIN redazione 
                         ON redazione.codice=collabora.codice_autore
                         WHERE collabora.ruolo IN ('Scrittore', 'Scrittrice')
+                        -- GROUP BY collabora.codice_articolo, DATE_FORMAT(articoli.data, '%Y/%m/%d'), collabora.codice_autore, articoli.argomento, nome, cognome
                         ORDER BY DATE_FORMAT(articoli.data, '%Y/%m/%d') DESC
                         LIMIT 6";
     $ris = $database->query($sql) or die("<p>Query fallita! " . $database->error['message'] . "</p>");
     if ($ris->num_rows > 0) {
       while ($row = $ris->fetch_assoc()) {
         $articolo = fopen("../articoli/" . $row["cod"] . ".txt", "r");
+        var_dump($articolo);
+        echo "ciao".$ris->num_rows;
         $titolo = fgets($articolo);
+        if(!$titolo) echo $titolo;
+        echo "ciao".$ris->num_rows;
         $testo = fread($articolo, "450");
+        echo "ciao".$ris->num_rows;
+
         for ($index = 0; $index < strlen($testo); $index++) {
           if ($testo[$index] == '\n') {
             $testo[$index] = ' ';
           }
         }
         $img_path = "../immagini/articoli/" . $row["cod"] . ".jpg";
+
         fclose($articolo);
-        echo "
-                    <div class='news_elemento'>
+        echo "<div class='news_elemento'>
                         <div class='news_titolo'>
                           <h2>" . $titolo . "</h2>
                         </div>
