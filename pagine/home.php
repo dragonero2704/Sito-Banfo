@@ -45,7 +45,7 @@
 
   <div class="homeflex">
     
-      <a href="<?=$this->getSubDirSlash()?>/argomento/Ambiente">
+      <a href="<?=SUBDIRSLASH?>/argomento/Ambiente">
         
           <div class="argomenticard">
             <div id="Ambienteback" class="ingrandimento">
@@ -58,7 +58,7 @@
       
       </a>
 
-      <a href="<?=$this->getSubDirSlash()?>/argomento/Attualita">
+      <a href="<?=SUBDIRSLASH?>/argomento/Attualita">
         
           <div class="argomenticard">
             <div id="attualitaback" class="ingrandimento">
@@ -72,7 +72,7 @@
       </a>
 
 
-      <a href="<?=$this->getSubDirSlash()?>/argomento/cinema">
+      <a href="<?=SUBDIRSLASH?>/argomento/cinema">
         
           <div class="argomenticard">
             <div id="cinemaback" class="ingrandimento">
@@ -85,7 +85,7 @@
       
       </a>
 
-      <a href="<?=$this->getSubDirSlash()?>/argomento/libri">
+      <a href="<?=SUBDIRSLASH?>/argomento/libri">
         
           <div class="argomenticard">
             <div id="libriback" class="ingrandimento">
@@ -99,7 +99,7 @@
       </a>
 
 
-      <a href="<?=$this->getSubDirSlash()?>/argomento/Musica">
+      <a href="<?=SUBDIRSLASH?>/argomento/Musica">
         
           <div class="argomenticard">
             <div id="musicaback" class="ingrandimento">
@@ -112,7 +112,7 @@
     
       </a>
 
-      <a href="<?=$this->getSubDirSlash()?>/argomento/Scienza">
+      <a href="<?=SUBDIRSLASH?>/argomento/Scienza">
         
           <div class="argomenticard">
             <div id="scienzaback" class="ingrandimento">
@@ -126,7 +126,7 @@
       
       </a>
 
-      <a href="<?=$this->getSubDirSlash()?>/argomento/Scuola">
+      <a href="<?=SUBDIRSLASH?>/argomento/Scuola">
         
           <div class="argomenticard">
             <div id="scuolaback" class="ingrandimento">
@@ -140,7 +140,7 @@
         
       </a>
 
-      <a href="<?=$this->getSubDirSlash()?>/argomento/Sport">
+      <a href="<?=SUBDIRSLASH?>/argomento/Sport">
         
           <div class="argomenticard">
             <div id="sportback" class="ingrandimento">
@@ -154,7 +154,7 @@
      
       </a>
 
-      <a href="<?=$this->getSubDirSlash()?>/argomento/Storia">
+      <a href="<?=SUBDIRSLASH?>/argomento/Storia">
         
           <div class="argomenticard">
             <div id="storiaback" class="ingrandimento">
@@ -168,7 +168,7 @@
       
       </a>
 
-      <a href="<?=$this->getSubDirSlash()?>/argomento/Varie">
+      <a href="<?=SUBDIRSLASH?>/argomento/Varie">
         
           <div class="argomenticard">
             <div id="varieback" class="ingrandimento">
@@ -348,7 +348,7 @@ if(!empty($database->connerror)){
         </div>
       <div class=" eventi__text">
           <p class="tw normal-text">Gli eventi imperdibili di questo mese: quello che accade intorno a noi</p>
-        <a href="<?=$this->getSubDirSlash()?>/argomento/Eventi"><button class="bottone_blue">Scopri di più</button></a>
+        <a href="<?=SUBDIRSLASH?>/argomento/Eventi"><button class="bottone_blue">Scopri di più</button></a>
       </div>
     </div>
   -->

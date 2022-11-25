@@ -134,7 +134,7 @@ if(!empty($database->connerror)){
     }
 
     foreach($autori[$prof] as $autore){
-      echo "<a href='/".getSubDir()."/membro/".$autore["autore"]."'><p style='margin-top: 0' class='normal-text'>" . $autore["nome"] . " " . $autore["cognome"] . "</p></a>";
+      echo "<a href='".SUBDIRSLASH."/membro/".$autore["autore"]."'><p style='margin-top: 0' class='normal-text'>" . $autore["nome"] . " " . $autore["cognome"] . "</p></a>";
     }
 
   }

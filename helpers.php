@@ -18,3 +18,6 @@ function getSubDirSlash(){
 
 define("SUBDIRSLASH", getSubDirSlash());
 define("SUBDIR", getSubDir());
+
+// echo "Subdir: ".SUBDIR.'<br>';
+// echo "Subdirslash: ".SUBDIRSLASH;

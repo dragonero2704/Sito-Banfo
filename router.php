@@ -2,35 +2,17 @@
 class Router
 {
     private $routes;
-    private $subdir;
     function __construct($routes = array())
     {
         $this->routes = $routes;
-        $this->subdir = $this->getSubDir();
-    }
-    function getSubDir()
-    {
-        $dir = explode('\\', __DIR__);
-        // var_dump($dir);
-        $root = explode('/', $_SERVER['DOCUMENT_ROOT']);
-        $root = $root[sizeof($root) - 1];
-        $key = array_search($root, $dir);
-        if($key == sizeof($dir)) return "";
-        return join("/", array_slice($dir, $key + 1));
-    }
-
-    function getSubDirSlash(){
-        $sub = $this->getSubDir();
-        if(!empty($sub)) return '/'.$sub;
-        else return "";
     }
 
     function addRoute($route, $redirect)
     {
         if ($route == '/') {
-            $this->routes[$this->subdir] = $redirect;
+            $this->routes[SUBDIR] = $redirect;
         } else {
-            $this->routes[$this->subdir . $route] = $redirect;
+            $this->routes[SUBDIR . $route] = $redirect;
         }
     }
 
@@ -47,7 +29,7 @@ class Router
         $params = array();
         foreach ($this->routes as $route => $handler) {
             // echo $route . '<br>';
-
+            $route=  trim($route, '/');
             if (preg_match("%^{$route}$%", $action, $matches) === 1) {
 
                 unset($matches[0]);

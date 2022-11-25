@@ -108,7 +108,7 @@ if(!empty($database->connerror)){
                         <p>" . $testo . "...</p>
                     </div>
                     <div class='news_bottone'>
-                        <a href='/".getSubDir()."/articolo/" . $row["codice"] . "'><button class='il_mio_bottone'><span>Scopri di più  </span></button></a>
+                        <a href='".SUBDIRSLASH."/articolo/" . $row["codice"] . "'><button class='il_mio_bottone'><span>Scopri di più  </span></button></a>
                     </div>
                 </div>
                 
