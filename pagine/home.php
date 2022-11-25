@@ -19,16 +19,16 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Il Banfo</title>
   <?php
-    require_once('../components/head.php');
+  require_once('../components/head.php');
   ?>
 </head>
 
 <body>
 
   <!-- Menu di navigazione -->
-    <?php
-      require_once('../components/menu.php');
-    ?>
+  <?php
+  require_once('../components/menu.php');
+  ?>
 
   <!--============================================================================================================================-->
   <!-- Banner-videobackground -->
@@ -44,145 +44,145 @@
   </div>
 
   <div class="homeflex">
-    
-      <a href="argomento.php?argomento=Ambiente">
-        
-          <div class="argomenticard">
-            <div id="Ambienteback" class="ingrandimento">
-              <div class="argomenticontainer">
-                <h2>Ambiente</h2>
-                <p class="text-bold">There's no planet B. Cosa succederà se non ci attiviamo per salvare il nostro pianeta?</p>
-              </div>
-            </div>
+
+    <a href="argomento.php?argomento=Ambiente">
+
+      <div class="argomenticard">
+        <div id="Ambienteback" class="ingrandimento">
+          <div class="argomenticontainer">
+            <h2>Ambiente</h2>
+            <p class="text-bold">There's no planet B. Cosa succederà se non ci attiviamo per salvare il nostro pianeta?</p>
           </div>
-      
-      </a>
-
-      <a href="argomento.php?argomento=Attualità">
-        
-          <div class="argomenticard">
-            <div id="attualitaback" class="ingrandimento">
-              <div class="argomenticontainer">
-                <h2>Attualità</h2>
-                <p class="text-bold">Cosa succede nel mondo? Articoli per restare al passo con i tempi.</p>
-              </div>
-            </div>
-          </div>
-       
-      </a>
-
-
-      <a href="argomento.php?argomento=Cinema">
-        
-          <div class="argomenticard">
-            <div id="cinemaback" class="ingrandimento">
-              <div class="argomenticontainer">
-                <h2>Cinema</h2>
-                <p class="text-bold">Tutto ciò che la redazione vi consiglia di guardare.</p>
-              </div>
-            </div>
-          </div>
-      
-      </a>
-
-      <a href="argomento.php?argomento=Libri">
-        
-          <div class="argomenticard">
-            <div id="libriback" class="ingrandimento">
-              <div class="argomenticontainer">
-                <h2>Libri</h2>
-                <p class="text-bold">Consigli di lettura della redazione per quando avrete finito di leggere i libri delle vacanze.</p>
-              </div>
-            </div>
-          </div>
-   
-      </a>
-
-
-      <a href="argomento.php?argomento=Musica">
-        
-          <div class="argomenticard">
-            <div id="musicaback" class="ingrandimento">
-              <div class="argomenticontainer">
-                <h2>Musica</h2>
-                <p class="text-bold">Cosa aggiungere alla playlist "Brani preferiti" di Spotify.</p>
-              </div>
-            </div>
-          </div>
-    
-      </a>
-
-      <a href="argomento.php?argomento=Scienza">
-        
-          <div class="argomenticard">
-            <div id="scienzaback" class="ingrandimento">
-              <div class="argomenticontainer">
-                <h2>Scienza</h2>
-                <p class="text-bold">Dalle cellule all'universo, guardare il mondo con gli occhi della scienza.</p>
-              </div>
-            </div>
-
-          </div>
-      
-      </a>
-
-      <a href="argomento.php?argomento=Scuola">
-        
-          <div class="argomenticard">
-            <div id="scuolaback" class="ingrandimento">
-              <div class="argomenticontainer">
-                <h2>Scuola</h2>
-                <p class="text-bold">Banfi e BanfiOnline: tutto quello che riguarda il nostro istituto.</p>
-              </div>
-            </div>
-
-          </div>
-        
-      </a>
-
-      <a href="argomento.php?argomento=Sport">
-        
-          <div class="argomenticard">
-            <div id="sportback" class="ingrandimento">
-              <div class="argomenticontainer">
-                <h2>Sport</h2>
-                <p class="text-bold">Non rimanere indietro, corri con noi sui percorsi delle competizioni sportive più famose.</p>
-              </div>
-            </div>
-
-          </div>
-     
-      </a>
-
-      <a href="argomento.php?argomento=Storia">
-        
-          <div class="argomenticard">
-            <div id="storiaback" class="ingrandimento">
-              <div class="argomenticontainer">
-                <h2>Storia</h2>
-                <p class="text-bold">Un viaggio nel mare del Tempo: pillole di storia.</p>
-              </div>
-            </div>
-
-          </div>
-      
-      </a>
-
-      <a href="argomento.php?argomento=Varie">
-        
-          <div class="argomenticard">
-            <div id="varieback" class="ingrandimento">
-              <div class="argomenticontainer">
-                <h2>Varie</h2>
-                <p class="text-bold">Per quando le nostre menti non riescono a rientrare in una categoria.</p>
-              </div>
-            </div>
-
-         
         </div>
-      </a>
+      </div>
 
-    
+    </a>
+
+    <a href="argomento.php?argomento=Attualità">
+
+      <div class="argomenticard">
+        <div id="attualitaback" class="ingrandimento">
+          <div class="argomenticontainer">
+            <h2>Attualità</h2>
+            <p class="text-bold">Cosa succede nel mondo? Articoli per restare al passo con i tempi.</p>
+          </div>
+        </div>
+      </div>
+
+    </a>
+
+
+    <a href="argomento.php?argomento=Cinema">
+
+      <div class="argomenticard">
+        <div id="cinemaback" class="ingrandimento">
+          <div class="argomenticontainer">
+            <h2>Cinema</h2>
+            <p class="text-bold">Tutto ciò che la redazione vi consiglia di guardare.</p>
+          </div>
+        </div>
+      </div>
+
+    </a>
+
+    <a href="argomento.php?argomento=Libri">
+
+      <div class="argomenticard">
+        <div id="libriback" class="ingrandimento">
+          <div class="argomenticontainer">
+            <h2>Libri</h2>
+            <p class="text-bold">Consigli di lettura della redazione per quando avrete finito di leggere i libri delle vacanze.</p>
+          </div>
+        </div>
+      </div>
+
+    </a>
+
+
+    <a href="argomento.php?argomento=Musica">
+
+      <div class="argomenticard">
+        <div id="musicaback" class="ingrandimento">
+          <div class="argomenticontainer">
+            <h2>Musica</h2>
+            <p class="text-bold">Cosa aggiungere alla playlist "Brani preferiti" di Spotify.</p>
+          </div>
+        </div>
+      </div>
+
+    </a>
+
+    <a href="argomento.php?argomento=Scienza">
+
+      <div class="argomenticard">
+        <div id="scienzaback" class="ingrandimento">
+          <div class="argomenticontainer">
+            <h2>Scienza</h2>
+            <p class="text-bold">Dalle cellule all'universo, guardare il mondo con gli occhi della scienza.</p>
+          </div>
+        </div>
+
+      </div>
+
+    </a>
+
+    <a href="argomento.php?argomento=Scuola">
+
+      <div class="argomenticard">
+        <div id="scuolaback" class="ingrandimento">
+          <div class="argomenticontainer">
+            <h2>Scuola</h2>
+            <p class="text-bold">Banfi e BanfiOnline: tutto quello che riguarda il nostro istituto.</p>
+          </div>
+        </div>
+
+      </div>
+
+    </a>
+
+    <a href="argomento.php?argomento=Sport">
+
+      <div class="argomenticard">
+        <div id="sportback" class="ingrandimento">
+          <div class="argomenticontainer">
+            <h2>Sport</h2>
+            <p class="text-bold">Non rimanere indietro, corri con noi sui percorsi delle competizioni sportive più famose.</p>
+          </div>
+        </div>
+
+      </div>
+
+    </a>
+
+    <a href="argomento.php?argomento=Storia">
+
+      <div class="argomenticard">
+        <div id="storiaback" class="ingrandimento">
+          <div class="argomenticontainer">
+            <h2>Storia</h2>
+            <p class="text-bold">Un viaggio nel mare del Tempo: pillole di storia.</p>
+          </div>
+        </div>
+
+      </div>
+
+    </a>
+
+    <a href="argomento.php?argomento=Varie">
+
+      <div class="argomenticard">
+        <div id="varieback" class="ingrandimento">
+          <div class="argomenticontainer">
+            <h2>Varie</h2>
+            <p class="text-bold">Per quando le nostre menti non riescono a rientrare in una categoria.</p>
+          </div>
+        </div>
+
+
+      </div>
+    </a>
+
+
   </div>
 
   <!--============================================================================================================================-->
@@ -195,10 +195,10 @@
   <div class="homeflex">
     <?php
     require_once('../data/db.php');
-    //   $conn = new mysqli($dbhost,$dbusername,$dbpassword,$dbname);
-    //   if($conn->connect_error){
-    //       die("<p>Connessione al server non riuscita: ".$conn->connect_error."</p>");
-    //   }
+      $conn = new mysqli($dbhost,$dbusername,$dbpassword,$dbname);
+      if($conn->connect_error){
+          die("<p>".$conn->connect_errno."Connessione al server non riuscita: ".$conn->connect_error."</p>");
+      }
     $database = new Database();
 if(!empty($database->connerror)){
     echo "<p>Errore di connessione ".$database->connerror['code'].":".$database->connerror['message']."</p>";
@@ -214,6 +214,9 @@ if(!empty($database->connerror)){
                         ORDER BY DATE_FORMAT(articoli.data, '%Y/%m/%d') DESC
                         LIMIT 6";
     $ris = $database->query($sql) or die("<p>Query fallita! " . $database->error['message'] . "</p>");
+    if (!empty($database->error)) {
+      echo "<p>Errore " . $database->error['code'] . ":" . $database->error['message'] . "</p>";
+    }
     if ($ris->num_rows > 0) {
       while ($row = $ris->fetch_assoc()) {
         $articolo = fopen("../articoli/" . $row["cod"] . ".txt", "r");
@@ -244,7 +247,7 @@ if(!empty($database->connerror)){
                           </div>
                           <img src='$img_path'>
                           <div class='news_data_su_immagine top-left'>
-                            <p><i style='margin-right:10px;' class='far fa-calendar-alt'></i>" .$row["data"] . "</p> <!-- Scritta dinamicamente con il database -->
+                            <p><i style='margin-right:10px;' class='far fa-calendar-alt'></i>" . $row["data"] . "</p> <!-- Scritta dinamicamente con il database -->
                           </div>
                           <div class='news_autore bottom-center'>
                           <a href='membro.php?membro=" . $row["autore"] . "'><p>" . $row["nome"] . " " . $row["cognome"] . "</p></a>
