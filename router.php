@@ -19,6 +19,12 @@ class Router
         return join("/", array_slice($dir, $key + 1));
     }
 
+    function getSubDirSlash(){
+        $sub = $this->getSubDir();
+        if(!empty($sub)) return '/'.$sub;
+        else return "";
+    }
+
     function addRoute($route, $redirect)
     {
         if ($route == '/') {
@@ -35,12 +41,12 @@ class Router
         // prima cosa: scomporre l'url
         $requestParts = explode('/', $request);
         // var_dump($requestParts);
-        echo "Action: " . $action . '<br>';
+        // echo "Action: " . $action . '<br>';
 
         $callback = null;
         $params = array();
         foreach ($this->routes as $route => $handler) {
-            echo $route . '<br>';
+            // echo $route . '<br>';
 
             if (preg_match("%^{$route}$%", $action, $matches) === 1) {
 
@@ -61,7 +67,7 @@ class Router
         }
 
         if (is_callable($callback)) {
-            echo call_user_func($callback, ...$params);
+            call_user_func($callback, ...$params);
             exit();
         }
 

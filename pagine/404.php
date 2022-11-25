@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>404</title>
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="<?=SUBDIRSLASH?>/css/style.css">
     <?php
         require_once('./components/head.php');
     ?>
@@ -14,6 +14,6 @@
     <h1 class="big-text aligncenter">404</h1>
     <h2 class="aligncenter">Not found :(</h2>
     <br>
-    <p class="aligncenter"><a href="/home">Torna alla Home</a></p>
+    <p class="aligncenter"><a href="<?=SUBDIRSLASH?>/home">Torna alla Home</a></p>
 </body>
 </html>

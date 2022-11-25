@@ -6,12 +6,12 @@ select.addEventListener('change', async () => {
     let selected = select.selectedIndex
     let id = options[selected].value
     let result = document.getElementsByClassName('Red_flex')[0]
-    let url = `../ajax/addauthor.php?q=${id}`;
-    let resJson = await fetch(url, {
+    let url = `./ajax/addauthor.php?q=${id}`;
+    let resJson;
+    resJson = await fetch(url, {
         method: "GET"
-    })
-        .then((data) => data.json())
-        .catch((error) => console.error(error));
+    }).then((data) => data.json())
+    console.log(resJson);
     let inHtml = `<div class='Red_singolo-membro'>
     <input type="hidden" name="autore[]" value="${resJson.id}" id="${resJson.id}-identifier">
     <div class='Red_singolo_membro_img'>

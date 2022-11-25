@@ -32,7 +32,7 @@
 
   <!--============================================================================================================================-->
   <div class="banner_singolo_argomento">
-    <img src="../immagini/misc/undraw_newspaper_k72w.png">
+    <img src="./immagini/misc/undraw_newspaper_k72w.png">
   </div>
   <!--============================================================================================================================-->
 
@@ -79,19 +79,19 @@
                         <div class='news_categoria'>
                           <h2>" . $row["argomento"] . "</h2><!-- Scritto dinamicamente con il database -->
                         </div>
-                        <img src='../immagini/articoli/" . $row["cod"] . ".jpg'>
+                        <img src='./immagini/articoli/" . $row["cod"] . ".jpg'>
                         <div class='news_data_su_immagine top-left'>
                           <p><i style='margin-right:10px;' class='far fa-calendar-alt'></i>" . $row["data"] . "</p> <!-- Scritta dinamicamente con il database -->
                         </div>
                         <div class='news_autore bottom-center'>
-                        <a href='/".getSubDir()."/membro/" . $row["autore"] . "'><p>" . $row["nome"] . " " . $row["cognome"] . "</p></a>
+                        <a href='".SUBDIRSLASH."/membro/" . $row["autore"] . "'><p>" . $row["nome"] . " " . $row["cognome"] . "</p></a>
                         </div>
                       </div>
                       <div class='news_introduzione'>
                         <p>" . $testo . "...</p>
                       </div>
                       <div class='news_bottone'>
-                      <a href='/".getSubDir()."/articolo/" . $row["cod"] . "'><button class='il_mio_bottone'><span>Scopri di più  </span></button></a>
+                      <a href='".SUBDIRSLASH."/articolo/" . $row["cod"] . "'><button class='il_mio_bottone'><span>Scopri di più  </span></button></a>
                       </div>
                     </div>
                     

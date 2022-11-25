@@ -103,7 +103,7 @@ if(!empty($database->connerror)){
                 <div class='intestazione_del_mio_articolo'>
                   <ul class='breadcrumb'>
                   <li><a href='home'>Home</a></li>
-                    <li><a href='/".getSubDir()."/argomento/" . $row["argomento"] . "'>" . $row["argomento"] . "</a></li>
+                    <li><a href='".SUBDIRSLASH."/argomento/" . $row["argomento"] . "'>" . $row["argomento"] . "</a></li>
                     <li>" . $titolo . "</li>
                   </ul>
                 </div>

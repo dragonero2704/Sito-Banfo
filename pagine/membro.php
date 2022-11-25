@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <?php
-      if(!isset($cod)) $cod = $_GET["membro"];
+      if(!isset($cod)) $cod = $_GET["membro"] ?? 26;
       require_once('./data/db.php');
       // $conn = new mysqli($dbhost,$dbusername,$dbpassword,$dbname);
       $database = new Database();

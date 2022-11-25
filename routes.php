@@ -1,15 +1,17 @@
 <?php
 require_once('router.php');
+require_once('helpers.php');
 
-function getSubDir()
-{
-    $dir = explode('\\', __DIR__);
-    // var_dump($dir);
-    $root = explode('/', $_SERVER['DOCUMENT_ROOT']);
-    $root = $root[sizeof($root)-1];
-    $key = array_search($root, $dir);
-    return join("/", array_slice($dir, $key + 1));
-}
+
+// function getSubDir()
+// {
+//     $dir = explode('\\', __DIR__);
+//     // var_dump($dir);
+//     $root = explode('/', $_SERVER['DOCUMENT_ROOT']);
+//     $root = $root[sizeof($root)-1];
+//     $key = array_search($root, $dir);
+//     return join("/", array_slice($dir, $key + 1));
+// }
 
 $router = new Router();
 
@@ -37,6 +39,6 @@ $router->addRoute("/membro/(.+)", function ($cod) {
     require_once("./pagine/membro.php");
 });
 
-echo "Request URI: ".$_SERVER['REQUEST_URI'].'<br>';
+// echo "Request URI: ".$_SERVER['REQUEST_URI'].'<br>';
 
 $router->route($_SERVER['REQUEST_URI']);

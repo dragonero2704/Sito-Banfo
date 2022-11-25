@@ -1,15 +1,15 @@
 <secction id="goHere"></secction>
 <div class="header_menu">
-    <a class="menu_logo" href="/<?=getSubDir()?>/home/">
-        <img src="/<?=getSubDir()?>/immagini/misc/ilbanfotipo.png" alt="logo">
+    <a class="menu_logo" href="<?=SUBDIRSLASH?>/home">
+        <img src="<?=SUBDIRSLASH?>/immagini/misc/ilbanfotipo.png" alt="logo">
     </a>
     <div class="menu">
-        <a href="/<?=getSubDir()?>/home/">Home</a>
-        <a href="/<?=getSubDir()?>/news/">News</a>
-        <a href="/<?=getSubDir()?>/redazione/">Chi Siamo</a>
+        <a href="<?=SUBDIRSLASH?>/home">Home</a>
+        <a href="<?=SUBDIRSLASH?>/news">News</a>
+        <a href="<?=SUBDIRSLASH?>/redazione">Chi Siamo</a>
         <?php
-            if(isset($_SESSION['username'])) echo '<a class="tdn" href="logout">Logout</a>';
-            else echo '<a class="tdn" href="login">Redattore</a>';
+            if(isset($_SESSION['username'])) echo '<a class="tdn" href="'.SUBDIRSLASH.'/logout">Logout</a>';
+            else echo '<a class="tdn" href="'.SUBDIRSLASH.'/login">Redattore</a>';
         ?>
     </div>
 

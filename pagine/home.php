@@ -45,7 +45,7 @@
 
   <div class="homeflex">
     
-      <a href="argomento/Ambiente">
+      <a href="<?=$this->getSubDirSlash()?>/argomento/Ambiente">
         
           <div class="argomenticard">
             <div id="Ambienteback" class="ingrandimento">
@@ -58,7 +58,7 @@
       
       </a>
 
-      <a href="argomento/Attualita">
+      <a href="<?=$this->getSubDirSlash()?>/argomento/Attualita">
         
           <div class="argomenticard">
             <div id="attualitaback" class="ingrandimento">
@@ -72,7 +72,7 @@
       </a>
 
 
-      <a href="argomento/cinema">
+      <a href="<?=$this->getSubDirSlash()?>/argomento/cinema">
         
           <div class="argomenticard">
             <div id="cinemaback" class="ingrandimento">
@@ -85,7 +85,7 @@
       
       </a>
 
-      <a href="argomento/libri">
+      <a href="<?=$this->getSubDirSlash()?>/argomento/libri">
         
           <div class="argomenticard">
             <div id="libriback" class="ingrandimento">
@@ -99,7 +99,7 @@
       </a>
 
 
-      <a href="argomento/Musica">
+      <a href="<?=$this->getSubDirSlash()?>/argomento/Musica">
         
           <div class="argomenticard">
             <div id="musicaback" class="ingrandimento">
@@ -112,7 +112,7 @@
     
       </a>
 
-      <a href="argomento/Scienza">
+      <a href="<?=$this->getSubDirSlash()?>/argomento/Scienza">
         
           <div class="argomenticard">
             <div id="scienzaback" class="ingrandimento">
@@ -126,7 +126,7 @@
       
       </a>
 
-      <a href="argomento/Scuola">
+      <a href="<?=$this->getSubDirSlash()?>/argomento/Scuola">
         
           <div class="argomenticard">
             <div id="scuolaback" class="ingrandimento">
@@ -140,7 +140,7 @@
         
       </a>
 
-      <a href="argomento/Sport">
+      <a href="<?=$this->getSubDirSlash()?>/argomento/Sport">
         
           <div class="argomenticard">
             <div id="sportback" class="ingrandimento">
@@ -154,7 +154,7 @@
      
       </a>
 
-      <a href="argomento/Storia">
+      <a href="<?=$this->getSubDirSlash()?>/argomento/Storia">
         
           <div class="argomenticard">
             <div id="storiaback" class="ingrandimento">
@@ -168,7 +168,7 @@
       
       </a>
 
-      <a href="argomento/Varie">
+      <a href="<?=$this->getSubDirSlash()?>/argomento/Varie">
         
           <div class="argomenticard">
             <div id="varieback" class="ingrandimento">
@@ -348,7 +348,7 @@ if(!empty($database->connerror)){
         </div>
       <div class=" eventi__text">
           <p class="tw normal-text">Gli eventi imperdibili di questo mese: quello che accade intorno a noi</p>
-        <a href="argomento/Eventi"><button class="bottone_blue">Scopri di più</button></a>
+        <a href="<?=$this->getSubDirSlash()?>/argomento/Eventi"><button class="bottone_blue">Scopri di più</button></a>
       </div>
     </div>
   -->
