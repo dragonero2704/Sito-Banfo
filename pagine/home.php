@@ -33,7 +33,7 @@
   <!--============================================================================================================================-->
   <!-- Banner-videobackground -->
   <div class="banner">
-    <img src="../immagini/misc/bg2.jpg" alt="">
+    <img src="./immagini/misc/bg2.jpg" alt="">
   </div>
   <!--============================================================================================================================-->
   <!-- sezione info  -->
@@ -45,7 +45,7 @@
 
   <div class="homeflex">
     
-      <a href="/<?=getSubDir()?>/argomento/Ambiente">
+      <a href="argomento/Ambiente">
         
           <div class="argomenticard">
             <div id="Ambienteback" class="ingrandimento">
@@ -58,7 +58,7 @@
       
       </a>
 
-      <a href="/<?=getSubDir()?>/argomento/Attualita">
+      <a href="argomento/Attualita">
         
           <div class="argomenticard">
             <div id="attualitaback" class="ingrandimento">
@@ -72,7 +72,7 @@
       </a>
 
 
-      <a href="/<?=getSubDir()?>/argomento/cinema">
+      <a href="argomento/cinema">
         
           <div class="argomenticard">
             <div id="cinemaback" class="ingrandimento">
@@ -85,7 +85,7 @@
       
       </a>
 
-      <a href="/<?=getSubDir()?>/argomento/libri">
+      <a href="argomento/libri">
         
           <div class="argomenticard">
             <div id="libriback" class="ingrandimento">
@@ -99,7 +99,7 @@
       </a>
 
 
-      <a href="/<?=getSubDir()?>/argomento/Musica">
+      <a href="argomento/Musica">
         
           <div class="argomenticard">
             <div id="musicaback" class="ingrandimento">
@@ -112,7 +112,7 @@
     
       </a>
 
-      <a href="/<?=getSubDir()?>/argomento/Scienza">
+      <a href="argomento/Scienza">
         
           <div class="argomenticard">
             <div id="scienzaback" class="ingrandimento">
@@ -126,7 +126,7 @@
       
       </a>
 
-      <a href="/<?=getSubDir()?>/argomento/Scuola">
+      <a href="argomento/Scuola">
         
           <div class="argomenticard">
             <div id="scuolaback" class="ingrandimento">
@@ -140,7 +140,7 @@
         
       </a>
 
-      <a href="/<?=getSubDir()?>/argomento/Sport">
+      <a href="argomento/Sport">
         
           <div class="argomenticard">
             <div id="sportback" class="ingrandimento">
@@ -154,7 +154,7 @@
      
       </a>
 
-      <a href="/<?=getSubDir()?>/argomento/Storia">
+      <a href="argomento/Storia">
         
           <div class="argomenticard">
             <div id="storiaback" class="ingrandimento">
@@ -168,7 +168,7 @@
       
       </a>
 
-      <a href="/<?=getSubDir()?>/argomento/Varie">
+      <a href="argomento/Varie">
         
           <div class="argomenticard">
             <div id="varieback" class="ingrandimento">
@@ -223,7 +223,7 @@ if(!empty($database->connerror)){
             $testo[$index] = ' ';
           }
         }
-        $img_path = "../immagini/articoli/" . $row["cod"] . ".jpg";
+        $img_path = "./immagini/articoli/" . $row["cod"] . ".jpg";
         fclose($articolo);
         echo "
                     <div class='news_elemento'>
@@ -240,7 +240,7 @@ if(!empty($database->connerror)){
                             <p><i style='margin-right:10px;' class='far fa-calendar-alt'></i>" .$row["data"] . "</p> <!-- Scritta dinamicamente con il database -->
                           </div>
                           <div class='news_autore bottom-center'>
-                          <a href='/".getSubDir()."/membro/" . $row["autore"] . "'><p>" . $row["nome"] . " " . $row["cognome"] . "</p></a>
+                          <a href='membro/" . $row["autore"] . "'><p>" . $row["nome"] . " " . $row["cognome"] . "</p></a>
                           </div>
                         </div>
 
@@ -249,7 +249,7 @@ if(!empty($database->connerror)){
                         </div>
 
                         <div class='news_bottone'>
-                          <a href='/".getSubDir()."/articolo/" . $row["cod"] . "'><button class='il_mio_bottone'><span>Scopri di più  </span></button></a>
+                          <a href='articolo/" . $row["cod"] . "'><button class='il_mio_bottone'><span>Scopri di più  </span></button></a>
                         </div>
                     </div>
                     
@@ -271,13 +271,13 @@ if(!empty($database->connerror)){
 
   <div class="chisiamo  mt-2">
     <div class="chisiamo__img ">
-      <img src="../immagini/misc/redazione.jpg">
+      <img src="./immagini/misc/redazione.jpg">
     </div>
     <div class="chisiamo__content">
       <h2 class="big-text">Chi Siamo?</h2>
       <p class="text-justify">Il Banfo è il giornale scolastico del Liceo Scientifico e Classico A. Banfi di Vimercate. La tradizione viene portata avanti ormai dal 1980 e fino all’anno scorso, tra formati A4 e formati A5, i numeri venivano distribuiti per la classi sotto forma di giornali di carta. Con lo scoppio della pandemia anche il Banfo, come molte delle realtà scolastiche e non, si è dovuto reinventare. Nel corso del primo lockdown abbiamo quindi deciso di aprire un sito per continuare a tenere compagnia ai nostri lettori anche (e soprattutto) durante un periodo così particolare e ...
       </p>
-      <a href="/<?=getSubDir()?>/redazione/"><button class="bottone_blue">Scopri di più</button></a>
+      <a href="redazione/"><button class="bottone_blue">Scopri di più</button></a>
     </div>
   </div>
 
@@ -309,7 +309,7 @@ if(!empty($database->connerror)){
             $ris = $database->query($sql) or die("<p>Query fallita! " . $conn->error['message'] . "</p>");
             if ($ris->num_rows > 0) {
               while ($row = $ris->fetch_assoc()) {
-                $img_path = file_exists("./immagini/redazione/" . $row["nome"] . "_" . $row["cognome"] . ".jpg") ? "../immagini/redazione/" . $row["nome"] . "_" . $row["cognome"] . ".jpg" : "../immagini/redazione/user.jpg";
+                $img_path = file_exists("./immagini/redazione/" . $row["nome"] . "_" . $row["cognome"] . ".jpg") ? "./immagini/redazione/" . $row["nome"] . "_" . $row["cognome"] . ".jpg" : "./immagini/redazione/user.jpg";
 
                 echo "
                                 <div class='swiper-slide'>
@@ -320,7 +320,7 @@ if(!empty($database->connerror)){
                                       <img src='" . $img_path . "'>
                                     </div>
                                     <div class='details'>
-                                      <a href='/".getSubDir()."/membro/" . $row["codice"] . "'>
+                                      <a href='membro/" . $row["codice"] . "'>
                                         <h3>" . $row["nome"] . "<br>" . $row["cognome"] . "<br><span>" . $row["professione"] . "</span></h3>
                                       </a>
                                     </div>
@@ -348,7 +348,7 @@ if(!empty($database->connerror)){
         </div>
       <div class=" eventi__text">
           <p class="tw normal-text">Gli eventi imperdibili di questo mese: quello che accade intorno a noi</p>
-        <a href="/<?=getSubDir()?>/argomento/Eventi"><button class="bottone_blue">Scopri di più</button></a>
+        <a href="argomento/Eventi"><button class="bottone_blue">Scopri di più</button></a>
       </div>
     </div>
   -->

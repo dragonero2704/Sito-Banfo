@@ -13,33 +13,30 @@ function getSubDir()
 
 $router = new Router();
 
-$subdir = getSubDir();
 // echo $subdir . '<br>';
 // $router->addRoute("/", "./pagine/home.php");
-$router->addRoute("$subdir", function () {
+$router->addRoute('/', function () {
     header('location: home');
 });
-$router->addRoute("$subdir/home", "./pagine/home.php");
-$router->addRoute("$subdir/redazione", "./pagine/redazione.php");
-$router->addRoute("$subdir/redattore", "./pagine/redattore.php");
-$router->addRoute("$subdir/login", "./pagine/login.php");
-$router->addRoute("$subdir/logout", "./pagine/logout.php");
-$router->addRoute("$subdir/news", "./pagine/nuoviarticoli.php");
+$router->addRoute("/home", "./pagine/home.php");
+$router->addRoute("/redazione", "./pagine/redazione.php");
+$router->addRoute("/redattore", "./pagine/redattore.php");
+$router->addRoute("/login", "./pagine/login.php");
+$router->addRoute("/logout", "./pagine/logout.php");
+$router->addRoute("/news", "./pagine/nuoviarticoli.php");
 
-
-
-
-$router->addRoute("$subdir/argomento/(.+)", function ($argomento) {
+$router->addRoute("/argomento/(.+)", function ($argomento) {
     require_once("./pagine/argomento.php");
 });
 
-$router->addRoute("$subdir/articolo/(.+)", function ($cod) {
+$router->addRoute("/articolo/(.+)", function ($cod) {
     require_once("./pagine/articolo.php");
 });
 
-$router->addRoute("$subdir/membro/(.+)", function ($cod) {
+$router->addRoute("/membro/(.+)", function ($cod) {
     require_once("./pagine/membro.php");
 });
 
+echo "Request URI: ".$_SERVER['REQUEST_URI'].'<br>';
 
 $router->route($_SERVER['REQUEST_URI']);
