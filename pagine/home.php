@@ -195,16 +195,16 @@
   <div class="homeflex">
     <?php
     require_once('../data/db.php');
-      $conn = new mysqli($dbhost,$dbusername,$dbpassword,$dbname);
-      if($conn->connect_error){
-          die("<p>".$conn->connect_errno."Connessione al server non riuscita: ".$conn->connect_error."</p>");
-      }
+    // $conn = new mysqli($dbhost,$dbusername,$dbpassword,$dbname);
+    // if($conn->connect_error){
+    //     die("<p>".$conn->connect_errno."Connessione al server non riuscita: ".$conn->connect_error."</p>");
+    // }
     $database = new Database();
-if(!empty($database->connerror)){
-    echo "<p>Errore di connessione ".$database->connerror['code'].":".$database->connerror['message']."</p>";
-}
-    
-    $sql = "SELECT DISTINCT collabora.codice_articolo as cod, DATE_FORMAT(articoli.data, '%d/%m/%Y') as data, collabora.codice_autore as autore, articoli.argomento as argomento, nome, cognome
+    if (!empty($database->connerror)) {
+      echo "<p>Errore di connessione " . $database->connerror['code'] . ":" . $database->connerror['message'] . "</p>";
+    }
+
+    $sql = "SELECT DISTINCT collabora.codice_articolo as cod, DATE_FORMAT(articoli.data, '%d/%m/%Y') as data, collabora.codice_autore as autore, articoli.argomento as argomento, nome, cognome, DATE_FORMAT(articoli.data, '%Y/%m/%d')
                         FROM collabora JOIN articoli
                         ON collabora.codice_articolo=articoli.codice_articolo JOIN categorie
                         ON articoli.argomento=categorie.argomento JOIN redazione 
@@ -220,13 +220,9 @@ if(!empty($database->connerror)){
     if ($ris->num_rows > 0) {
       while ($row = $ris->fetch_assoc()) {
         $articolo = fopen("../articoli/" . $row["cod"] . ".txt", "r");
-        var_dump($articolo);
-        echo "ciao".$ris->num_rows;
+
         $titolo = fgets($articolo);
-        if(!$titolo) echo $titolo;
-        echo "ciao".$ris->num_rows;
         $testo = fread($articolo, "450");
-        echo "ciao".$ris->num_rows;
 
         for ($index = 0; $index < strlen($testo); $index++) {
           if ($testo[$index] == '\n') {
