@@ -1,4 +1,9 @@
 <?php
+$dbhost = "31.11.39.34";
+$dbusername = "Sql1660750";
+$dbpassword = "Fizz001[c@t]";
+$dbname = "Sql1660750_1";
+
 define("DEVELOPMENT", 
 
 /*
@@ -6,8 +11,8 @@ define("DEVELOPMENT",
 * false se si vuole effettuare il deploy
 */
 
-// false
-true
+false
+// true
 );
 //
 class Database
