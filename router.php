@@ -15,6 +15,7 @@ class Router
         $root = explode('/', $_SERVER['DOCUMENT_ROOT']);
         $root = $root[sizeof($root) - 1];
         $key = array_search($root, $dir);
+        if($key == sizeof($dir)) return "";
         return join("/", array_slice($dir, $key + 1));
     }
 
@@ -40,6 +41,7 @@ class Router
         $params = array();
         foreach ($this->routes as $route => $handler) {
             echo $route . '<br>';
+
             if (preg_match("%^{$route}$%", $action, $matches) === 1) {
 
                 unset($matches[0]);
@@ -54,7 +56,7 @@ class Router
         // echo "Callback: ".$callback;
 
         if (!isset($callback)) {
-            // require_once('./pagine/404.php');
+            require_once('./pagine/404.php');
             exit();
         }
 
