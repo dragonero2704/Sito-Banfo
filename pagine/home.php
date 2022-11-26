@@ -195,10 +195,10 @@
   <div class="homeflex">
     <?php
     require_once('./data/db.php');
-    //   $conn = new mysqli($dbhost,$dbusername,$dbpassword,$dbname);
-    //   if($conn->connect_error){
-    //       die("<p>Connessione al server non riuscita: ".$conn->connect_error."</p>");
-    //   }
+      // $conn = new mysqli($dbhost,$dbusername,$dbpassword,$dbname);
+      // if($conn->connect_error){
+      //     die("<p>Connessione al server non riuscita: ".$conn->connect_error."</p>");
+      // }
     $database = new Database();
 if(!empty($database->connerror)){
     echo "<p>Errore di connessione ".$database->connerror['code'].":".$database->connerror['message']."</p>";
@@ -213,6 +213,7 @@ if(!empty($database->connerror)){
                         ORDER BY DATE_FORMAT(articoli.data, '%Y/%m/%d') DESC
                         LIMIT 6";
     $ris = $database->query($sql) or die("<p>Query fallita! " . $database->error['message'] . "</p>");
+    echo $ris->num_rows;
     if ($ris->num_rows > 0) {
       while ($row = $ris->fetch_assoc()) {
         $articolo = fopen("./articoli/" . $row["cod"] . ".txt", "r");
@@ -277,7 +278,7 @@ if(!empty($database->connerror)){
       <h2 class="big-text">Chi Siamo?</h2>
       <p class="text-justify">Il Banfo è il giornale scolastico del Liceo Scientifico e Classico A. Banfi di Vimercate. La tradizione viene portata avanti ormai dal 1980 e fino all’anno scorso, tra formati A4 e formati A5, i numeri venivano distribuiti per la classi sotto forma di giornali di carta. Con lo scoppio della pandemia anche il Banfo, come molte delle realtà scolastiche e non, si è dovuto reinventare. Nel corso del primo lockdown abbiamo quindi deciso di aprire un sito per continuare a tenere compagnia ai nostri lettori anche (e soprattutto) durante un periodo così particolare e ...
       </p>
-      <a href="redazione/"><button class="bottone_blue">Scopri di più</button></a>
+      <a href="<?=SUBDIRSLASH?>/redazione"><button class="bottone_blue">Scopri di più</button></a>
     </div>
   </div>
 

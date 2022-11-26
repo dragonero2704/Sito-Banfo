@@ -19,7 +19,7 @@ $router = new Router();
 // echo $subdir . '<br>';
 // $router->addRoute("/", "./pagine/home.php");
 $router->addRoute('/', function () {
-    header('location: home');
+    header('location: '.SUBDIRSLASH.'/home');
 });
 $router->addRoute("/home", "./pagine/home.php");
 $router->addRoute("/redazione", "./pagine/redazione.php");

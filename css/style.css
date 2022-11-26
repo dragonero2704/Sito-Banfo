@@ -2134,21 +2134,24 @@ input.invalid {
     display: none;
 }
 
+.abscenter{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    
+    height: fit-content;
+    /* min-width: 600px; */
+    max-width: 600px;
+    width: 100%;
+    padding: 20px;
+}
 
 /* ! clearfix */
 
 .clearfix {
     display: flow-root;
 }
-
-/* .clearfix::after {
-    visibility: hidden;
-    display: block;
-    font-size: 0;
-    content: " ";
-    clear: both;
-    height: 0;
-} */
 
 * html .clearfix {
     zoom: 1;

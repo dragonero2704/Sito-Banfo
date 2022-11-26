@@ -12,13 +12,13 @@ class Router
         if ($route == '/') {
             $this->routes[SUBDIR] = $redirect;
         } else {
-            $this->routes[SUBDIR . $route] = $redirect;
+            $this->routes[SUBDIRSLASH . $route] = $redirect;
         }
     }
 
     function route($request)
     {
-        $action = trim($request, '/');
+        $action = ltrim($request, '/');
 
         // prima cosa: scomporre l'url
         $requestParts = explode('/', $request);
@@ -28,8 +28,9 @@ class Router
         $callback = null;
         $params = array();
         foreach ($this->routes as $route => $handler) {
+            $route = ltrim($route, '/');
             // echo $route . '<br>';
-            $route=  trim($route, '/');
+
             if (preg_match("%^{$route}$%", $action, $matches) === 1) {
 
                 unset($matches[0]);
