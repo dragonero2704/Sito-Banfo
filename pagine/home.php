@@ -213,7 +213,7 @@ if(!empty($database->connerror)){
                         ORDER BY DATE_FORMAT(articoli.data, '%Y/%m/%d') DESC
                         LIMIT 6";
     $ris = $database->query($sql) or die("<p>Query fallita! " . $database->error['message'] . "</p>");
-    echo $ris->num_rows;
+    // echo $ris->num_rows;
     if ($ris->num_rows > 0) {
       while ($row = $ris->fetch_assoc()) {
         $articolo = fopen("./articoli/" . $row["cod"] . ".txt", "r");

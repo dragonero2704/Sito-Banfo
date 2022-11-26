@@ -625,7 +625,7 @@ h1:after {
 
 .banner {
     background-color: black;
-    height: 85vh;
+    height: 100vh;
     overflow: hidden;
     display: flex;
     justify-content: center;
