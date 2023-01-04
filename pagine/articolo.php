@@ -89,7 +89,7 @@
 
 
   <!-- Menu di navigazione -->
-  <!-- Menu di navigazione -->
+
   <?php
   require_once('./components/menu.php');
   ?>
@@ -99,7 +99,7 @@
 
   <?= "<div class='contenitore_articolo_pagina'>
           <div class='immagine_del_mio_articolo'>
-            <img src='../immagini/articoli/" . $row["codice"] . ".jpg'>
+            <img src='./immagini/articoli/" . $row["codice"] . ".jpg'>
           </div>
           <div class='cont_titolo_articolo'>
             <h2 class='med-text text-bold'>" . $titolo . "</h2>
@@ -108,7 +108,7 @@
           <div class='intestazione_del_mio_articolo'>
             <ul class='breadcrumb'>
             <li><a href='home'>Home</a></li>
-              <li><a href='" . SUBDIRSLASH . "/argomento/" . $row["argomento"] . "'>" . $row["argomento"] . "</a></li>
+              <li><a href='./argomento/" . $row["argomento"] . "'>" . $row["argomento"] . "</a></li>
               <li>" . $titolo . "</li>
             </ul>
           </div>
@@ -139,7 +139,7 @@
     }
 
     foreach ($autori[$prof] as $autore) {
-      echo "<a href='" . SUBDIRSLASH . "/membro/" . $autore["autore"] . "'><p style='margin-top: 0' class='normal-text'>" . $autore["nome"] . " " . $autore["cognome"] . "</p></a>";
+      echo "<a href='./membro/" . $autore["autore"] . "'><p style='margin-top: 0' class='normal-text'>" . $autore["nome"] . " " . $autore["cognome"] . "</p></a>";
     }
   }
   ?>

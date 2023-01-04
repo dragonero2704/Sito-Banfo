@@ -50,7 +50,7 @@ if(!empty($database->connerror)){
   <!-- Singola Persona -->
   <?php
   
-  $img_path = file_exists("./immagini/redazione/" . $row["nome"] . "_" . $row["cognome"] . ".jpg") ? "../immagini/redazione/" . $row["nome"] . "_" . $row["cognome"] . ".jpg" : '../immagini/redazione/user.jpg';
+  $img_path = file_exists("./immagini/redazione/" . $row["nome"] . "_" . $row["cognome"] . ".jpg") ? "./immagini/redazione/" . $row["nome"] . "_" . $row["cognome"] . ".jpg" : './immagini/redazione/user.jpg';
   
     
             echo "<div class='persona_contenitore clearfix'>
@@ -99,7 +99,7 @@ if(!empty($database->connerror)){
                         <div class='news_categoria'>
                             <h2>" . $row["argomento"] . "</h2><!-- Scritto dinamicamente con il database -->
                     </div>
-                    <img src='../immagini/articoli/" . $row["codice"] . ".jpg'>
+                    <img src='./immagini/articoli/" . $row["codice"] . ".jpg'>
                     <div class='news_data_su_immagine top-left'>
                         <p><i style='margin-right:10px;' class='far fa-calendar-alt'></i>" . $row["data"] . "</p> <!-- Scritta dinamicamente con il database -->
                     </div>
@@ -108,7 +108,7 @@ if(!empty($database->connerror)){
                         <p>" . $testo . "...</p>
                     </div>
                     <div class='news_bottone'>
-                        <a href='".SUBDIRSLASH."/articolo/" . $row["codice"] . "'><button class='il_mio_bottone'><span>Scopri di più  </span></button></a>
+                        <a href='./articolo/" . $row["codice"] . "'><button class='il_mio_bottone'><span>Scopri di più  </span></button></a>
                     </div>
                 </div>
                 

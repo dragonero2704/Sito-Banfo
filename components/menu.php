@@ -1,15 +1,15 @@
 <secction id="goHere"></secction>
 <div class="header_menu">
-    <a class="menu_logo" href="<?=SUBDIRSLASH?>/home">
-        <img src="<?=SUBDIRSLASH?>/immagini/misc/ilbanfotipo.png" alt="logo">
+    <a class="menu_logo" href="./home">
+        <img src="./immagini/misc/ilbanfotipo.png" alt="logo">
     </a>
     <div class="menu">
-        <a href="<?=SUBDIRSLASH?>/home">Home</a>
-        <a href="<?=SUBDIRSLASH?>/news">News</a>
-        <a href="<?=SUBDIRSLASH?>/redazione">Chi Siamo</a>
+        <a href="./home">Home</a>
+        <a href="./news">News</a>
+        <a href="./redazione">Chi Siamo</a>
         <?php
-            if(isset($_SESSION['username'])) echo '<a class="tdn" href="'.SUBDIRSLASH.'/logout">Logout</a>';
-            else echo '<a class="tdn" href="'.SUBDIRSLASH.'/login">Redattore</a>';
+            if(isset($_SESSION['username'])) echo '<a class="tdn" href="./logout">Logout</a>';
+            else echo '<a class="tdn" href="./login">Redattore</a>';
         ?>
     </div>
 
@@ -29,5 +29,19 @@
         let menu = document.getElementsByClassName('menu')[0]
 
         menu.classList.toggle('active');
+    }
+
+    let menu = document.getElementsByClassName("header_menu")[0];
+
+    // menu.addEventListener('')
+    window.onscroll = (ev)=>{
+        let scrollTop = window.pageYOffset ?? document.body.scrollTop
+        console.log(scrollTop)
+        let screenH = window.visualViewport.height
+        if(scrollTop>=screenH){
+            menu.classList.add("active")
+        }else{
+            menu.classList.remove("active")
+        }
     }
 </script>

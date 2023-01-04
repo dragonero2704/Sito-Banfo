@@ -1,23 +1,9 @@
 <?php
-function getSubDir()
+function getBaseHref()
 {
-    $dir = explode('\\', __DIR__);
-    // var_dump($dir);
-    $root = explode('/', $_SERVER['DOCUMENT_ROOT']);
-    $root = $root[sizeof($root) - 1];
-    $key = array_search($root, $dir);
-    if($key == sizeof($dir)) return "";
-    return join("/", array_slice($dir, $key + 1));
+    $baseHref = strchr($_SERVER['PHP_SELF'], basename($_SERVER["SCRIPT_FILENAME"]), true);
+    // echo 'BaseHref: '.$baseHref;
+    return $baseHref;
 }
 
-function getSubDirSlash(){
-    $sub = getSubDir();
-    if(!empty($sub)) return '/'.$sub;
-    else return "";
-}
-
-define("SUBDIRSLASH", getSubDirSlash());
-define("SUBDIR", getSubDir());
-
-// echo "Subdir: ".SUBDIR.'<br>';
-// echo "Subdirslash: ".SUBDIRSLASH;
+define("BASEHREF", getBaseHref());

@@ -45,7 +45,7 @@
 
   <div class="homeflex">
     
-      <a href="<?=SUBDIRSLASH?>/argomento/Ambiente">
+      <a href="./argomento/Ambiente">
         
           <div class="argomenticard">
             <div id="Ambienteback" class="ingrandimento">
@@ -58,7 +58,7 @@
       
       </a>
 
-      <a href="<?=SUBDIRSLASH?>/argomento/Attualita">
+      <a href="./argomento/Attualita">
         
           <div class="argomenticard">
             <div id="attualitaback" class="ingrandimento">
@@ -72,7 +72,7 @@
       </a>
 
 
-      <a href="<?=SUBDIRSLASH?>/argomento/cinema">
+      <a href="./argomento/cinema">
         
           <div class="argomenticard">
             <div id="cinemaback" class="ingrandimento">
@@ -85,7 +85,7 @@
       
       </a>
 
-      <a href="<?=SUBDIRSLASH?>/argomento/libri">
+      <a href="./argomento/libri">
         
           <div class="argomenticard">
             <div id="libriback" class="ingrandimento">
@@ -99,7 +99,7 @@
       </a>
 
 
-      <a href="<?=SUBDIRSLASH?>/argomento/Musica">
+      <a href="./argomento/Musica">
         
           <div class="argomenticard">
             <div id="musicaback" class="ingrandimento">
@@ -112,7 +112,7 @@
     
       </a>
 
-      <a href="<?=SUBDIRSLASH?>/argomento/Scienza">
+      <a href="./argomento/Scienza">
         
           <div class="argomenticard">
             <div id="scienzaback" class="ingrandimento">
@@ -126,7 +126,7 @@
       
       </a>
 
-      <a href="<?=SUBDIRSLASH?>/argomento/Scuola">
+      <a href="./argomento/Scuola">
         
           <div class="argomenticard">
             <div id="scuolaback" class="ingrandimento">
@@ -140,7 +140,7 @@
         
       </a>
 
-      <a href="<?=SUBDIRSLASH?>/argomento/Sport">
+      <a href="./argomento/Sport">
         
           <div class="argomenticard">
             <div id="sportback" class="ingrandimento">
@@ -154,7 +154,7 @@
      
       </a>
 
-      <a href="<?=SUBDIRSLASH?>/argomento/Storia">
+      <a href="./argomento/Storia">
         
           <div class="argomenticard">
             <div id="storiaback" class="ingrandimento">
@@ -168,7 +168,7 @@
       
       </a>
 
-      <a href="<?=SUBDIRSLASH?>/argomento/Varie">
+      <a href="./argomento/Varie">
         
           <div class="argomenticard">
             <div id="varieback" class="ingrandimento">
@@ -241,7 +241,7 @@ if(!empty($database->connerror)){
                             <p><i style='margin-right:10px;' class='far fa-calendar-alt'></i>" .$row["data"] . "</p> <!-- Scritta dinamicamente con il database -->
                           </div>
                           <div class='news_autore bottom-center'>
-                          <a href='membro/" . $row["autore"] . "'><p>" . $row["nome"] . " " . $row["cognome"] . "</p></a>
+                          <a href='./membro/" . $row["autore"] . "'><p>" . $row["nome"] . " " . $row["cognome"] . "</p></a>
                           </div>
                         </div>
 
@@ -250,7 +250,7 @@ if(!empty($database->connerror)){
                         </div>
 
                         <div class='news_bottone'>
-                          <a href='articolo/" . $row["cod"] . "'><button class='il_mio_bottone'><span>Scopri di più  </span></button></a>
+                          <a href='./articolo/" . $row["cod"] . "'><button class='il_mio_bottone'><span>Scopri di più  </span></button></a>
                         </div>
                     </div>
                     
@@ -278,7 +278,7 @@ if(!empty($database->connerror)){
       <h2 class="big-text">Chi Siamo?</h2>
       <p class="text-justify">Il Banfo è il giornale scolastico del Liceo Scientifico e Classico A. Banfi di Vimercate. La tradizione viene portata avanti ormai dal 1980 e fino all’anno scorso, tra formati A4 e formati A5, i numeri venivano distribuiti per la classi sotto forma di giornali di carta. Con lo scoppio della pandemia anche il Banfo, come molte delle realtà scolastiche e non, si è dovuto reinventare. Nel corso del primo lockdown abbiamo quindi deciso di aprire un sito per continuare a tenere compagnia ai nostri lettori anche (e soprattutto) durante un periodo così particolare e ...
       </p>
-      <a href="<?=SUBDIRSLASH?>/redazione"><button class="bottone_blue">Scopri di più</button></a>
+      <a href="./redazione"><button class="bottone_blue">Scopri di più</button></a>
     </div>
   </div>
 
@@ -349,7 +349,7 @@ if(!empty($database->connerror)){
         </div>
       <div class=" eventi__text">
           <p class="tw normal-text">Gli eventi imperdibili di questo mese: quello che accade intorno a noi</p>
-        <a href="<?=SUBDIRSLASH?>/argomento/Eventi"><button class="bottone_blue">Scopri di più</button></a>
+        <a href="./argomento/Eventi"><button class="bottone_blue">Scopri di più</button></a>
       </div>
     </div>
   -->

@@ -274,6 +274,34 @@ h1:after {
     z-index: 100;
 }
 
+.header_menu::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -50%;
+    width: 0vw;
+    height: 70px;
+    background: var(--bg-color);
+    transition: width .2s cubic-bezier(.05, .87, .61, .96);
+    opacity: .8;
+}
+
+.header_menu.active{
+    transition: none;
+}
+
+.header_menu:hover::before,
+.header_menu:active::before,
+.header_menu.active::before{
+    width: 100vw;
+}
+
+@media (max-width:768px){
+    .header_menu::before{
+        width: 100vw;
+    }
+}
+
 .menu_logo {
     position: relative;
     height: 100%;
@@ -387,9 +415,13 @@ h1:after {
     color: #f1f1f1;
 }
 
+.tdn{
+    display: block;
+}
+
 @media (max-width: 998px) {
     .tdn {
-        display: none;
+        display: none !important;
     }
 }
 

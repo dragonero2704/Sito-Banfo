@@ -9,30 +9,29 @@ class Router
 
     function addRoute($route, $redirect)
     {
-        if ($route == '/') {
-            $this->routes[SUBDIR] = $redirect;
-        } else {
-            $this->routes[SUBDIRSLASH . $route] = $redirect;
-        }
+        $route = trim($route, '/');
+        $route = str_replace("{}", "(.+)", $route);
+        $this->routes[trim($route, '/')] = $redirect;
+    }
+
+    function sanitize($request){
+        $sanitized = substr($request, strlen(BASEHREF));
+        return $sanitized;
     }
 
     function route($request)
     {
-        $action = ltrim($request, '/');
-
-        // prima cosa: scomporre l'url
-        $requestParts = explode('/', $request);
-        // var_dump($requestParts);
-        // echo "Action: " . $action . '<br>';
+        //elimina le varie subdirectory prima della della cartella effettiva di root
+        $request = $this->sanitize($request);
+        //in questo modo non importa se si scrive o no gli slash all'inizio o alla fine della route
+        $action = trim($request, '/');
 
         $callback = null;
         $params = array();
         foreach ($this->routes as $route => $handler) {
-            $route = ltrim($route, '/');
             // echo $route . '<br>';
-
             if (preg_match("%^{$route}$%", $action, $matches) === 1) {
-
+                //faccio l'unset del primo matches perché contiene solo la stringa per intero, è inutile
                 unset($matches[0]);
 
                 $callback = $handler;
@@ -41,24 +40,25 @@ class Router
                 break;
             }
         }
-
-        // echo "Callback: ".$callback;
-
+        //se non ho un callback deinito, vuol dire che la route non è definita
         if (!isset($callback)) {
-            require_once('./pagine/404.php');
+            require_once('./views/404.php');
             exit();
         }
-
+        //se il callback è una funzione la eseguo
         if (is_callable($callback)) {
-            call_user_func($callback, ...$params);
+            echo call_user_func($callback, ...$params);
             exit();
         }
 
-        require_once($callback);
+        //se il callback non è una funzione vuol dire che è un percorso
+        try {
+            require_once($callback);
+        } catch (\Throwable $th) {
+            //se c'è un errore, ad esempio il percorso non è valido, chiamo la pagina di errore 404
+            require_once('./views/404.php');
+        }
+        
         exit();
-
-        // require_once('./views/404.php');
-        // exit();
-        // exit();
     }
 }

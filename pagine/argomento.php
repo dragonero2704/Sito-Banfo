@@ -14,9 +14,7 @@
 
     gtag('config', 'G-GKN4DGSBEF');
   </script>
-  <?php if(!isset($argomento))$argomento = $_GET["argomento"]; 
-  
-  ?>
+  <?php if(!isset($argomento))$argomento = $_GET["argomento"]; ?>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -28,7 +26,6 @@
 
 <body>
 
-  <!-- Menu di navigazione -->
   <!-- Menu di navigazione -->
   <?php
       require_once('./components/menu.php');
@@ -58,7 +55,7 @@
     while ($row = $ris->fetch_assoc()) {
       echo "
                 <div class='banner_singolo_argomento'>
-                  <img src='".SUBDIRSLASH."/immagini/misc/bg_" . $argomento . ".png'>
+                  <img src='./immagini/misc/bg_" . $argomento . ".png'>
                 </div>
 
                 <div>
@@ -99,19 +96,19 @@
                       <div class='news_categoria'>
                         <h2>" . $row["argomento"] . "</h2><!-- Scritto dinamicamente con il database -->
                       </div>
-                      <img src='../immagini/articoli/" . $row["cod"] . ".jpg'>
+                      <img src='./immagini/articoli/" . $row["cod"] . ".jpg'>
                       <div class='news_data_su_immagine top-left'>
                         <p><i style='margin-right:10px;' class='far fa-calendar-alt'></i>" . $row["data"] . "</p> <!-- Scritta dinamicamente con il database -->
                       </div>
                       <div class='news_autore bottom-center'>
-                      <a href='".SUBDIRSLASH."/membro/" . $row["autore"] . "'>  <p>" . $row["nome"] . " " . $row["cognome"] . "</p></a>
+                      <a href='./membro/" . $row["autore"] . "'>  <p>" . $row["nome"] . " " . $row["cognome"] . "</p></a>
                       </div>
                     </div>
                     <div class='news_introduzione'>
                       <p>" . $testo . "...</p>
                     </div>
                     <div class='news_bottone'>
-                    <a href='".SUBDIRSLASH."/articolo/" . $row["cod"] . "'><button class='il_mio_bottone'><span>Scopri di più  </span></button></a>
+                    <a href='./articolo/" . $row["cod"] . "'><button class='il_mio_bottone'><span>Scopri di più  </span></button></a>
                     </div>
                   </div>
                   

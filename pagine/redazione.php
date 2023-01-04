@@ -87,7 +87,7 @@
                                     <h2>" . $row["nome"] . " " . $row["cognome"] . "</h2>
                                     <p class='Red_professione'>" . $row["professione"] . "</p>
                                     <p>" . $row["classe"] . "</p>
-                                    <a href='".SUBDIRSLASH."/membro/" . $row["codice"] . "'><button class='il_mio_bottone'><span>Scopri di più  </span></button></a>
+                                    <a href='./membro/" . $row["codice"] . "'><button class='il_mio_bottone'><span>Scopri di più  </span></button></a>
                                 </div>
                             </div>
                        

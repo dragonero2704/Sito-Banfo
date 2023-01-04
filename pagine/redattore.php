@@ -23,7 +23,7 @@
     <?php
     session_start();
     if (!isset($_SESSION['username'])) {
-        header("location: ".SUBDIRSLASH."/login");
+        header("location: ./login");
     }
     $username = $_SESSION["username"];
 
@@ -75,7 +75,7 @@
         </div>
 
         <div class="tab" id="bg-data">
-            <input type="date" name="data" placeholder="Data" style="position: relative; top: 50%; transform: translate(0, -50%); border: 0; -webkit-appearance: none; background-color: rgb(0, 113, 227, 0.9);  color: white; font-size:2.7vh; outline: none;">
+            <input type="date" name="data" placeholder="Data" style="position: relative; top: 50%; transform: translate(0, -50%); border: 0; appearance: none; background-color: rgb(0, 113, 227, 0.9);  color: white; font-size:2.7vh; outline: none;">
         </div>
 
         <div class="tab" id="bg-categoria">

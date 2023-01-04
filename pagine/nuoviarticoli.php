@@ -84,14 +84,14 @@
                           <p><i style='margin-right:10px;' class='far fa-calendar-alt'></i>" . $row["data"] . "</p> <!-- Scritta dinamicamente con il database -->
                         </div>
                         <div class='news_autore bottom-center'>
-                        <a href='".SUBDIRSLASH."/membro/" . $row["autore"] . "'><p>" . $row["nome"] . " " . $row["cognome"] . "</p></a>
+                        <a href='./membro/" . $row["autore"] . "'><p>" . $row["nome"] . " " . $row["cognome"] . "</p></a>
                         </div>
                       </div>
                       <div class='news_introduzione'>
                         <p>" . $testo . "...</p>
                       </div>
                       <div class='news_bottone'>
-                      <a href='".SUBDIRSLASH."/articolo/" . $row["cod"] . "'><button class='il_mio_bottone'><span>Scopri di più  </span></button></a>
+                      <a href='./articolo/" . $row["cod"] . "'><button class='il_mio_bottone'><span>Scopri di più  </span></button></a>
                       </div>
                     </div>
                     

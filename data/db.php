@@ -3,7 +3,7 @@ define("DEVELOPMENT",
 
 /*
 * true se si vuole sviluppare in locale
-* false se si vuole effettuare il deploy
+* false se si vuole effettuare il deploy o caricarlo sul server
 */
 
 // false
