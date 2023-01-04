@@ -293,14 +293,14 @@ h1:after {
 .header_menu:hover::before,
 .header_menu:active::before,
 .header_menu.active::before{
-    width: 100vw;
+    width: 200vw;
 }
 
-@media (max-width:768px){
+/* @media (max-width:768px){
     .header_menu::before{
-        width: 100vw;
+        width: 200vw;
     }
-}
+} */
 
 .menu_logo {
     position: relative;

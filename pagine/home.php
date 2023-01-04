@@ -72,7 +72,7 @@
       </a>
 
 
-      <a href="./argomento/cinema">
+      <a href="./argomento/Cinema">
         
           <div class="argomenticard">
             <div id="cinemaback" class="ingrandimento">
@@ -85,7 +85,7 @@
       
       </a>
 
-      <a href="./argomento/libri">
+      <a href="./argomento/Libri">
         
           <div class="argomenticard">
             <div id="libriback" class="ingrandimento">
