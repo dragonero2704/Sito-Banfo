@@ -1,3 +1,4 @@
+'use-strict';
 //trova il select dummy
 let select = document.getElementById("dummy_select")
 let options = select.children
@@ -10,8 +11,10 @@ select.addEventListener('change', async () => {
     let resJson;
     resJson = await fetch(url, {
         method: "GET"
-    }).then((data) => data.json())
-    console.log(resJson);
+    })
+    .then((data) => data.json())
+    .catch(e=>console.log(e))
+    // console.log(resJson);
     let inHtml = `<div class='Red_singolo-membro'>
     <input type="hidden" name="autore[]" value="${resJson.id}" id="${resJson.id}-identifier">
     <div class='Red_singolo_membro_img'>

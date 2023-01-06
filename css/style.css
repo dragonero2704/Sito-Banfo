@@ -253,6 +253,8 @@ h1:after {
 }
 
 
+
+
 /* ! ================================================================================================================================================== */
 
 
@@ -278,7 +280,7 @@ h1:after {
     content: '';
     position: absolute;
     top: 0;
-    left: -50%;
+    
     width: 0vw;
     height: 70px;
     background: var(--bg-color);
@@ -293,7 +295,7 @@ h1:after {
 .header_menu:hover::before,
 .header_menu:active::before,
 .header_menu.active::before{
-    width: 200vw;
+    width: 100vw;
 }
 
 /* @media (max-width:768px){
@@ -2177,6 +2179,11 @@ input.invalid {
     max-width: 600px;
     width: 100%;
     padding: 20px;
+}
+
+img[async],
+img[a]{
+    object-fit: contain !important;
 }
 
 /* ! clearfix */

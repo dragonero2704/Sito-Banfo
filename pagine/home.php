@@ -236,7 +236,7 @@ if(!empty($database->connerror)){
                           <div class='news_categoria'>
                             <h2>" . $row["argomento"] . "</h2><!-- Scritto dinamicamente con il database -->
                           </div>
-                          <img src='$img_path'>
+                          <img a='$img_path' src='./immagini/loading.gif'>
                           <div class='news_data_su_immagine top-left'>
                             <p><i style='margin-right:10px;' class='far fa-calendar-alt'></i>" .$row["data"] . "</p> <!-- Scritta dinamicamente con il database -->
                           </div>
@@ -318,7 +318,7 @@ if(!empty($database->connerror)){
                                   <div class='layer'></div>
                                   <div class='content'>
                                     <div class='imgBx'>
-                                      <img src='" . $img_path . "'>
+                                      <img a='" . $img_path . "' src='./immagini/loading.gif'>
                                     </div>
                                     <div class='details'>
                                       <a href='membro/" . $row["codice"] . "'>
@@ -396,6 +396,8 @@ if(!empty($database->connerror)){
     });
   </script>
   <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+
+  <script>loadAsync("a")</script>
 
 </body>
 

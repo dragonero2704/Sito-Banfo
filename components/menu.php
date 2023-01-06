@@ -8,8 +8,8 @@
         <a href="./news">News</a>
         <a href="./redazione">Chi Siamo</a>
         <?php
-            if(isset($_SESSION['username'])) echo '<a class="tdn" href="./logout">Logout</a>';
-            else echo '<a class="tdn" href="./login">Redattore</a>';
+        if (isset($_SESSION['username'])) echo '<a class="tdn" href="./logout">Logout</a>';
+        else echo '<a class="tdn" href="./login">Redattore</a>';
         ?>
     </div>
 
@@ -31,16 +31,17 @@
         menu.classList.toggle('active');
     }
 
-    let menu = document.getElementsByClassName("header_menu")[0];
 
     // menu.addEventListener('')
-    window.onscroll = (ev)=>{
+    window.onscroll = (ev) => {
+        let menu = document.getElementsByClassName("header_menu")[0];
+
         let scrollTop = window.pageYOffset ?? document.body.scrollTop
-        console.log(scrollTop)
+        // console.log(scrollTop)
         let screenH = window.visualViewport.height
-        if(scrollTop>=screenH){
+        if (scrollTop >= screenH) {
             menu.classList.add("active")
-        }else{
+        } else {
             menu.classList.remove("active")
         }
     }

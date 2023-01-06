@@ -42,7 +42,7 @@ class Router
         }
         //se non ho un callback deinito, vuol dire che la route non è definita
         if (!isset($callback)) {
-            require_once('./views/404.php');
+            require_once('./pagine/404.php');
             exit();
         }
         //se il callback è una funzione la eseguo
@@ -56,7 +56,7 @@ class Router
             require_once($callback);
         } catch (\Throwable $th) {
             //se c'è un errore, ad esempio il percorso non è valido, chiamo la pagina di errore 404
-            require_once('./views/404.php');
+            require_once('./pagine/404.php');
         }
         
         exit();
