@@ -25,6 +25,6 @@ $router->addRoute("/membro/{}", function ($cod) {
     require_once("./pagine/membro.php");
 });
 
-// echo "Request URI: ".$_SERVER['REQUEST_URI'].'<br>';
-
+// questa funzione smista le richieste HTPP
+// vedere file router.php
 $router->route($_SERVER['REQUEST_URI']);
