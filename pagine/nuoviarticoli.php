@@ -54,14 +54,23 @@
       echo "<p>Errore di connessione " . $database->connerror['code'] . ":" . $database->connerror['message'] . "</p>";
     }
 
-    $sql = "	SELECT DISTINCT collabora.codice_articolo as cod, DATE_FORMAT(articoli.data, '%d/%m/%Y') as data, collabora.codice_autore as autore, articoli.argomento as argomento, nome, cognome,DATE_FORMAT(data, '%Y/%m/%d')
-                        FROM collabora JOIN articoli
-                        ON collabora.codice_articolo=articoli.codice_articolo JOIN categorie
-                        ON articoli.argomento=categorie.argomento JOIN redazione 
-                        ON redazione.codice=collabora.codice_autore
-                        WHERE collabora.ruolo IN ('Scrittore', 'Scrittrice')
-                        ORDER BY DATE_FORMAT(data, '%Y/%m/%d') DESC
-                        LIMIT 9";
+    // $sql = "	SELECT collabora.codice_articolo as cod, DATE_FORMAT(articoli.data, '%d/%m/%Y') as data, collabora.codice_autore as autore, articoli.argomento as argomento, nome, cognome
+    //                     FROM collabora JOIN articoli
+    //                     ON collabora.codice_articolo=articoli.codice_articolo JOIN categorie
+    //                     ON articoli.argomento=categorie.argomento JOIN redazione 
+    //                     ON redazione.codice=collabora.codice_autore
+    //                     WHERE collabora.ruolo IN ('Scrittore', 'Scrittrice')
+    //                     GROUP BY collabora.codice_articolo, DATE_FORMAT(data, '%Y/%m/%d'), collabora.codice_autore, articoli.argomento, nome, cognome
+    //                     ORDER BY DATE_FORMAT(data, '%Y/%m/%d') DESC
+    //                     LIMIT 9";
+    $sql = "SELECT collabora.codice_articolo as cod, DATE_FORMAT(articoli.data, '%d/%m/%Y') as data, collabora.codice_autore as autore, articoli.argomento as argomento, nome, cognome
+    FROM articoli JOIN (SELECT codice_articolo, MIN(codice_autore) as codice_autore, ruolo as ruolo FROM collabora WHERE ruolo in ('Scrittore', 'Scrittrice') GROUP BY codice_articolo, ruolo) as collabora
+    ON collabora.codice_articolo=articoli.codice_articolo JOIN categorie
+    ON articoli.argomento=categorie.argomento JOIN redazione 
+    ON redazione.codice=collabora.codice_autore
+    WHERE collabora.ruolo IN ('Scrittore', 'Scrittrice')
+    ORDER BY DATE_FORMAT(articoli.data, '%Y/%m/%d') DESC
+    LIMIT 9";
     $ris = $database->query($sql) or die("<p>Query fallita! " . $database->error['message'] . "</p>");
     if ($ris->num_rows > 0) {
       while ($row = $ris->fetch_assoc()) {

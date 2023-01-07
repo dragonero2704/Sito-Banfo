@@ -204,8 +204,8 @@ if(!empty($database->connerror)){
     echo "<p>Errore di connessione ".$database->connerror['code'].":".$database->connerror['message']."</p>";
 }
     
-    $sql = "SELECT collabora.codice_articolo as cod, DATE_FORMAT(articoli.data, '%d/%m/%Y') as data, collabora.codice_autore as autore, articoli.argomento as argomento, nome, cognome, DATE_FORMAT(articoli.data, '%Y/%m/%d')
-                        FROM articoli JOIN (SELECT codice_articolo, MIN(codice_autore) as codice_autore, ruolo as ruolo FROM collabora WHERE ruolo in ('Scrittore', 'Scrittrice') GROUP BY codice_articolo, ruolo) as collabora 
+    $sql = "	SELECT DISTINCT collabora.codice_articolo as cod, DATE_FORMAT(articoli.data, '%d/%m/%Y') as 'data', collabora.codice_autore as autore, articoli.argomento as argomento, nome, cognome, DATE_FORMAT(articoli.data, '%Y/%m/%d')
+                        FROM collabora JOIN articoli
                         ON collabora.codice_articolo=articoli.codice_articolo JOIN categorie
                         ON articoli.argomento=categorie.argomento JOIN redazione 
                         ON redazione.codice=collabora.codice_autore
@@ -236,7 +236,7 @@ if(!empty($database->connerror)){
                           <div class='news_categoria'>
                             <h2>" . $row["argomento"] . "</h2><!-- Scritto dinamicamente con il database -->
                           </div>
-                          <img async-load='$img_path' src='./immagini/loading.gif'>
+                          <img a='$img_path' src='./immagini/loading.gif'>
                           <div class='news_data_su_immagine top-left'>
                             <p><i style='margin-right:10px;' class='far fa-calendar-alt'></i>" .$row["data"] . "</p> <!-- Scritta dinamicamente con il database -->
                           </div>
@@ -318,7 +318,7 @@ if(!empty($database->connerror)){
                                   <div class='layer'></div>
                                   <div class='content'>
                                     <div class='imgBx'>
-                                      <img async-load='" . $img_path . "' src='./immagini/loading.gif'>
+                                      <img a='" . $img_path . "' src='./immagini/loading.gif'>
                                     </div>
                                     <div class='details'>
                                       <a href='membro/" . $row["codice"] . "'>
@@ -397,7 +397,7 @@ if(!empty($database->connerror)){
   </script>
   <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 
-  <script>loadAsync()</script>
+  <script>loadAsync("a")</script>
 
 </body>
 

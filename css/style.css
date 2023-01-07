@@ -2181,7 +2181,7 @@ input.invalid {
     padding: 20px;
 }
 
-img[async],
+img[async-load],
 img[a]{
     object-fit: contain !important;
 }

@@ -31,7 +31,7 @@ class Router
         foreach ($this->routes as $route => $handler) {
             // echo $route . '<br>';
             if (preg_match("%^{$route}$%", $action, $matches) === 1) {
-                //faccio l'unset del primo matches perché contiene solo la stringa per intero, è inutile
+                //faccio l'unset del primo matches perché contiene solo la stringa per intero che è inutile
                 unset($matches[0]);
 
                 $callback = $handler;
@@ -52,13 +52,13 @@ class Router
         }
 
         //se il callback non è una funzione vuol dire che è un percorso
-        try {
-            require_once($callback);
-        } catch (\Throwable $th) {
-            //se c'è un errore, ad esempio il percorso non è valido, chiamo la pagina di errore 404
+        //se c'è un errore, ad esempio il percorso non è valido, chiamo la pagina di errore 404
+        if(!file_exists($callback)){
             require_once('./pagine/404.php');
+            exit();
         }
         
+        require_once($callback);
         exit();
     }
 }
