@@ -1664,14 +1664,16 @@ ul {
 }
 
 .cont_titolo_articolo {
-    width: 60%;
+    width: 100%;
+    max-width: 1200px;
     margin: 0 auto;
     padding: 0 50px;
     text-align: center;
 }
 
 .cont_testo {
-    width: 60%;
+    width: 100%;
+    max-width: 1200px;
     margin: 0 auto;
     padding: 0 50px;
     text-align: center;
@@ -1679,7 +1681,8 @@ ul {
 }
 
 .intestazione_del_mio_articolo {
-    width: 60%;
+    width: 100%;
+    max-width: 1200px;
     margin: 0 auto;
     text-align: center;
     border-top: 1px solid gray;

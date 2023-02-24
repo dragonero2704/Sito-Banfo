@@ -49,8 +49,8 @@
           WHERE argomento = '$argomento'";
 
   $ris = $database->query($sql) or die("<p>Query fallita! " . $database->error['message'] . "</p>");
-  if($argomento == "Attualita") $title = "Attualità";
-  else $title = $argomento;
+  // if($argomento == "Attualita") $title = "Attualità";
+  // else $title = $argomento;
   if ($ris->num_rows > 0) {
     while ($row = $ris->fetch_assoc()) {
       echo "
