@@ -1,30 +1,28 @@
 <?php
-require_once('helpers.php');
-
 require_once('router.php');
 
 $router = new Router();
 
-$router->addRoute('/', "./pagine/home.php");
-$router->addRoute("/home", "./pagine/home.php");
-$router->addRoute("/redazione", "./pagine/redazione.php");
-$router->addRoute("/redattore", "./pagine/redattore.php");
-$router->addRoute("/login", "./pagine/login.php");
-$router->addRoute("/logout", "./pagine/logout.php");
-$router->addRoute("/news", "./pagine/nuoviarticoli.php");
+$router->any('/', "./pagine/home.php");
+$router->any("/home", "./pagine/home.php");
+$router->any("/redazione", "./pagine/redazione.php");
+$router->any("/redattore", "./pagine/redattore.php");
+$router->any("/login", "./pagine/login.php");
+$router->any("/logout", "./pagine/logout.php");
+$router->any("/news", "./pagine/nuoviarticoli.php");
 
-$router->addRoute("/argomento/{}", function ($argomento) {
+$router->any("/argomento/{}", function ($argomento) {
     require_once("./pagine/argomento.php");
 });
 
-$router->addRoute("/articolo/{}", function ($cod) {
+$router->any("/articolo/{}", function ($cod) {
     require_once("./pagine/articolo.php");
 });
 
-$router->addRoute("/membro/{}", function ($cod) {
+$router->any("/membro/{}", function ($cod) {
     require_once("./pagine/membro.php");
 });
 
-// questa funzione smista le richieste HTPP
+// questa funzione smista le richieste HTTP
 // vedere file router.php
 $router->route($_SERVER['REQUEST_URI']);

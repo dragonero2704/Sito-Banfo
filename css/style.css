@@ -1636,25 +1636,28 @@ h1:after {
 }
 
 .immagine_del_mio_articolo {
-    width: 100%;
-    height: 90vh;
+    /* width: 100%; */
+    height: auto;
+    max-height: 80vh;
     overflow: hidden;
+    aspect-ratio: 16/9;
+    margin: auto;
 }
 
 .immagine_del_mio_articolo img {
     width: 100%;
-    height: 100%;
+    height: auto;
     display: block;
     object-fit: contain;
 }
 
-@media (max-width: 425px) {
+/* @media (max-width: 425px) {
     .immagine_del_mio_articolo {
         width: 100%;
         height: 50vh;
         overflow: hidden;
     }
-}
+} */
 
 ul {
     padding-inline-start: 0;
