@@ -8,8 +8,7 @@ select.addEventListener('change', async () => {
     let id = options[selected].value
     let result = document.getElementsByClassName('Red_flex')[0]
     let url = `./ajax/addauthor.php?q=${id}`;
-    let resJson;
-    resJson = await fetch(url, {
+    let resJson = fetch(url, {
         method: "GET"
     })
     .then((data) => data.json())

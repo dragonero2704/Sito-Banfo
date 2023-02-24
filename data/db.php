@@ -87,8 +87,7 @@ class Database
         try{
             $ris = $this->connection->query($sql);
         }catch(Exception $e){
-            $this->error['code'] = 404;
-
+            $this->error['code'] = $e->getCode();
             $this->error['message'] = $e->getMessage();
             return false;
         }
