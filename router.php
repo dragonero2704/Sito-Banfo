@@ -26,6 +26,7 @@ class Router
         // ([^/]+) fa in modo che durante il regex vengano esclusi gli /
         // Guida sul regular expression matching (regex) in php:
         // https://www.w3schools.com/php/php_regex.asp
+        $route = str_replace("...", "(.+)", $route);
 
         $this->routes[trim($route, '/')] = $redirect;
         $this->method[trim($route, '/')] = $method;
