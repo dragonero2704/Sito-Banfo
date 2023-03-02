@@ -1540,6 +1540,16 @@ h1:after {
     /* z-index: 100; */
 }
 
+.smaller{
+    width: 25%;
+}
+
+@media (max-width: 991.98px){
+    .Red_singolo-membro p {
+        margin: 0;
+    }
+}
+
 .Red_singolo-membro * {
     text-align: center;
 }
@@ -2152,7 +2162,7 @@ input.invalid {
     display: block;
     position: absolute;
     width: 100%;
-    height: 5px;
+    height: 3px;
     border-radius: 5px;
     background-color: darkred;
     top: 50%;

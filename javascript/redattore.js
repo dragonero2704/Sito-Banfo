@@ -15,7 +15,7 @@ select.addEventListener('change', async () => {
     resJson = await resJson.json()
 
     console.log(resJson);
-    let inHtml = `<div class='Red_singolo-membro'>
+    let inHtml = `<div class='Red_singolo-membro smaller'>
     <input type="hidden" name="autore[]" value="${resJson.id}" id="${resJson.id}-identifier">
     <div class='Red_singolo_membro_img'>
         <img src='${resJson.imgPath}'>
@@ -23,6 +23,7 @@ select.addEventListener('change', async () => {
     <div class='delete_button' onclick='deselect(this.parentElement)'><span></span><span></span></div>
     <div class='Red_contenitore_membro'>
         <h2>${resJson.nome} ${resJson.cognome}</h2>
+        <p class="decorate">Ruolo:</p>
         <div class='Red_professione'><input type='text' name='${resJson.id}-ruolo' value='${resJson.professione}'></div>
         <p>${resJson.classe}</p>
     </div>
