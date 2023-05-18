@@ -20,8 +20,8 @@ if (empty($ris)) {
 $row = $ris[0];
 
 $img_path = file_exists('../immagini/redazione/' . $row['nome'] . '_' . $row['cognome'] . '.jpg') ?
-    '../immagini/redazione/' . $row['nome'] . '_' . $row['cognome'] . '.jpg' :
-    '../immagini/redazione/user.jpg';
+    './immagini/redazione/' . $row['nome'] . '_' . $row['cognome'] . '.jpg' :
+    './immagini/redazione/user.jpg';
 
 $database->close();
 

@@ -1,3 +1,4 @@
+'use-strict';
 //trova il select dummy
 let select = document.getElementById("dummy_select")
 let options = select.children
@@ -6,13 +7,15 @@ select.addEventListener('change', async () => {
     let selected = select.selectedIndex
     let id = options[selected].value
     let result = document.getElementsByClassName('Red_flex')[0]
-    let url = `../ajax/addauthor.php?q=${id}`;
+    let url = `./api/addauthor.php?q=${id}`;
     let resJson = await fetch(url, {
         method: "GET"
     })
-        .then((data) => data.json())
-        .catch((error) => console.error(error));
-    let inHtml = `<div class='Red_singolo-membro'>
+
+    resJson = await resJson.json()
+
+    console.log(resJson);
+    let inHtml = `<div class='Red_singolo-membro smaller'>
     <input type="hidden" name="autore[]" value="${resJson.id}" id="${resJson.id}-identifier">
     <div class='Red_singolo_membro_img'>
         <img src='${resJson.imgPath}'>
@@ -20,6 +23,7 @@ select.addEventListener('change', async () => {
     <div class='delete_button' onclick='deselect(this.parentElement)'><span></span><span></span></div>
     <div class='Red_contenitore_membro'>
         <h2>${resJson.nome} ${resJson.cognome}</h2>
+        <p class="decorate">Ruolo:</p>
         <div class='Red_professione'><input type='text' name='${resJson.id}-ruolo' value='${resJson.professione}'></div>
         <p>${resJson.classe}</p>
     </div>
