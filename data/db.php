@@ -7,8 +7,8 @@ define(
 * false se si vuole effettuare il deploy o caricarlo sul server
 */
 
-    false
-    // true
+    // false
+    true
 );
 //
 
