@@ -7,8 +7,8 @@ define(
 * false se si vuole effettuare il deploy o caricarlo sul server
 */
 
-    // false
-    true
+    false
+    // true
 );
 //
 
@@ -26,7 +26,9 @@ class Database
     {
         // il file con le credenziali va inserito nella cartella ./data
         // e va nominato "database.json"
-        $credentials = json_decode(file_get_contents("./database.json"));
+        $credentials = json_decode(file_get_contents("./data/database.json"), true);
+        // var_dump(file_get_contents("./data/database.json"));
+        // var_dump($credentials);
         if (DEVELOPMENT) {
             $credentials["database"] = "banfo";
             $credentials["username"] = "root";
