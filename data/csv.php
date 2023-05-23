@@ -13,7 +13,7 @@
             $this->pathToFile = $file['tmp_name'];
             $this->size = $file['size'];
             $stream = fopen($this->pathToFile, 'r');
-            while($row = fgetcsv($stream, 10000, ',')){
+            while($row = fgetcsv($stream, 100000, ',')){
                 if($this->nRows == 0){
                     $this->nHeaders = sizeof($row);
                 }
@@ -25,14 +25,14 @@
         public function getRows(){
             $stream = fopen($this->pathToFile, 'r');
             $rows = array();
-            while($row = fgetcsv($stream, 10000, ',')){
+            while($row = fgetcsv($stream, 100000, ',')){
                 array_push($rows, $row);
             }
             return $rows;
         }
 
         public function getNextRow(){
-            if($row = fgetcsv($this->stream, 10000, ',')){
+            if($row = fgetcsv($this->stream, 100000, ',')){
                 return $row;
             }else{
                 return false;
@@ -41,7 +41,7 @@
 
         public function getHeader(){
             $stream = fopen($this->pathToFile, 'r');
-            $headers = fgetcsv($stream, 10000, ',');
+            $headers = fgetcsv($stream, 100000, ',');
             $head = array();
             $counter = 0;
             //associo il nome dell'head all'indice della colonna

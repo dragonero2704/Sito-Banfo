@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.1.0
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Creato il: Ott 10, 2022 alle 17:00
--- Versione del server: 10.4.21-MariaDB
--- Versione PHP: 8.0.11
+-- Host: 31.11.39.34:3306
+-- Creato il: Gen 07, 2023 alle 21:57
+-- Versione del server: 5.7.33-36-log
+-- Versione PHP: 8.0.7
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `banfo`
+-- Database: `Sql1660750_1`
 --
 
 -- --------------------------------------------------------
@@ -148,7 +148,16 @@ INSERT INTO `articoli` (`codice_articolo`, `titolo`, `data`, `argomento`) VALUES
 (112, 'La riforma del debate', '2022-05-17', 'Varie'),
 (113, 'Al bar con la bioetica', '2022-05-19', 'Scienza'),
 (114, 'Testamentum', '2022-06-02', 'Varie'),
-(115, 'Autostima', '2022-06-02', 'Varie');
+(115, 'Autostima', '2022-06-02', 'Varie'),
+(116, 'Sott`acqua', '2022-11-21', 'Varie'),
+(117, 'Il cane che guarda le stelle', '2022-11-26', 'Libri'),
+(118, 'La canzone di Achille', '2022-11-26', 'Libri'),
+(119, 'C\'è sempre una seconda occasione', '2022-11-28', 'Varie'),
+(120, 'Nulla da ascoltare? Prova il K-Pop', '2022-11-29', 'Musica'),
+(121, 'Le Compagnie di Ventura', '2022-12-06', 'Storia'),
+(122, 'Il badminton', '2022-12-12', 'Sport'),
+(123, 'ARS AMANDI', '2022-12-21', 'Varie'),
+(124, 'In piazza contro Xi', '2022-12-30', 'Attualità');
 
 -- --------------------------------------------------------
 
@@ -276,9 +285,11 @@ INSERT INTO `collabora` (`codice_autore`, `codice_articolo`, `ruolo`) VALUES
 (29, 98, 'Scrittrice'),
 (29, 102, 'Scrittrice'),
 (29, 112, 'Scrittrice'),
+(29, 116, 'Scrittrice'),
 (31, 38, 'Scrittore'),
 (31, 49, 'Scrittore'),
 (32, 47, 'Scrittrice'),
+(32, 120, 'Scrittrice'),
 (33, 55, 'Scrittore'),
 (33, 56, 'Scrittore'),
 (33, 66, 'Scrittore'),
@@ -286,6 +297,8 @@ INSERT INTO `collabora` (`codice_autore`, `codice_articolo`, `ruolo`) VALUES
 (33, 88, 'Scrittore'),
 (33, 109, 'Scrittore'),
 (33, 115, 'Scrittore'),
+(33, 118, 'Scrittore'),
+(33, 119, 'Scrittore'),
 (35, 60, 'Disegnatrice'),
 (35, 67, 'Disegnatrice'),
 (35, 80, 'Disegnatrice'),
@@ -317,7 +330,13 @@ INSERT INTO `collabora` (`codice_autore`, `codice_articolo`, `ruolo`) VALUES
 (55, 89, 'Scrittrice'),
 (55, 95, 'Scrittrice'),
 (56, 103, 'Scrittore'),
-(59, 104, 'Scrittrice');
+(59, 104, 'Scrittrice'),
+(67, 117, 'Scrittrice'),
+(70, 124, 'Scrittore'),
+(72, 121, 'Scrittore'),
+(88, 122, 'Scrittrice'),
+(91, 123, 'Scrittore'),
+(92, 124, 'Collaboratore');
 
 -- --------------------------------------------------------
 
@@ -349,7 +368,7 @@ CREATE TABLE `redazione` (
   `cognome` varchar(50) NOT NULL,
   `classe` varchar(50) NOT NULL,
   `professione` varchar(50) NOT NULL,
-  `attivo` tinyint(1) NOT NULL DEFAULT 1
+  `attivo` tinyint(1) NOT NULL DEFAULT '1'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -380,41 +399,70 @@ INSERT INTO `redazione` (`codice`, `nome`, `cognome`, `classe`, `professione`, `
 (21, 'Sabrina', 'Baeli', '3^ALC', 'Scrittrice', 1),
 (23, 'Sofia', 'Galbiati', '4^ALC', 'Scrittrice', 0),
 (24, 'Valentina', 'Croce', 'ex studente', 'Scrittrice', 0),
-(25, 'Andrea', 'Ornaghi', '5^O', 'Scrittore', 1),
-(26, 'Il', 'Banfo', 'Giornalino', 'Scrittore', 1),
+(25, 'Andrea', 'Ornaghi', '5^O', 'Scrittore', 0),
+(26, 'Il', 'Banfo', 'Giornalino', 'Scrittore', 0),
 (27, 'Elisa', 'Agostoni', 'ex studente', 'Scrittrice', 0),
-(28, 'Noel', 'Di Gioia', '3^ALC', 'Scrittore', 1),
+(28, 'Noel', 'Di Gioia', '3^ALC', 'Scrittore', 0),
 (29, 'Letizia', 'Fumagalli', '5^ALC', 'Scrittrice', 1),
 (30, 'Matteo', 'Germanò', '5^P', 'Impaginatore', 1),
-(31, 'Davide', 'Garofoli', '5^M', 'Scrittore', 1),
-(32, 'Valentina', 'Aviles Arias', '3^D', 'Scrittrice', 1),
+(31, 'Davide', 'Garofoli', '5^M', 'Scrittore', 0),
+(32, 'Valentina', 'Aviles Arias', '3^B', 'Scrittrice', 1),
 (33, 'Francesco', 'Ciccarello', '2^ALC', 'Scrittore', 1),
 (34, 'Roberto', 'Rudi', '5^P', 'Programmatore', 1),
 (35, 'Michela', 'Fassina', '4^ALC', 'Disegnatrice', 1),
-(36, 'Alice', 'Lissoni', '4^E', 'Scrittrice', 1),
+(36, 'Alice', 'Lissoni', '4^E', 'Scrittrice', 0),
 (37, 'Rebecca', 'Rivolta', '4^E', 'Scrittrice', 1),
 (39, 'Chiara', 'Lopriore', 'ex studente', 'Impaginatrice', 0),
-(40, 'Ludovica', 'Villa', '5^ALC', 'Scrittrice', 1),
-(41, 'Arianna', 'Bordogna', '4^ALC', 'Scrittrice', 1),
-(42, 'Arianna', 'Manzoni', '4^ALC', 'Fotografa', 1),
+(40, 'Ludovica', 'Villa', '5^ALC', 'Scrittrice', 0),
+(41, 'Arianna', 'Bordogna', '4^ALC', 'Scrittrice', 0),
+(42, 'Arianna', 'Manzoni', '4^ALC', 'Fotografa', 0),
 (43, 'Mattia', 'Montalbano', '4^E', 'Scrittore', 1),
 (44, 'Gabriele', 'Giardini', 'ex studente', 'Scrittore', 0),
-(45, 'Giorgia ', 'De Simone', '4^ALC', 'Scrittrice', 1),
+(45, 'Giorgia ', 'De Simone', '4^ALC', 'Scrittrice', 0),
 (46, 'Davide', 'Nicolussi', 'Professore', 'Responsabile', 1),
 (48, 'Chantal', 'Lupo', '5^D', 'Disegnatrice', 1),
-(49, 'Asia', 'Anastasi', '3^ALC', 'Scrittrice', 1),
-(51, 'Myriam', 'Allenza', '3^ALC', 'Disegnatrice', 1),
-(53, 'Greta', 'Gervasoni', '2^ALC', 'Scrittrice', 1),
+(49, 'Asia', 'Anastasi', '3^ALC', 'Scrittrice', 0),
+(51, 'Myriam', 'Allenza', '3^ALC', 'Disegnatrice', 0),
+(53, 'Greta', 'Gervasoni', '2^ALC', 'Scrittrice', 0),
 (54, 'Sveva', 'Samburgato', '5^ALC', 'Disegnatrice', 1),
 (55, 'Giulia', 'Riccio', '5^ALC', 'Scrittrice', 1),
 (56, 'Simone', 'Modola', '5^ALC', 'Scrittore', 1),
-(57, 'Vittoria', 'Villa', '5^ALC', 'Social', 1),
-(58, 'Davide', 'Lugo', '4^P', 'Impaginatore', 1),
+(57, 'Vittoria', 'Villa', '5^ALC', 'Social', 0),
+(58, 'Davide', 'Lugo', '4^P', 'Impaginatore', 0),
 (59, 'Emma', 'Bordogna', '5^ALC', 'Scrittrice', 1),
-(60, 'Claudio', 'Allenza', '5^ALC', 'Social', 1),
+(60, 'Claudio', 'Allenza', '5^ALC', 'Social', 0),
 (61, 'Noemi', 'Carniti', '4^ALC', 'Podcast', 1),
 (62, 'Riccardo', 'Germanò', '3^O', 'Impaginatore', 1),
-(63, 'Filippo', 'De Vecchi', '5^P', 'Impaginatore', 1);
+(63, 'Filippo', 'De Vecchi', '5^P', 'Scrittore', 1),
+(64, 'Abdul', '', '1^ALC', 'Membro', 1),
+(65, 'Ada', 'Cantù', '1^A', 'Membro', 1),
+(66, 'Alice', 'Ardito', '1^ALC', 'Membro', 1),
+(67, 'Alice', 'Bacco', '1^C', 'Fotografa/Scrittrice', 1),
+(68, 'Andrea', 'Valentini', '1^ALC', 'Membro', 1),
+(69, 'Cecilia', 'Schettino', '1^N', 'Membro', 1),
+(70, 'Davide', 'Rampi', '1^ALC', 'Scrittore', 1),
+(71, 'Dennis', 'Calò', '1^ALC', 'Membro', 1),
+(72, 'Edoardo', 'Rancati', '2^ALC', 'Scrittore', 1),
+(73, 'Elisabetta', '', '3^ALC', 'Membro', 1),
+(74, 'Gaia', 'Colombo', '1^N', 'Impaginatrice', 1),
+(75, 'Giacomo', 'De Mori', '2^A', 'Membro', 1),
+(76, 'Giorgia', '', '1^ALC', 'Social', 1),
+(77, 'Greta', 'Grevasoni', '2^ALC', 'Membro', 1),
+(78, 'Ilaria', 'Dall\'occhio', '4^ALC', 'Membro', 1),
+(79, 'Irene', 'Sarto', '1^P', 'Impaginatrice', 1),
+(80, 'Ludovica', 'Enrici Vaion', '1^ALC', 'Fotografa', 1),
+(81, 'Marta', 'Dall\'occhio', '4^ALC', 'Scrittrice', 1),
+(82, 'Martina', 'Ciabatti', '1^ALC', 'Scrittrice', 1),
+(83, 'Martina', 'Marrone', '1^ALC', 'Scrittrice', 1),
+(84, 'Rachele', 'Rivolta', '1^C', 'Scrittrice/social', 1),
+(85, 'Riccardo', 'Ferrari', '4^E', 'Membro', 1),
+(86, 'Sara', 'Olivari', '5^ALC', 'Scrittrice', 1),
+(87, 'Simone', 'Villa', '2^ALC', 'Membro', 1),
+(88, 'Swetha', 'Umapathy', '1^P', 'Membro', 1),
+(89, 'Valentina', 'Bruno', '1^ALC', 'Membro', 1),
+(90, 'Yuri', 'Cesati', '2^P', 'Podcast', 1),
+(91, 'Enea', 'Arrigoni', '2^ALC', 'Scrittore', 1),
+(92, 'Mattia', 'Fantini', '1^ALC', 'Scrittore', 1);
 
 --
 -- Indici per le tabelle scaricate
@@ -460,13 +508,13 @@ ALTER TABLE `redazione`
 -- AUTO_INCREMENT per la tabella `articoli`
 --
 ALTER TABLE `articoli`
-  MODIFY `codice_articolo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=116;
+  MODIFY `codice_articolo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=125;
 
 --
 -- AUTO_INCREMENT per la tabella `redazione`
 --
 ALTER TABLE `redazione`
-  MODIFY `codice` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=64;
+  MODIFY `codice` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=93;
 
 --
 -- Limiti per le tabelle scaricate

@@ -18,12 +18,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login - Redattore</title>
     <?php
-    require_once('../components/head.php');
+    require_once('./components/head.php');
     ?>
     <?php
     session_start();
     if (isset($_SESSION['username'])) {
-        header('location: redattore.php');
+        header('location: redattore');
     }
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $username = $_POST["username"];
@@ -43,7 +43,7 @@
         } elseif (strpos($_POST["username"], '/') !== false and strpos($_POST["username"], ' ') !== false and strpos($_POST["username"], '"') !== false and strpos($_POST["username"], '-') !== false) {
             echo "<p>Errore in Username o Password, riprova</p>";
         } else {
-            require_once('../data/db.php');
+            require_once('./data/db.php');
             // $conn = new mysqli($dbhost,$dbusername,$dbpassword,$dbname);
             $database = new Database();
             if (!empty($database->connerror)) {
@@ -61,7 +61,7 @@
 
             if ($ris->num_rows > 0) {
                 $_SESSION["username"] = $username;
-                header('location: redattore.php');
+                header('location: redattore');
             }
         }
     }
@@ -72,7 +72,7 @@
     <div class="super-container">
         <!-- Menu di navigazione -->
     <?php
-      require_once('../components/menu.php');
+      require_once('./components/menu.php');
     ?>
 
 
@@ -86,11 +86,11 @@
             <div class="contenitore_form">
 
                 <div class="form-login">
-                    <form action="<?php $_SERVER['PHP_SELF'] ?>" method="post">
+                    <form action="<?php basename($_SERVER['PHP_SELF']) ?>" method="post">
                         <div class="contenitore_login">
                             <div class="contenitore_pagina_form">
                                 <div class="img_login">
-                                    <img src="../immagini/misc/logo.png">
+                                    <img src="./immagini/misc/logo.png">
                                 </div>
                                 <div class="form">
                                     <div class="name-section">

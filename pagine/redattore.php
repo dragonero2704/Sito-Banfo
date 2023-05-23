@@ -18,16 +18,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Redattore</title>
     <?php
-    require_once('../components/head.php');
+    require_once('./components/head.php');
     ?>
     <?php
     session_start();
     if (!isset($_SESSION['username'])) {
-        header('location: login.php');
+        header("location: ./login");
     }
     $username = $_SESSION["username"];
 
-    require_once('../data/db.php');
+    require_once('./data/db.php');
     $database = new Database();
     if (!empty($database->connerror)) {
         echo "<p>Errore di connessione " . $database->connerror['code'] . ":" . $database->connerror['message'] . "</p>";
@@ -51,12 +51,12 @@
 <body>
     <!-- Menu di navigazione -->
     <?php
-      require_once('../components/menu.php');
+      require_once('./components/menu.php');
     ?>
 
 
 
-    <form id="regForm" action="<?php $_SERVER['PHP_SELF'] ?>" method="post" enctype="multipart/form-data">
+    <form id="regForm" action="<?php basename($_SERVER['PHP_SELF']) ?>" method="post" enctype="multipart/form-data">
         <h1>Nuovo articolo</h1>
         <h2 id="titolo"></h2>
         <div class="tab" id="bg-pubblicazione"></div>
@@ -75,7 +75,7 @@
         </div>
 
         <div class="tab" id="bg-data">
-            <input type="date" name="data" placeholder="Data" style="position: relative; top: 50%; transform: translate(0, -50%); border: 0; -webkit-appearance: none; background-color: rgb(0, 113, 227, 0.9);  color: white; font-size:2.7vh; outline: none;">
+            <input type="date" name="data" placeholder="Data" style="position: relative; top: 50%; transform: translate(0, -50%); border: 0; appearance: none; background-color: rgb(0, 113, 227, 0.9);  color: white; font-size:2.7vh; outline: none;">
         </div>
 
         <div class="tab" id="bg-categoria">
@@ -113,24 +113,7 @@
                 }
                 ?>
             </select>
-
-
-            <!-- real select, hidden -->
-            <!-- <select name="autore[]" multiple="true" class="hidden">
-                <?php
-                // $sql = "SELECT codice, nome, cognome
-                //     FROM redazione
-                //     WHERE attivo = 1
-                //     ORDER BY cognome";
-                // $ris = $database->query($sql) or die("<p>Query fallita! " . $database->error['message'] . "</p>");
-                // if ($ris->num_rows > 0) {
-                //     while ($row = $ris->fetch_assoc()) {
-                //         echo '<option value=' . $row['codice'] . ' id=' . $row['codice'] . '></option>';
-                //     }
-                // }
-                ?>
-            </select> -->
-
+                <!-- In questo div appariranno i risultati della selezione -->
             <div class="Red_flex" style="margin-top: 400px;"></div>
 
 
@@ -247,7 +230,7 @@
         }
     </script>
 
-    <script src="../javascript/redattore.js"></script>
+    <script src="./javascript/redattore.js"></script>
 
     <?php
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -255,7 +238,7 @@
             echo "<p>Campi lasciati vuoti</p>";
         } else {
             /*// inserisco il percorso dove verranno caricate le foto
-                $upload_percorso = '../Immagini/';
+                $upload_percorso = './Immagini/';
                 // salvo il percorso temporaneo dell'immagine caricata
                 $file_tmp = $_FILES['img']["tmp"];
                 // salvo il nome dell'immagine caricata
@@ -272,7 +255,7 @@
 
             // settiamo alcune variabili coinvolte nello script:
             // 1) settiamo la cartella in cui fare l'upload
-            $cartella_upload = "../immagini/articoli/";
+            $cartella_upload = "./immagini/articoli/";
             $img = "" . $codice . ".jpg";
 
             // 2) settiamo un array in cui indichiamo il tipo di file che consentiamo l'upload
@@ -325,7 +308,7 @@
                 echo '<script>alert("Articolo pubblicato correttamente");</script>';
             }
 
-            $articolo = fopen("../articoli/" . $codice . ".txt", "w");
+            $articolo = fopen("./articoli/" . $codice . ".txt", "w");
             fwrite($articolo, "" . $_POST["titolo"] . "\n\n");
             fwrite($articolo, $_POST["testo"]);
             fclose($articolo);

@@ -19,7 +19,7 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Chi Siamo</title>
   <?php
-  require_once('../components/head.php');
+  require_once('./components/head.php');
   ?>
 </head>
 
@@ -28,11 +28,11 @@
 
   <!-- Menu di navigazione -->
   <?php
-  require_once('../components/menu.php');
+  require_once('./components/menu.php');
   ?>
 
   <div class="banner_singolo_argomento">
-    <img src="../immagini/misc/chisiamotop.png">
+    <img src="./immagini/misc/chisiamotop.png">
   </div>
   <!--============================================================================================================================-->
 
@@ -43,7 +43,7 @@
         <h1 class="big-text"><span>Chi Siamo</span></h1>
       </div>
       <div class="chisiamo__immagine">
-        <img src="../immagini/misc/redazione.jpg">
+        <img src="./immagini/misc/redazione.jpg">
       </div>
       <div class="chisiamo_testo">
         <p class="normal-text">Il Banfo è il giornale scolastico del Liceo Scientifico e Classico A. Banfi di Vimercate. La tradizione viene portata avanti ormai dal 1980 e fino all’anno scorso, tra formati A4 e formati A5, i numeri venivano distribuiti per la classi sotto forma di giornali di carta. Con lo scoppio della pandemia anche il Banfo, come molte delle realtà scolastiche e non, si è dovuto reinventare. Nel corso del primo lockdown abbiamo quindi deciso di aprire un sito per continuare a tenere compagnia ai nostri lettori anche (e soprattutto) durante un periodo così particolare e difficile. <br>
@@ -63,7 +63,7 @@
     </div>
     <div class="Red_flex">
       <?php
-      require_once('../data/db.php');
+      require_once('./data/db.php');
       $database = new Database();
       if (!empty($database->connerror)) {
         echo "<p>Errore di connessione " . $database->connerror['code'] . ":" . $database->connerror['message'] . "</p>";
@@ -76,7 +76,7 @@
       $ris = $database->query($sql) or die("<p>Query fallita! " . $database->error['message'] . "</p>");
       if ($ris->num_rows > 0) {
         while ($row = $ris->fetch_assoc()) {
-          $img_path = file_exists("../immagini/redazione/" . $row["nome"] . "_" . $row["cognome"] . ".jpg") ? "../immagini/redazione/" . $row["nome"] . "_" . $row["cognome"] . ".jpg" : "../immagini/redazione/user.jpg";
+          $img_path = file_exists("./immagini/redazione/" . $row["nome"] . "_" . $row["cognome"] . ".jpg") ? "./immagini/redazione/" . $row["nome"] . "_" . $row["cognome"] . ".jpg" : "./immagini/redazione/user.jpg";
           echo "
                         
                             <div class='Red_singolo-membro'>
@@ -87,7 +87,7 @@
                                     <h2>" . $row["nome"] . " " . $row["cognome"] . "</h2>
                                     <p class='Red_professione'>" . $row["professione"] . "</p>
                                     <p>" . $row["classe"] . "</p>
-                                    <a href='membro.php?membro=" . $row["codice"] . "'><button class='il_mio_bottone'><span>Scopri di più  </span></button></a>
+                                    <a href='./membro/" . $row["codice"] . "'><button class='il_mio_bottone'><span>Scopri di più  </span></button></a>
                                 </div>
                             </div>
                        
@@ -103,7 +103,7 @@
 
   <!-- footer -->
   <?php
-  require_once('../components/footer.php');
+  require_once('./components/footer.php');
   ?>
   <!--============================================================================================================================-->
 

@@ -1,3 +1,3 @@
 <?php
-  header('location: pagine/home.php');
+    require_once('routes.php');
 ?>

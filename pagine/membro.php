@@ -18,8 +18,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <?php
-      $cod = $_GET["membro"];
-      require_once('../data/db.php');
+      if(!isset($cod)) $cod = $_GET["membro"] ?? 26;
+      require_once('./data/db.php');
       // $conn = new mysqli($dbhost,$dbusername,$dbpassword,$dbname);
       $database = new Database();
 if(!empty($database->connerror)){
@@ -35,7 +35,7 @@ if(!empty($database->connerror)){
 
   <title><?php echo "" . $row["nome"] . " " . $row["cognome"] . ""; ?></title>
   <?php
-    require_once('../components/head.php');
+    require_once('./components/head.php');
   ?>
 </head>
 
@@ -43,14 +43,14 @@ if(!empty($database->connerror)){
 
   <!-- Menu di navigazione -->
   <?php
-      require_once('../components/menu.php');
+      require_once('./components/menu.php');
     ?>
 
   <!--============================================================================================================================-->
   <!-- Singola Persona -->
   <?php
   
-  $img_path = file_exists("../immagini/redazione/" . $row["nome"] . "_" . $row["cognome"] . ".jpg") ? "../immagini/redazione/" . $row["nome"] . "_" . $row["cognome"] . ".jpg" : '../immagini/redazione/user.jpg';
+  $img_path = file_exists("./immagini/redazione/" . $row["nome"] . "_" . $row["cognome"] . ".jpg") ? "./immagini/redazione/" . $row["nome"] . "_" . $row["cognome"] . ".jpg" : './immagini/redazione/user.jpg';
   
     
             echo "<div class='persona_contenitore clearfix'>
@@ -85,7 +85,7 @@ if(!empty($database->connerror)){
   $ris = $database->query($sql) or die("<p>Query fallita! " . $database->error['message'] . "</p>");
   if ($ris->num_rows > 0) {
     while ($row = $ris->fetch_assoc()) {
-      $articolo = fopen("../articoli/" . $row["codice"] . ".txt", "r");
+      $articolo = fopen("./articoli/" . $row["codice"] . ".txt", "r");
       $titolo = fgets($articolo);
       $testo = fread($articolo, "450");
       fclose($articolo);
@@ -99,7 +99,7 @@ if(!empty($database->connerror)){
                         <div class='news_categoria'>
                             <h2>" . $row["argomento"] . "</h2><!-- Scritto dinamicamente con il database -->
                     </div>
-                    <img src='../immagini/articoli/" . $row["codice"] . ".jpg'>
+                    <img src='./immagini/articoli/" . $row["codice"] . ".jpg'>
                     <div class='news_data_su_immagine top-left'>
                         <p><i style='margin-right:10px;' class='far fa-calendar-alt'></i>" . $row["data"] . "</p> <!-- Scritta dinamicamente con il database -->
                     </div>
@@ -108,7 +108,7 @@ if(!empty($database->connerror)){
                         <p>" . $testo . "...</p>
                     </div>
                     <div class='news_bottone'>
-                        <a href='articolo.php?articolo=" . $row["codice"] . "'><button class='il_mio_bottone'><span>Scopri di più  </span></button></a>
+                        <a href='./articolo/" . $row["codice"] . "'><button class='il_mio_bottone'><span>Scopri di più  </span></button></a>
                     </div>
                 </div>
                 
@@ -125,7 +125,7 @@ if(!empty($database->connerror)){
   <!--============================================================================================================================-->
   <!-- footer -->
   <?php
-  require_once('../components/footer.php');
+  require_once('./components/footer.php');
   ?>
   <!--============================================================================================================================-->
 
