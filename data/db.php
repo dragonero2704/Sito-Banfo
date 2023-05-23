@@ -1,36 +1,44 @@
 <?php
-$dbhost = "31.11.39.34";
-$dbusername = "Sql1660750";
-$dbpassword = "Fizz001[c@t]";
-$dbname = "Sql1660750_1";
+define(
+    "DEVELOPMENT",
 
-define("DEVELOPMENT", 
-
-/*
+    /*
 * true se si vuole sviluppare in locale
 * false se si vuole effettuare il deploy o caricarlo sul server
 */
 
-false
-// true
+    false
+    // true
 );
 //
+
 class Database
 {
-    private $database = DEVELOPMENT ? "banfo" : "Sql1660750_1";
-    private $username = DEVELOPMENT ? "root" : "Sql1660750";
-    private $password = DEVELOPMENT ? "" : "Fizz001[c@t]";
-    private $host = DEVELOPMENT ? "localhost" : "31.11.39.34"; //in caso cambi l'host del db in futuro
+    private $database;
+    private $username;
+    private $password;
+    private $host;
     private $connection;
     public $error = array();
     public $connerror = array();
 
     function __construct($host = "", $username = "", $password = "", $database = "")
     {
-        $this->host = !empty($host) ? $host : $this->host;
-        $this->username = !empty($username) ? $username : $this->username;
-        $this->password = !empty($password) ? $password : $this->password;
-        $this->database = !empty($database) ? $database : $this->database;
+        // il file con le credenziali va inserito nella cartella ./data
+        // e va nominato "database.json"
+        $credentials = json_decode(file_get_contents("./data/database.json"), true);
+        // var_dump(file_get_contents("./data/database.json"));
+        // var_dump($credentials);
+        if (DEVELOPMENT) {
+            $credentials["database"] = "banfo";
+            $credentials["username"] = "root";
+            $credentials["password"] = "";
+            $credentials["host"] = "localhost";
+        }
+        $this->host = !empty($host) ? $host : $credentials['host'];
+        $this->username = !empty($username) ? $username : $credentials['username'];
+        $this->password = !empty($password) ? $password : $credentials['password'];
+        $this->database = !empty($database) ? $database : $credentials['database'];
 
         $this->connection = new mysqli($this->host, $this->username, $this->password, $this->database);
         if (!empty($this->connection->connect_errno)) {
@@ -53,21 +61,21 @@ class Database
 
         if (!empty($conditionsString)) {
             $conditionsString = stripos($conditionsString, "WHERE") ? $conditionsString : "WHERE " . $conditionsString;
-            $sql = $sql .' '. $conditionsString;
+            $sql = $sql . ' ' . $conditionsString;
         }
 
         if (!empty($additionalOptions)) {
-            $sql = $sql .' '. $additionalOptions;
+            $sql = $sql . ' ' . $additionalOptions;
         }
-        try{
+        try {
             $ris = $this->connection->query($sql);
-        }catch(Exception $e){
+        } catch (Exception $e) {
             $this->error['code'] = 404;
 
             $this->error['message'] = $e->getMessage();
             return false;
         }
-        
+
 
         if (!empty($this->connection->errno)) {
             $this->error['code'] = $this->connection->errno;
@@ -89,9 +97,9 @@ class Database
         $this->error = array();
         // $sql = $this->connection->escape_string($sql);
 
-        try{
+        try {
             $ris = $this->connection->query($sql);
-        }catch(Exception $e){
+        } catch (Exception $e) {
             $this->error['code'] = $e->getCode();
             $this->error['message'] = $e->getMessage();
             return false;
@@ -106,7 +114,8 @@ class Database
         return $ris;
     }
 
-    function escape_string($string){
+    function escape_string($string)
+    {
         return $this->connection->escape_string($string);
     }
 
@@ -114,7 +123,7 @@ class Database
     {
         $this->error = array();
         $this->connerror = array();
-    
+
         $this->connection->close();
     }
 }
