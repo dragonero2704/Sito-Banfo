@@ -2,5 +2,5 @@ RewriteEngine on
 
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME} !-f
-RewriteRule . routes.php [L]
-# Tutte le richieste (GET, POST...) vengono reinderizzate a routes
+RewriteRule . index.php [L]
+# Tutte le richieste (GET, POST...) vengono reinderizzate a index, che contiene routes

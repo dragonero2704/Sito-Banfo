@@ -63,7 +63,7 @@
     </div>
     <div class="Red_flex">
       <?php
-      require_once('./data/db.php');
+     
       $database = new Database();
       if (!empty($database->connerror)) {
         echo "<p>Errore di connessione " . $database->connerror['code'] . ":" . $database->connerror['message'] . "</p>";

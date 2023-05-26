@@ -37,7 +37,7 @@
 
   <!-- News  -->
   <?php
-  require_once('./data/db.php');
+ 
   // $conn = new mysqli($dbhost,$dbusername,$dbpassword,$dbname);
   $database = new Database();
   if (!empty($database->connerror)) {

@@ -19,7 +19,7 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <?php
       if(!isset($cod)) $cod = $_GET["membro"] ?? 26;
-      require_once('./data/db.php');
+     
       // $conn = new mysqli($dbhost,$dbusername,$dbpassword,$dbname);
       $database = new Database();
 if(!empty($database->connerror)){

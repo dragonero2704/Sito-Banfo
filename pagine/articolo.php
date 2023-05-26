@@ -17,7 +17,7 @@
   </script>
   <?php
   if (!isset($cod)) $cod = $_GET["articolo"];
-  require_once('./data/db.php');
+ 
   $database = new Database();
   if (!empty($database->connerror)) {
     echo "<p>Errore di connessione " . $database->connerror['code'] . ":" . $database->connerror['message'] . "</p>";

@@ -43,7 +43,7 @@
         } elseif (strpos($_POST["username"], '/') !== false and strpos($_POST["username"], ' ') !== false and strpos($_POST["username"], '"') !== false and strpos($_POST["username"], '-') !== false) {
             echo "<p>Errore in Username o Password, riprova</p>";
         } else {
-            require_once('./data/db.php');
+           
             // $conn = new mysqli($dbhost,$dbusername,$dbpassword,$dbname);
             $database = new Database();
             if (!empty($database->connerror)) {

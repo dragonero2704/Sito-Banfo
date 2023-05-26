@@ -26,10 +26,13 @@ class Database
     {
         // il file con le credenziali va inserito nella cartella ./data
         // e va nominato "database.json"
-        $credentials = json_decode(file_get_contents(__DIR__."/database.json"), true);
+        if (file_exists(__DIR__ . "/database.json"))
+            $credentials = json_decode(file_get_contents(__DIR__ . "/database.json"), true);
+            echo "<p style='color:yellow'>database.json NON TROVATO</p>";
         // var_dump(file_get_contents("./data/database.json"));
         // var_dump($credentials);
         if (DEVELOPMENT) {
+            $credentials = array();
             $credentials["database"] = "banfo";
             $credentials["username"] = "root";
             $credentials["password"] = "";
