@@ -1,13 +1,4 @@
 <?php
-function getBaseHref()
-{
-    $baseHref = strchr($_SERVER['PHP_SELF'], basename($_SERVER["SCRIPT_FILENAME"]), true);
-    return $baseHref;
-}
-
-define("BASEHREF", getBaseHref());
-// require_once('router.php');
-
 $router = new Router();
 
 $router->any('/', "./pagine/home.php");
