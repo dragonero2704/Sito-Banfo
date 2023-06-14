@@ -7,7 +7,7 @@ select.addEventListener('change', async () => {
     let selected = select.selectedIndex
     let id = options[selected].value
     let result = document.getElementsByClassName('Red_flex')[0]
-    let url = `./api/addauthor.php?q=${id}`;
+    let url = `./api/author/${id}`; //api route definita in routes.php
     let resJson = await fetch(url, {
         method: "GET"
     })

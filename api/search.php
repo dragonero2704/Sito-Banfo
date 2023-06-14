@@ -1,12 +1,8 @@
 <?php
 
-$keyword = $_GET['q'];
-
 if(strlen($keyword)<3){
     die(json_encode("{}"));
 }
-
-require_once("../data/db.php");
 
 $db = new Database();
 // articoli
@@ -30,5 +26,5 @@ WHEN LOWER(cognome) LIKE '%$keyword' THEN 3
 ELSE 4
 END, LOWER(cognome) ASC");
 
-$results = array("redazione"=>$redazione, "articoli"=>$articoli);
+$results = array("redazione"=>$redazione, "articoli"=>$articoli, "keyword"=>$keyword);
 die(json_encode($results));

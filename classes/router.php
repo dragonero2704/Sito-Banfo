@@ -1,14 +1,16 @@
 <?php
 
-
 class Router
 {
     private $routes;
     private $method;
+    private $logger;
     function __construct(...$params)
     {
+        require(get_include_path()."/logger.php");
         $this->routes = array();
         $this->method = array();
+        $this->logger = new Logger();
     }
 
     private function addRoute($route, $redirect, $method = "")
@@ -80,6 +82,7 @@ class Router
                 //match trovato, controllo il metodo HTTP utilizzato
                 if (!empty($this->method[$route]) && $this->method[$route] !== $_SERVER['REQUEST_METHOD']) {
                     //metodo diverso, non posso accedere alla pagina
+                    require_once('./pagine/errors/403.php');
                     exit();
                 }
                 // faccio l'unset del primo matches perché contiene solo la stringa per intero,
@@ -94,21 +97,25 @@ class Router
         }
         //se non ho un callback definito, vuol dire che la route è stata mal definita
         if (!isset($callback)) {
-            require_once('./pagine/404.php');
+            require_once('./pagine/errors/404.php');
+            $this->logger->log($request."=>404.php");
             exit();
         }
         //se il callback è una funzione la eseguo
         if (is_callable($callback)) {
             call_user_func($callback, ...$params);
+            $this->logger->log($request."=>"."callback called with parameters: ".join("-",$params));
             exit();
         }
 
         //se il callback non è una funzione vuol dire che è un percorso
         try {
             require_once($callback);
+            $this->logger->log($request."=>".$callback);
         } catch (Throwable $th) {
             //se c'è un errore, ad esempio il percorso non è valido, chiamo la pagina di errore 404
-            require_once('./pagine/404.php');
+            // require_once('./pagine/404.php');
+            
         }
 
         exit();

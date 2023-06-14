@@ -1,4 +1,5 @@
 <?php
+// classe non in uso per processare i file .csv
     class CSV{
         public $filename = null;
         public $pathToFile = null;
@@ -60,3 +61,4 @@
         }
 
     }
+

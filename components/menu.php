@@ -1,8 +1,26 @@
-<secction id="goHere"></secction>
+<section id="goHere"></section>
 <div class="header_menu">
     <a class="menu_logo" href="./home">
         <img src="./immagini/misc/ilbanfotipo.png" alt="logo">
     </a>
+    <div class="searchcontainer">
+        <input type="search" name="searchbar" id="searchbar" class="searchbar" placeholder="Cerca..." onkeyup="keyUpTarget(this.value)">
+        <div class="searchResults empty" id="results">
+            <div class="section" id="authors">
+                <h4>Redazione</h4>
+                <li>example 1</li>
+                <li>example 2</li>
+                <li>example 3</li>
+            </div>  
+            <div class="section" id="articles">
+                <h4>Articoli</h4>
+                <li>article 1</li>
+                <li>article 2</li>
+                <li>article 3</li>
+            </div>
+        </div>
+    </div>
+
     <div class="menu">
         <a href="./home">Home</a>
         <a href="./news">News</a>
@@ -12,6 +30,7 @@
         else echo '<a class="tdn" href="./login">Redattore</a>';
         ?>
     </div>
+
 
     <div class="menu_hamburger" onclick="openNav()">
         <!-- <span >&#9776;</span> -->
@@ -46,3 +65,4 @@
         }
     }
 </script>
+<script src="./javascript/search.js"></script>
