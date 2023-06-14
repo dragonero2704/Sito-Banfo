@@ -3,7 +3,7 @@
     <a class="menu_logo" href="./home">
         <img src="./immagini/misc/ilbanfotipo.png" alt="logo">
     </a>
-    <div class="searchcontainer">
+    <!-- <div class="searchcontainer">
         <input type="search" name="searchbar" id="searchbar" class="searchbar" placeholder="Cerca..." onkeyup="keyUpTarget(this.value)">
         <div class="searchResults empty" id="results">
             <div class="section" id="authors">
@@ -19,7 +19,7 @@
                 <li>article 3</li>
             </div>
         </div>
-    </div>
+    </div> -->
 
     <div class="menu">
         <a href="./home">Home</a>
@@ -65,4 +65,4 @@
         }
     }
 </script>
-<script src="./javascript/search.js"></script>
+<!-- <script src="./javascript/search.js"></script> -->

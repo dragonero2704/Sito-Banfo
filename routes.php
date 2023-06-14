@@ -22,8 +22,12 @@ $router->any("/membro/{}", function ($cod) {
 });
 
 //api routes
-$router->any("/api/author/{}", function($codice){
-    $_GET['q'] = $codice;
+$router->get("/api/author/{}", function($codice){
+    require_once("./api/author.php");
+});
+
+$router->post("/api/author", function($codice){
+    $codice = $_POST['codice'];
     require_once("./api/author.php");
 });
 
@@ -33,5 +37,4 @@ $router->post("/api/search/{}", function($keyword){
 
 // questa funzione smista le richieste HTTP
 // vedere file router.php
-// echo $_SERVER['REQUEST_URI'];
 $router->route($_SERVER['REQUEST_URI']);

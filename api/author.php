@@ -2,8 +2,8 @@
 //questa pagina verrà chiamata in modo asiconrono da una AJAX, non deve essere accessibile normalmente nel sito
 // require_once('../data/db.php');
 //il numero 26 è il membro della redazione di default "Il Banfo"
-$codice = empty($_GET['q']) ? 26 : $_GET['q'];
-unset($_GET['q']);
+// $codice = empty($_GET['q']) ? 26 : $_GET['q'];
+// unset($_GET['q']);
 $database = new Database();
 if (!empty($database->connerror)) {
     echo "<p>Errore di connessione " . $database->connerror['code'] . ":" . $database->connerror['message'] . "</p>";
