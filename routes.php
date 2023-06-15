@@ -22,7 +22,7 @@ $router->any("/membro/{}", function ($cod) {
 });
 
 //api routes
-$router->get("/api/author/{}", function($codice){
+$router->post("/api/author/{}", function($codice){
     require_once("./api/author.php");
 });
 
