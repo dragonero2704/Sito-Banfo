@@ -8,7 +8,11 @@ $router->any("/redattore", "./pagine/redattore.php");
 $router->any("/login", "./pagine/login.php");
 $router->any("/logout", "./pagine/logout.php");
 $router->any("/news", "./pagine/nuoviarticoli.php");
-
+$router->any("/robots.txt", function(){
+    echo "Hai rotto il cazzo uam <br>";
+    echo "Daje Roma <br>";
+    echo "(Cojone)";
+});
 $router->any("/argomento/{}", function ($argomento) {
     require_once("./pagine/argomento.php");
 });
@@ -20,6 +24,7 @@ $router->any("/articolo/{}", function ($cod) {
 $router->any("/membro/{}", function ($cod) {
     require_once("./pagine/membro.php");
 });
+
 
 //api routes
 $router->post("/api/author/{}", function($codice){

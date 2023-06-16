@@ -1,20 +1,22 @@
 RewriteEngine on
+
+ErrorDocument 401 /pagine/errors/401.php
+ErrorDocument 403 /pagine/errors/403.php
+ErrorDocument 404 /pagine/errors/404.php
+ErrorDocument 500 /pagine/errors/500.php
 # se il file richiesto esiste oppure no
 RewriteCond %{REQUEST_FILENAME} -f [OR] 
 RewriteCond %{REQUEST_FILENAME} !-f 
 # se la directory richiesta esiste oppure no
 RewriteCond %{REQUEST_FILENAME}  !-d [OR]
-RewriteCond %{REQUEST_FILENAME} -d [OR]
+RewriteCond %{REQUEST_FILENAME} -d
 
-RewriteCond %{REQUEST_FILENAME} ^(.*)\.(php|json|htaccess|gitignore)
+RewriteCond %{REQUEST_FILENAME} ^(.*)\.(php|json|htaccess|gitignore)$
 
 RewriteRule ^((?!index\.php).+)$ index.php [L]
 # Tutte le richieste (GET, POST...) vengono reinderizzate a index.php, che contiene routes.php
 # [L] sta per Last, cioè è la regola che viene eseguita per ultima
-ErrorDocument 401 /pagine/errors/401.php
-ErrorDocument 403 /pagine/errors/403.php
-ErrorDocument 404 /pagine/errors/404.php
-ErrorDocument 500 /pagine/errors/500.php
+
 
 
 
