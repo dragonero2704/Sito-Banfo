@@ -53,15 +53,6 @@ class Router
         $this->addRoute($route, $redirect, "DELETE");
     }
 
-    function sanitize($request)
-    {
-        // elimina eventuali sottocartelle al di fuori della cartella di root
-        // esempio
-        // subdir/root/index.php => /root/index.php
-        $sanitized = substr($request, strlen(BASEHREF));
-        return $sanitized;
-    }
-
     private function isValid($callback)
     {
         if (!is_callable($callback)) return file_exists($callback);
@@ -71,7 +62,7 @@ class Router
     function route($request)
     {
         //elimina le varie subdirectory prima della della cartella effettiva di root
-        $request = $this->sanitize($request);
+        // $request = $this->sanitize($request);
         //in questo modo non importa se si scrive o no gli slash all'inizio o alla fine della route
         $action = trim($request, '/');
         //funzione di callback settata a null in quanto potrebbe non esserci

@@ -80,4 +80,5 @@ $router->any("/.env", function(){
 
 // questa funzione smista le richieste HTTP
 // vedere file router.php
-$router->route($_SERVER['REQUEST_URI']);
+$request = $_GET["route"];
+$router->route($request);

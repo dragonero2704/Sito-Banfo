@@ -1,25 +1,11 @@
 RewriteEngine on
-# RewriteBase /
-ErrorDocument 401 /pagine/errors/401.php
-ErrorDocument 403 /pagine/errors/403.php
-ErrorDocument 404 /pagine/errors/404.php
-ErrorDocument 500 /pagine/errors/500.php
-# RewriteCond %{REQUEST_METHOD} !POST [NC]
-# RewriteCond %{THE_REQUEST} ^[A-Z]{3,}\s([^.]+)\.php [NC]
-# RewriteRule ^ %1 [R,L,NC]
-# se il file richiesto esiste oppure no
-# RewriteCond %{REQUEST_FILENAME} -f [OR] 
-# RewriteCond %{REQUEST_FILENAME} !-f 
-# # se la directory richiesta esiste oppure no
-# RewriteCond %{REQUEST_FILENAME}  !-d [OR]
-# RewriteCond %{REQUEST_FILENAME} -d
-# RewriteCond %{REQUEST_FILENAME} ^(.*)\.(|json|htaccess|gitignore)$
-# RewriteRule ^((?!index\.php).+)$ index.php
-# RewriteRule (.*)?\.(sb|html|htm|php|asp|aspx)$ index.php 
 
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^(.*)$ /index.php?path=$1 [NC,L,QSA]
+#stop processing if in one of these dirs
+RewriteRule ^css/ - [L]
+RewriteRule ^immagini/ - [L]
+RewriteRule ^javascript/ - [L]
+
+RewriteRule (.*) index.php?route=$1 [L,QSA]
 # Tutte le richieste (GET, POST...) vengono reinderizzate a index.php, che contiene routes.php
 # [L] sta per Last, cioè è la regola che viene eseguita per ultima
 
