@@ -1,9 +1,14 @@
+Options -MultiViews
+
 RewriteEngine on
 
 #stop processing if in one of these dirs
 RewriteRule ^css/ - [L]
 RewriteRule ^immagini/ - [L]
 RewriteRule ^javascript/ - [L]
+
+# RewriteRule ^api/(.*) index.php?route=$1 [L,QSA]
+
 
 RewriteRule (.*) index.php?route=$1 [L,QSA]
 # Tutte le richieste (GET, POST...) vengono reinderizzate a index.php, che contiene routes.php

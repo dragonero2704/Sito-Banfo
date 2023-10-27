@@ -25,12 +25,12 @@ $router->any("/membro/{}", function ($cod) {
 
 //api routes
 $router->post("/api/author/{}", function ($codice) {
-    require_once("./api/author.php");
+    require_once(APP_ROOT . "/api/author.php");
 });
 
 $router->post("/api/author", function ($codice) {
     $codice = $_POST['codice'];
-    require_once("./api/author.php");
+    require_once(APP_ROOT . "/api/author.php");
 });
 
 $router->post("/api/search/{}", function ($keyword) {
@@ -61,19 +61,19 @@ $router->any("/robots.txt", function () {
         return $ip;
     }
     $ip = getIPAddress();
-    echo 'Is this you? ' . $ip."<br>";
+    echo 'Is this you? ' . $ip . "<br>";
     $logger = new Logger();
-    $logger->log("/robots.txt client ip: ".$ip);
+    $logger->log("/robots.txt client ip: " . $ip);
 });
 
-$router->any("/.env", function(){
+$router->any("/.env", function () {
     echo "Bro non è in js <br>";
     echo "(Cojone)<br>";
 
     $ip = getIPAddress();
-    echo 'Is this you? ' . $ip."<br>";
+    echo 'Is this you? ' . $ip . "<br>";
     $logger = new Logger();
-    $logger->log("/.env client ip: ".$ip);
+    $logger->log("/.env client ip: " . $ip);
 });
 
 
@@ -81,4 +81,5 @@ $router->any("/.env", function(){
 // questa funzione smista le richieste HTTP
 // vedere file router.php
 $request = $_GET["route"];
+if (empty($request)) $router->route("/home");
 $router->route($request);

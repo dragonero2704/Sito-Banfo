@@ -6,6 +6,7 @@ function getBaseHref()
 }
 // echo "index called";
 define("BASEHREF", getBaseHref());
+require_once("config.php");
 //autoloader definition
 require_once('autoloader.php');
 //routes
