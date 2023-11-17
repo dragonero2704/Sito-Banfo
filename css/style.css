@@ -2157,26 +2157,39 @@ input.invalid {
 
 #bg-pubblicazione {
     background-image: url('../immagini/misc/pubblicazione.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 #bg-titolo {
     background-image: url('../immagini/misc/titolo.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 #bg-autore {
     background-image: url('../immagini/misc/autore.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    /* background-size: cover; */
 }
 
 #bg-testo {
     background-image: url('../immagini/misc/testo.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 #bg-data {
     background-image: url('../immagini/misc/data.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 #bg-categoria {
     background-image: url('../immagini/misc/categoria.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 #bg-immagine {
@@ -2196,7 +2209,7 @@ input.invalid {
     font-size: 2.8vh;
     padding: 0.5vh;
     margin: 1.5vh;
-    padding-top: 25px;
+    padding: 25px 0;
     border: none;
     background: rgba(0, 0, 0, 0);
     color: var(--secondary-color);

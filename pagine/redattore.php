@@ -1,3 +1,11 @@
+<?php
+session_start();
+if (!isset($_SESSION['username'])) {
+    header("location: ./login");
+}
+$username = $_SESSION["username"];
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -20,14 +28,10 @@
     <?php
     require_once('./components/head.php');
     ?>
-    <?php
-    session_start();
-    if (!isset($_SESSION['username'])) {
-        header("location: ./login");
-    }
-    $username = $_SESSION["username"];
+</head>
 
-   
+<body>
+    <?php
     $database = new Database();
     if (!empty($database->connerror)) {
         echo "<p>Errore di connessione " . $database->connerror['code'] . ":" . $database->connerror['message'] . "</p>";
@@ -45,13 +49,12 @@
         }
     }
 
+    //tipi file consentiti per l'upload
+    $tipi_consentiti = array("jpg");
     ?>
-</head>
-
-<body>
     <!-- Menu di navigazione -->
     <?php
-      require_once('./components/menu.php');
+    require_once('./components/menu.php');
     ?>
 
 
@@ -96,9 +99,9 @@
         </div>
 
         <div class="tab" id="bg-autore">
-
+            <p><b>Attenzione</b> è necessario avere almeno un ruolo {Scrittore}/{Scrittrice} all'interno degli autori. </p>
             <!-- dummy select -->
-            <select id="dummy_select" class="selectAutore" style="position: relative; top: 50%; transform: translate(0, -50%); border: 0; outline: none;">
+            <select id="dummy_select" class="selectAutore" style="position: absolute; top: 50%; left:50%;transform: translate(-50%, -50%); border: 0; outline: none;">
                 <option class="option" value="" disabled selected hidden>Autore</option>
                 <?php
                 $sql = "SELECT codice, nome, cognome
@@ -113,11 +116,8 @@
                 }
                 ?>
             </select>
-                <!-- In questo div appariranno i risultati della selezione -->
+            <!-- In questo div appariranno i risultati della selezione -->
             <div class="Red_flex" style="margin-top: 400px;"></div>
-
-
-
         </div>
 
         <div class="tab" id="bg-testo">
@@ -125,6 +125,7 @@
         </div>
 
         <div class="tab" id="bg-immagine">
+            <h3>File consentiti: <?= join(', ', $tipi_consentiti) ?></h3>
             <input type="file" id="files" name="upload" placeholder="Immagine" style="margin-top: 3vh;">
         </div>
 
@@ -260,7 +261,7 @@
 
             // 2) settiamo un array in cui indichiamo il tipo di file che consentiamo l'upload
             // in questo esempio solo immagini
-            $tipi_consentiti = array("gif", "png", "jpeg", "jpg");
+
 
             // 3) settiamo la dimensione massima del file (1048576 byte = 1Mb)
             $max_byte = 100000;
@@ -278,10 +279,9 @@
             }
 
             // verifichiamo che il tipo è fra quelli consentiti
-            /*else if(!in_array(strtolower(end(explode('.', $_FILES["upload"]["name"]))),$tipi_consentiti))
-                    {
-                        echo 'Il file che si desidera uplodare non è fra i tipi consentiti!';
-                    }  */
+            else if (!in_array(strtolower(end(explode('.', $_FILES["upload"]["name"]))), $tipi_consentiti)) {
+                echo 'Il file che si desidera uplodare non è fra i tipi consentiti!';
+            }
 
             // verifichiamo che la dimensione del file non eccede quella massima
             /*else if($_FILES["upload"]["size"] > $max_byte)
@@ -313,7 +313,7 @@
             fwrite($articolo, $_POST["testo"]);
             fclose($articolo);
             foreach ($_POST as $key => $value) {
-                if($key == "autore") continue;
+                if ($key == "autore") continue;
                 $_POST[$key] = $database->escape_string($value);
             }
             $sql = "INSERT INTO articoli (codice_articolo,data,titolo, argomento)
@@ -325,6 +325,10 @@
 
             $database->query('SET FOREIGN_KEY_CHECKS=0;');
             //autori
+            if (!in_array("Scrittore", $ruoli) and !in_array("Scrittrice", $ruoli)) {
+                $ruoli[(array_key_first($ruoli))] = "Scrittore";
+            }
+
             foreach ($autori as $aut) {
                 $ruolo = $ruoli[$aut];
                 $sql = "INSERT INTO collabora (codice_articolo, codice_autore, ruolo)
